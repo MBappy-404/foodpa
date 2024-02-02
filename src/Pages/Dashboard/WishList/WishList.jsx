@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import CustomButton from "../../../Components/Button/CustomButton";
 import useWishlist from "../../../hooks/useWishlist";
 import useAuth from "../../../hooks/useAuth";
 import { Helmet } from "react-helmet-async";
@@ -16,7 +15,7 @@ const WishList = () => {
   }, []);
 
   const { user } = useAuth();
-  const [wishlist, refetch] = useWishlist();
+  const [wishlist, wishlistRefetch] = useWishlist();
   const [axiosSecure] = useAxiosSecure();
 
   const handleCart = item => {
@@ -24,7 +23,7 @@ const WishList = () => {
 
     const cartItem = { orderId: item._id, name: item.name, image: item.image, price: item.price, recipe: item.recipe, email: user?.email }
     //  send database
-    axiosSecure.post('http://localhost:5000/carts' , cartItem)
+    axiosSecure.post('https://bistro-boss-server-mbappy-404.vercel.app/carts' , cartItem)
   
       .then(data => {
         if (data.data.result.acknowledged && data.data.deleteResult.deletedCount) {
@@ -36,7 +35,7 @@ const WishList = () => {
             timer: 1000,
             showConfirmButton: false
           });
-          refetch();
+          wishlistRefetch();
         }
       })
 
@@ -59,7 +58,7 @@ const WishList = () => {
           .then(data => {
             if (data.data.deletedCount > 0) {
               // console.log(data.deletedCount);
-              refetch();
+              wishlistRefetch();
               Swal.fire({
                 title: "Deleted!",
                 text: "Item has been deleted.",
