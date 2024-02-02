@@ -9,7 +9,7 @@ const Main = () => {
      const loginPage = location.pathname.includes('login')
      const signUpPage = location.pathname.includes('signUp')
      return (
-          <div className=' max-w-screen-xl  bg-gray-50  mx-auto'>
+          <div className=' max-w-screen-xl    mx-auto'>
                
              {(signUpPage || loginPage) ||   <Navbar/>}
                <Outlet/>

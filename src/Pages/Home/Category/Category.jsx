@@ -37,7 +37,7 @@ const tacos = menu.filter(item => item.category === 'dessert')
         <SectionTittle subHeading={"From: 9am to 10pm"} heading={"Order Online"} />
       </div>
 
-      <div className='py-10 relative   px-2 md:px-5 '>
+      <div className='py-10 md:py-10 relative  -mt-5 md:mt-0  px-2 md:px-5 '>
         <Swiper
           style={{ paddingBottom: '40px' }}
           navigation={{
@@ -84,7 +84,7 @@ const tacos = menu.filter(item => item.category === 'dessert')
                     <div className="relative flex flex-col justify-end  p-2 rounded-b-xl ">
                       <div className="   relative flex cursor-pointer justify-between p-2 rounded-xl before:absolute before:inset-y-0  items-center     before:transition before:duration-500 hover:before:opacity-100">
                         <div className="  relative ml-4 md:ml-3">
-                          <h4 className="text-2xl  font-semibold">BREAD</h4>
+                          <h4 className="text-xl md:text-2xl  font-semibold">BREAD</h4>
                           <h4 className='text-sm '>{bread?.length} Items</h4>                  
                         </div>
                         <img className="absolute bottom-0 translate-y-14 translate-x-9 md:translate-x-11 right-6 w-[11rem] md:w-[13rem]  transition duration-300 " src={slideImage1} alt="" />
@@ -102,7 +102,7 @@ const tacos = menu.filter(item => item.category === 'dessert')
                     <div className="relative flex flex-col justify-end  p-2 rounded-b-xl ">
                       <div className="   relative flex cursor-pointer justify-between p-2 rounded-xl before:absolute before:inset-y-0  items-center     before:transition before:duration-500 hover:before:opacity-100">
                         <div className="  relative ml-4 md:ml-3">
-                          <h4 className="text-2xl  font-semibold">DONUT</h4>
+                          <h4 className="text-xl md:text-2xl  font-semibold">DONUT</h4>
                           <h4 className='text-sm '>{donut?.length} Items</h4>
                         </div>
                         <img className="absolute bottom-0 translate-y-14 translate-x-9 md:translate-x-11 right-6 w-[11rem] md:w-[13rem] transition duration-300 " src={slideImage2} alt="" />
@@ -120,7 +120,7 @@ const tacos = menu.filter(item => item.category === 'dessert')
                     <div className="relative flex flex-col justify-end  p-2 rounded-b-xl ">
                       <div className="   relative flex cursor-pointer justify-between p-2 rounded-xl before:absolute before:inset-y-0  items-center     before:transition before:duration-500 hover:before:opacity-100">
                         <div className="  relative ml-4 md:ml-3">
-                          <h4 className="text-2xl  font-semibold">HAMBURGER</h4>
+                          <h4 className="text-xl md:text-2xl  font-semibold">HAMBURGER</h4>
                           <h4 className='text-sm '>{hamburger?.length} Items</h4>
                         </div>
                         <img className="absolute bottom-0 translate-y-14 translate-x-9 md:translate-x-11 right-6 w-[11rem] md:w-[13rem] transition duration-300 " src={slideImage3} alt="" />
@@ -138,7 +138,7 @@ const tacos = menu.filter(item => item.category === 'dessert')
                     <div className="relative flex flex-col justify-end  p-2 rounded-b-xl ">
                       <div className="   relative flex cursor-pointer justify-between p-2 rounded-xl before:absolute before:inset-y-0  items-center     before:transition before:duration-500 hover:before:opacity-100">
                         <div className="  relative ml-4 md:ml-3">
-                          <h4 className="text-2xl  font-semibold">PIZZA</h4>
+                          <h4 className="text-xl md:text-2xl  font-semibold">PIZZA</h4>
                           <h4 className='text-sm '>{pizza?.length} Items</h4>
                         </div>
                         <img className="absolute bottom-0 translate-y-14 translate-x-9 md:translate-x-11 right-6 w-[11rem] md:w-[13rem] transition duration-300 " src={slideImage5} alt="" />
@@ -156,7 +156,7 @@ const tacos = menu.filter(item => item.category === 'dessert')
                     <div className="relative flex flex-col justify-end  p-2 rounded-b-xl ">
                       <div className="   relative flex cursor-pointer justify-between p-2 rounded-xl before:absolute before:inset-y-0  items-center     before:transition before:duration-500 hover:before:opacity-100">
                         <div className="  relative ml-4 md:ml-3">
-                          <h4 className="text-2xl  font-semibold">SANDWICH</h4>
+                          <h4 className="text-xl md:text-2xl  font-semibold">SANDWICH</h4>
                           <h4 className='text-sm '>{sandwich?.length} Items</h4>
                         </div>
                         <img className="absolute bottom-0 translate-y-14 translate-x-9 md:translate-x-11 right-6 w-[11rem] md:w-[13rem] transition duration-300 " src={slideImage4} alt="" />
@@ -175,7 +175,7 @@ const tacos = menu.filter(item => item.category === 'dessert')
                     <div className="relative flex flex-col justify-end  p-2 rounded-b-xl ">
                       <div className="   relative flex cursor-pointer justify-between p-2 rounded-xl before:absolute before:inset-y-0  items-center     before:transition before:duration-500 hover:before:opacity-100">
                         <div className="  relative ml-4 md:ml-3">
-                          <h4 className="text-2xl  font-semibold">TACOS</h4>
+                          <h4 className="text-xl md:text-2xl  font-semibold">TACOS</h4>
                           <h4 className='text-sm '>{tacos?.length} Items</h4>
                         </div>
                         <img className="absolute bottom-0 translate-y-14 translate-x-9 md:translate-x-11 right-6 w-[11rem] md:w-[13rem] transition duration-300 " src={slideImage6} alt="" />
@@ -190,7 +190,7 @@ const tacos = menu.filter(item => item.category === 'dessert')
       </div>
 
       {/* NAVIGATION BAR  */}
-      <div className=' flex justify-between'  >
+      <div className=' flex justify-between   '>
         <div className="bg-[#FFA200] prev   -translate-y-[162px]    z-10  w-10 h-10 grid items-center justify-center rounded-full rotate-90 shrink-0  cursor-pointer    left-0 top-0 bottom-0 my-auto">
           <svg xmlns="http://www.w3.org/2000/svg" className="w-3 fill-[#fff] inline" viewBox="0 0 24 24">
             <path fillRule="evenodd" d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z" clipRule="evenodd" data-original="#000000"></path>

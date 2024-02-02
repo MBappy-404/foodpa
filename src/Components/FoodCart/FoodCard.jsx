@@ -125,6 +125,7 @@ const FoodCard = ({ item }) => {
 
       <div className="bg-gray-100 rounded-2xl p-3 cursor-pointer  duration-500 transition-all relative">
         <Tooltip
+        overlayStyle={{overflow:'hidden'}}
           placement="leftTop"
           title={isWishlist ? "Already Added" : "Add To Wishlist"}
         >
@@ -163,7 +164,7 @@ const FoodCard = ({ item }) => {
         <div className="text-center mt-4">
           <h3 className="text-lg font-bold text-gray-800">{name}</h3>
           <h4 className="text-xl text-gray-700 font-bold mt-4">
-            ${price} <span className="text-gray-400 ml-2 font-medium">$15</span>
+            ${price} <del className="text-gray-400 ml-2 font-medium ">$15</del>
           </h4>
 
           {isCart ? (

@@ -4,6 +4,7 @@ import useAuth from "../../../hooks/useAuth";
 import useReview from '../../../hooks/useReview'
 import usePayment from "../../../hooks/usePayment";
 import { useEffect } from "react";
+import userPhoto from '../../../assets/assets/others/profile.png'
 
 const UserHme = () => {
   useEffect(() => {
@@ -46,7 +47,7 @@ const UserHme = () => {
                 </div>
               </div>
               <div className="text-right">
-                <p className="text-xl">MENU</p>
+                <h1 className="text-xl">MENU</h1>
                 {/* <p>Menu</p> */}
               </div>
             </div>
@@ -67,7 +68,7 @@ const UserHme = () => {
                 </div>
               </div>
               <div className="text-right">
-                <p className="text-xl">SHOP</p>
+                <h1 className="text-xl">SHOP</h1>
                 {/* <p>My Orders</p> */}
               </div>
             </div>
@@ -88,15 +89,15 @@ const UserHme = () => {
                 </div>
               </div>
               <div className="text-right">
-                <p className="text-xl ">CONTACT</p>
+                <h1 className="text-xl ">CONTACT</h1>
                 {/* <p>My Orders</p> */}
               </div>
             </div>
           </Link>
         </div>
         <div className="flex flex-col sm:flex-row py-5 md:py-0 justify-evenly bg-gray-100  rounded-t-2xl items-center ">
-        <div className=" mb-4  flex justify-center md:flex-col items-center sm:mb-0">
-          <img src={user?.photoURL} alt="User" className="w-12 h-12 md:w-20 md:h-20 rounded-full mr-4" />
+        <div className=" mb-4 border-b-4 md:border-none  border-gray-300 pb-4 flex justify-start md:flex-col items-center ">
+          <img src={user?.photoURL ? user?.photoURL : userPhoto} alt="User" className="w-12 h-12 md:w-20 shadow-md border md:h-20 rounded-full mr-4" />
           <span className="text-base md:text-lg font-bold text-gray-500 mt-0 md:mt-5">HEY, {user?.displayName}</span>
         </div>
         <div className="border hidden md:block border-gray-400 w-1 bg-gray-400 h-56"></div>

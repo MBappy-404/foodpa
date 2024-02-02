@@ -15,6 +15,7 @@ import Aos from 'aos'
 // Initialization for ES Users
 Aos.init();
 const queryClient = new QueryClient()
+ 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 

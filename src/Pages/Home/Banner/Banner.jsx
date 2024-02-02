@@ -21,7 +21,7 @@ const Banner = () => {
   
 
   return (
-    <div className="pb-20">
+    <div className="pb-10 md:pb-20">
 
       <Swiper
         slidesPerView={1}
@@ -63,7 +63,7 @@ const Banner = () => {
                 DELICIOUS FAST FOOD <br />
                  <span className=" mt-1 md:mt-2 block"> THE TONGUE </span>
                 </h1>
-              <Link to='/order/bread'>  <button className="bg-[#FFA200]   text-white font-bold py-1 px-3 md:py-2 md:px-5 rounded-md text-[10px] md:text-base ">SHOP NOW</button></Link>
+              <Link to='/order/bread'>  <button className="bg-[#FFA200]   text-white font-bold py-1 px-3 md:py-2 md:px-5 rounded-md text-[10px] mt-1 md:text-base ">SHOP NOW</button></Link>
               </div>
             </div>
 
@@ -92,7 +92,7 @@ const Banner = () => {
                   LOOKING FOR POPULAR <br />
                  <span className=" mt-1 md:mt-2 block"> FAST FOOD</span>
                 </h1>
-              <Link to='/order/bread'>  <button className="bg-[#FFA200]   text-white font-bold py-1 px-3 md:py-2 md:px-5 rounded-md text-[10px] md:text-base ">SHOP NOW</button></Link>
+              <Link to='/order/bread'>  <button className="bg-[#FFA200]   text-white font-bold py-1 px-3 md:py-2 md:px-5 rounded-md text-[10px] mt-1 md:text-base ">SHOP NOW</button></Link>
 
               </div>
             </div>
@@ -122,7 +122,7 @@ const Banner = () => {
                   SELECTION FOR A  <br />
                  <span className=" mt-1 md:mt-2 block"> NEW DAY</span>
                 </h1>
-              <Link to='/order/bread'>  <button className="bg-[#FFA200]   text-white font-bold py-1 px-3 md:py-2 md:px-5 rounded-md text-[10px] md:text-base ">SHOP NOW</button></Link>
+              <Link to='/order/bread'>  <button className="bg-[#FFA200]   text-white font-bold py-1 px-3 md:py-2 md:px-5 rounded-md text-[10px] mt-1 md:text-base ">SHOP NOW</button></Link>
               </div>
             </div>
 

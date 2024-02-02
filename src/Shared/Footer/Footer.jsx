@@ -31,10 +31,10 @@ const Footer = () => {
         <hr className="border-gray-300 my-12" />
         <div className="grid max-sm:grid-cols-1 max-lg:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <h4 className="text-lg font-bold mb-6 text-black">About Us</h4>
-            <p className="text-gray-400 mb-2 text-sm">
-              Mon – Thu: 10:00 Am – 01:00 Am <br />
-              Saturday: 11:00 Am To Midnight <br />
+            <h4 className="text-lg font-bold mb-6 text-black">Schedule</h4>
+            <p className="text-gray-400 mb-2 leading-6 text-sm">
+              Mon – Thu: 09:00 Am – 11:00 Pm <br />
+              Saturday: 11:00 Am To 11.00 Pm <br />
               Friday: Kitchen Closed
             </p>
           </div>

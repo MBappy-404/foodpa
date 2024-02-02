@@ -13,7 +13,7 @@ const AllUsers = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [axiosSecure] = useAxiosSecure();
 
   // load users 
@@ -25,71 +25,92 @@ const AllUsers = () => {
     },
   });
 
-//    Delete User //////////////////////////
+  //    Delete User //////////////////////////
 
   const handleDeleteUser = (id) => {
 
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You want delete this user!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        fetch(`http://localhost:5000/users/${id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.deletedCount > 0) {
-              // console.log(data.deletedCount);
-              refetch();
-              Swal.fire({
-                title: "Deleted!",
-                text: "User has been deleted.",
-                icon: "success",
-              });
-            }
-          });
-      }
-    });
-  };
+    if (user?.email !== "sadikulsad0810@gmail.com") {
+      // delete only me 😃
+      Swal.fire({
+        title: "OPS!",
+        text: " You cannot change or modify 😃.",
+        icon: "warning",
+        footer:'Only Main Admin Can Change'
+      });
+    } else {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You want delete this user!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          fetch(`https://bistro-boss-server-mbappy-404.vercel.app/users/${id}`, {
+            method: "DELETE",
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.deletedCount > 0) {
+                // console.log(data.deletedCount);
+                refetch();
+                Swal.fire({
+                  title: "Deleted!",
+                  text: "User has been deleted.",
+                  icon: "success",
+                });
+              }
+            });
+        }
+      });
+    }
 
-//   Promote  Admin ///////////////////////////
+  }
+
+
+  //   Promote  Admin ///////////////////////////
 
   const handleAdmin = (user) => {
     // console.log(id);
-    fetch(`http://localhost:5000/users/admin/${user._id}`, {
-      method: "PATCH",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.modifiedCount) {
-          // console.log(data.deletedCount);
-          refetch();
-          Swal.fire({
-            title: "Success!",
-            text: `${user.name} Promoted to ADMIN.`,
-            icon: "success",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
+    if(user?.email  != "sadikulsad0810@gmail.com"){
+      Swal.fire({
+        title: "OPS!",
+        text: " You cannot change or modify 😃.",
+        icon: "warning",
+        footer:'Only Main Admin Can Change'
       });
+    }else{
+      fetch(`https://bistro-boss-server-mbappy-404.vercel.app/users/admin/${user._id}`, {
+        method: "PATCH",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.modifiedCount) {
+            // console.log(data.deletedCount);
+            refetch();
+            Swal.fire({
+              title: "Success!",
+              text: `${user.name} Promoted to ADMIN.`,
+              icon: "success",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
+    }
   };
-  
+
   return (
     <div>
       <Helmet>
         <title>Foodpa | Users</title>
       </Helmet>
       <div className="  px-2 md:px-5  lg:px-10">
-       <div className="pt-3">
-       <SectionTittle heading={'All Users'} subHeading={'Your Customers'}/>
-       </div>
+        <div className="pt-3">
+          <SectionTittle heading={'All Users'} subHeading={'Your Customers'} />
+        </div>
         <div className="w-full overflow-hidden  rounded-lg py-5 shadow-xs">
           <div className="w-full overflow-x-auto rounded-t-2xl">
             <table className="w-full ">
@@ -116,7 +137,7 @@ const AllUsers = () => {
                           <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
                             <img
                               className="object-cover border border-gray-200 w-full h-full rounded-full"
-                              src={user?.photo ? user.photo: defaultUser}
+                              src={user?.photo ? user.photo : defaultUser}
                               alt=""
                               loading="lazy"
                             />
@@ -136,7 +157,7 @@ const AllUsers = () => {
 
                       {user?.role === "admin" ? (
 
-                         // ADMIN /////
+                        // ADMIN /////
                         <td
                           data-play="play-admin"
                           className="px-5  cursor-default play-admin py-3 text-xs"
@@ -158,17 +179,18 @@ const AllUsers = () => {
                           </span>
                         </td>
                       ) : (
-                         // Customer //////
+                        // Customer //////
 
                         <td
                           onClick={() => handleAdmin(user)}
-                          
+
                           className="px-5 cursor-pointer  py-3 text-xs"
                         >
                           <Tooltip
                             title="Make Admin"
                             placement="leftTop"
                             color="green"
+                            overlayStyle={{ overflow: 'hidden' }}
                           >
                             <span className="px-2 py-2  flex md:block  font-semibold leading-tight text-gray-500 bg-green-100 rounded-full  ">
                               <lord-icon
@@ -188,7 +210,7 @@ const AllUsers = () => {
                         </td>
                       )}
 
-                       {/* Delete Customer   */}
+                      {/* Delete Customer   */}
                       <td
                         onClick={() => handleDeleteUser(user._id)}
                         data-play="play-trash"
@@ -196,6 +218,7 @@ const AllUsers = () => {
                       >
                         <div className="font-semibold py-3 px-2  leading-tight rounded-full  ">
                           <Tooltip
+                            overlayStyle={{ overflow: 'hidden' }}
                             title={user.role === "admin" ? "Delete Admin" : "Delete Customer"}
                             placement="leftTop"
                             color="red"

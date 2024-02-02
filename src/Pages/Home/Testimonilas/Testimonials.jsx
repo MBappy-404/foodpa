@@ -9,7 +9,7 @@ import { Rate } from "antd";
 const Testimonials = () => {
   const [reviews] = useReview();
   return (
-    <div className="py-16 px-2">
+    <div className="pt-16 pb-10 px-2">
       <div>
         <SectionTittle
           subHeading={"Feedback from Our Customers"}
@@ -30,7 +30,7 @@ const Testimonials = () => {
         }}
         loop={true}
         effect="slide" // Use the "slide" effect for smooth transitions
-        speed={2000}
+        speed={1500}
         pagination={{
           clickable: true,
         }}
@@ -51,7 +51,7 @@ const Testimonials = () => {
           },
         }}
       >
-        <div className="my-6   text-[#333]">
+        <div className="my-6  px-5 text-[#333]">
           <div className="max-w-4xl mx-auto relative">
             {reviews
               .slice(0, 5)
@@ -62,7 +62,7 @@ const Testimonials = () => {
                     <div className="flex flex-col items-center text-center">
                       <img
                         src={review.photo ? review.photo : userPhoto}
-                        className="w-10 h-10 md:w-20 md:h-20 rounded-full shadow-[0_2px_22px_-4px_rgba(93,96,127,0.6)] border-2 border-white"
+                        className="w-16 h-16 md:w-20 md:h-20 rounded-full shadow-[0_2px_22px_-4px_rgba(93,96,127,0.6)] border-2 border-white"
                       />
                       <div className="mt-4">
                         <h4 className="text-sm md:text-lg font-extrabold">
@@ -72,7 +72,7 @@ const Testimonials = () => {
                       </div>
                     </div>
                     <div className="mt-4 text-center">
-                      <p className="text-sm md:text-base lg:text-lg   text-gray-500 leading-relaxed">
+                      <p className="text-sm md:text-base lg:text-lg translate-y-6   text-gray-500 leading-relaxed">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="w-4 md:w-6 mr-3  rotate-180 fill-gray-300 inline"
@@ -97,7 +97,7 @@ const Testimonials = () => {
                       </p>
                     </div>
                     {/* RATING  */}
-                    <div className="flex justify-center py-3">
+                    <div className="flex justify-center  pt-8">
                       <Rate
                         disabled
                         defaultValue={review.rating && review.rating}
@@ -111,7 +111,7 @@ const Testimonials = () => {
 
         {/* NAVIGATION  */}
         <div>
-          <div className="bg-[#FFA200] prevSlide   z-10 w-10 h-10 grid items-center justify-center rounded-full rotate-90 shrink-0  cursor-pointer absolute left-0 top-0 bottom-0 my-auto">
+          <div className="bg-[#FFA200] prevSlide   z-10 w-10 h-10  grid items-center justify-center rounded-full rotate-90 shrink-0  cursor-pointer absolute left-0 top-0 bottom-0 my-auto">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-3 fill-[#fff] inline"
@@ -125,7 +125,7 @@ const Testimonials = () => {
               ></path>
             </svg>
           </div>
-          <div className="bg-[#FFA200]  nextSlide  z-10 w-10 h-10 grid items-center justify-center rounded-full -rotate-90 shrink-0  cursor-pointer absolute right-0 top-0 bottom-0 my-auto">
+          <div className="bg-[#FFA200]  nextSlide  z-10 w-10 h-10  grid items-center justify-center rounded-full -rotate-90 shrink-0  cursor-pointer absolute right-0 top-0 bottom-0 my-auto">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-3 fill-[#fff] inline"

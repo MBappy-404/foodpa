@@ -13,11 +13,11 @@ const PaymentHistory = () => {
       <Helmet>
         <title>Foodpa | Payments</title>
       </Helmet>
-      <div className="  px-2 md:px-10 min-h-[100vh] lg:px-10">
+      <div className="   md:px-10 min-h-[100vh] lg:px-10">
       {/* <h2 className="text-xl md:text-2xl font-bold pt-5 ml-2 text-gray-500">Recent Payments ({payments?.length})</h2> */}
-        <div className="max-w-7xl mx-auto">
+        <div className=" mx-auto">
           <div className=" px-4 py-5   text-[#333]">
-            <div className="max-w-6xl mx-auto">            
+            <div className=" mx-auto">            
               <div className="w-full overflow-x-auto rounded-t-2xl">
                 <table className="w-full ">
                   <thead className="">

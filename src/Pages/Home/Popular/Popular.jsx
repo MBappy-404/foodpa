@@ -34,7 +34,7 @@ const Popular = () => {
 
   }
   return (
-    <div className=" px-2">
+    <div className="-mt-5 px-0 md:px-2">
       <div>
         <SectionTittle
           subHeading={"Discover Our Menu"}
@@ -42,7 +42,7 @@ const Popular = () => {
         />
       </div>
 
-      <div className="flex pt-10 px-4 md:px-20 lg:px-0 justify-center">
+      <div className="flex pt-5 px-4 md:px-20 lg:px-0 justify-center">
 
         <div className="grid grid-cols-1 mx-auto md:grid-cols-1 lg:grid-cols-2 gap-5">
           {/* Recipe Card 1 */}
@@ -64,7 +64,7 @@ const Popular = () => {
                       }
                     </p>
                     <div className="flex gap-4 pt-5 mt-auto">
-                      <Tooltip placement="rightTop" title={item.like?.length > 0 && ` ${item.like?.length} ${item?.like?.length > 1 ? 'Peoples' : 'people'} liked this recipe`}>
+                      <Tooltip overlayStyle={{overflow:'hidden'}} placement="rightTop" title={item.like?.length > 0 && ` ${item.like?.length} ${item?.like?.length > 1 ? 'Peoples' : 'people'} liked this recipe`}>
                         <button disabled={item.like?.includes(user?.email)} onClick={() => handleLike(item._id)} className="flex bg-gray-300 items-center gap-0.5 sm:text-md border border-gray-300 px-2 py-1 rounded-full transition-colors  focus:outline-none ">
                           <lord-icon
                             target=".play-admin"

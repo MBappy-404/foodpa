@@ -46,7 +46,7 @@ const Dashboard = () => {
                               </lord-icon>
                             </span>
 
-                            <span className="ml-2 text-sm  tracking-wide  font-[400] mt-1 truncate">Dashboard</span>
+                            <span className="ml-2 text-sm  tracking-wide  font-[400] mt-1 truncate">Admin</span>
 
 
                           </Link>
@@ -114,7 +114,7 @@ const Dashboard = () => {
 
                             </span>
                           </span>
-                          <span className="ml-2 text-sm  tracking-wide  font-[400] mt-1 text-white truncate">Dashboard</span>
+                          <span className="ml-2 text-sm  tracking-wide  font-[400] mt-1 text-white truncate">My-Activity</span>
                         </Link>
 
                       </li>

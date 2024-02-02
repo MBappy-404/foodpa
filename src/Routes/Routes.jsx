@@ -19,6 +19,7 @@ import Review from "../Pages/Dashboard/Review/Review";
 import AdminRoute from "./AdminRoute";
 import AdminDashboard from "../Pages/Dashboard/AdminDashboard/AdminDashboard";
 import PaymentHistory from "../Pages/Dashboard/Payments/PaymentHistory";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
  
  
  
@@ -28,6 +29,7 @@ export const router = createBrowserRouter([
      {
        path: "/",
        element: <Main />,
+       errorElement: <ErrorPage/>,
        children: [
          {
            path: "/",

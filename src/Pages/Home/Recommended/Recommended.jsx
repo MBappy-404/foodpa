@@ -8,7 +8,7 @@ const Recommended = () => {
      const [menu] = useMenuData();
 
      return (
-          <div className="py-20">
+          <div className="py-16">
 
                <div>
                     <SectionTittle subHeading={"Should Try"} heading={"CHEF RECOMMENDS"} />

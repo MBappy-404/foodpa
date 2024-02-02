@@ -50,7 +50,7 @@ const MenuCategory = ({ items, heading, coverBg }) => {
                   item.category === "offered" ?
 
                     <Badge.Ribbon key={item._id} style={{ fontFamily: "Farro", marginTop: '-8px' }} text="30% Off" color="red">
-                      <div className="bg-gray-100 border border-gray-200 font-[Farro] p-3 py-5 md:py-3 my-2 rounded-2xl shadow-lg flex flex-col sm:flex-row gap-5">
+                      <div className="bg-gray-100 border  border-gray-200 font-[Farro] p-3 py-5 md:py-3 my-2 rounded-2xl shadow-lg flex flex-col sm:flex-row gap-5">
                         <div
                           style={{ backgroundImage: `url(${item.image})` }}
                           className="w-full h-72 md:w-40 md:h-40 rounded-xl bg-cover "

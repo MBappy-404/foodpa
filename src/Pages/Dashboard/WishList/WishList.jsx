@@ -99,20 +99,20 @@ const WishList = () => {
                     wishlist.map(item => <tr key={item._id}>
                       <td className="py-3 px-4">
                         <div className="flex items-center gap-6 w-max">
-                          <div className="h-20 shrink-0">
+                          <div className="h-12 md:h-20 shrink-0">
                             <img src={item.image} className="w-full h-full object-contain" />
                           </div>
                           <div>
-                            <p className="text-lg font-bold text-[#333]">{item.name}</p>
+                            <p className="text-sm md:text-lg font-bold text-gray-500">{item.name}</p>
                             <p className="text-xs text-gray-400">{item.date}</p>
                           </div>
                         </div>
                       </td>
                       <td className="py-3 px-4">
-                        <h4 className="text-lg font-bold text-[#333]">${item.price}</h4>
+                        <h4 className="text-sm md:text-lg font-bold text-gray-500">${item.price}</h4>
                       </td>
                       <td className="py-3 px-4">
-                        <button onClick={() => handleCart(item)} className="font-base text-sm bg-[#FFA200] text-white px-3 py-1.5 rounded-full">Move To Cart</button>
+                        <button onClick={() => handleCart(item)} className="font-base text-xs md:text-sm bg-[#FFA200] text-white px-3 py-1.5 rounded-full">Move To Cart</button>
                       </td>
                       <td className="py-3 px-4">
                         <button onClick={() => handleDeleteWishlist(item._id)} type="button" className="bg-transparent border flex items-center  px-2 py-2 font-semibold">
