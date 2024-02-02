@@ -1,83 +1,79 @@
 import { createContext, useEffect, useState } from "react";
-import {FacebookAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup,signOut,updateProfile} from 'firebase/auth'
+import { FacebookAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
 import { app } from "../Firebase/Firebase.config";
 import axios from "axios";
 
- 
 
- export const AuthContext = createContext(null);
 
- const auth = getAuth(app);
+export const AuthContext = createContext(null);
 
-const AuthProvider = ({children}) => {
+const auth = getAuth(app);
 
-     const [user,setUser] = useState(null);
-     const [loading,setLoading] = useState(true);
+const AuthProvider = ({ children }) => {
+
+     const [user, setUser] = useState(null);
+     const [loading, setLoading] = useState(true);
      const googleProvider = new GoogleAuthProvider();
      const facebookProvider = new FacebookAuthProvider();
-     
 
 
-     const createUser = (email,password)=>{
+
+     const createUser = (email, password) => {
           setLoading(true)
-          return createUserWithEmailAndPassword(auth,email,password)
+          return createUserWithEmailAndPassword(auth, email, password)
      };
 
-     const signIn = (email,password)=>{
+     const signIn = (email, password) => {
           setLoading(true)
-     return signInWithEmailAndPassword(auth,email,password);
+          return signInWithEmailAndPassword(auth, email, password);
      };
 
-     const googleSignIn = ()=>{
+     const googleSignIn = () => {
           setLoading(true)
-          return signInWithPopup(auth,googleProvider);
+          return signInWithPopup(auth, googleProvider);
      };
-     const facebookSignIn = ()=>{
+     const facebookSignIn = () => {
           setLoading(true)
-          return signInWithPopup(auth,facebookProvider);
+          return signInWithPopup(auth, facebookProvider);
      };
 
-     const updateUserProfile = (name)=>{
-         return  updateProfile(auth.currentUser,{
-               displayName: name, 
+     const updateUserProfile = (name) => {
+          return updateProfile(auth.currentUser, {
+               displayName: name,
           })
      }
 
-     const logOut = ()=>{
+     const logOut = () => {
           setLoading(true);
           return signOut(auth);
      }
 
 
-     useEffect(()=>{
-        const unSubscribes =  onAuthStateChanged(auth,currentUser =>{
+     useEffect(() => {
+          const unSubscribes = onAuthStateChanged(auth, currentUser => {
                setUser(currentUser);
                // console.log(currentUser);
                const userInfo = { email: currentUser?.email };
 
-               if(currentUser){
+               if (currentUser) {
                     axios.post('https://bistro-boss-server-mbappy-404.vercel.app/jwt', userInfo)
-                    .then(res => {
-                         // console.log(data);
-                         localStorage.setItem("access-token-foodpa", res.data.token);
-                         setLoading(false);
-                    })
-               }else{
+                         .then(res => {
+                              // console.log(data);
+                              localStorage.setItem("access-token-foodpa", res.data.token);
+                              setLoading(false);
+                         })
+               } else {
                     localStorage.removeItem("access-token-foodpa");
-               
-                    
                }
-               
-              
           })
 
-          return () =>{
+          return () => {
                return unSubscribes();
           }
-     },[])
+     }, [])
 
 
-     const authInfo ={user,loading,createUser,updateUserProfile,signIn,logOut, googleSignIn,facebookSignIn}
+     const authInfo = { user, loading, createUser, updateUserProfile, signIn, logOut, googleSignIn, facebookSignIn }
      return (
           <AuthContext.Provider value={authInfo}>
                {children}

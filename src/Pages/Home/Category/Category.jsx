@@ -37,7 +37,7 @@ const tacos = menu.filter(item => item.category === 'dessert')
         <SectionTittle subHeading={"From: 9am to 10pm"} heading={"Order Online"} />
       </div>
 
-      <div className='py-10 relative   px-5 '>
+      <div className='py-10 relative   px-2 md:px-5 '>
         <Swiper
           style={{ paddingBottom: '40px' }}
           navigation={{
@@ -83,11 +83,11 @@ const tacos = menu.filter(item => item.category === 'dessert')
                   <div className="mt-4">
                     <div className="relative flex flex-col justify-end  p-2 rounded-b-xl ">
                       <div className="   relative flex cursor-pointer justify-between p-2 rounded-xl before:absolute before:inset-y-0  items-center     before:transition before:duration-500 hover:before:opacity-100">
-                        <div className="  relative">
-                          <h4 className="text-2xl ml-2 font-semibold">BREAD</h4>
-                          <h4 className='text-sm ml-2'>{bread?.length} Items</h4>                  
+                        <div className="  relative ml-4 md:ml-3">
+                          <h4 className="text-2xl  font-semibold">BREAD</h4>
+                          <h4 className='text-sm '>{bread?.length} Items</h4>                  
                         </div>
-                        <img className="absolute bottom-0 translate-y-14 translate-x-11 right-6 w-[11rem] md:w-[13rem]  transition duration-300 " src={slideImage1} alt="" />
+                        <img className="absolute bottom-0 translate-y-14 translate-x-9 md:translate-x-11 right-6 w-[11rem] md:w-[13rem]  transition duration-300 " src={slideImage1} alt="" />
                       </div>
                     </div>
                   </div>
@@ -101,11 +101,11 @@ const tacos = menu.filter(item => item.category === 'dessert')
                   <div className="mt-4">
                     <div className="relative flex flex-col justify-end  p-2 rounded-b-xl ">
                       <div className="   relative flex cursor-pointer justify-between p-2 rounded-xl before:absolute before:inset-y-0  items-center     before:transition before:duration-500 hover:before:opacity-100">
-                        <div className="  relative">
-                          <h4 className="text-2xl ml-2 font-semibold">DONUT</h4>
-                          <h4 className='text-sm ml-2'>{donut?.length} Items</h4>
+                        <div className="  relative ml-4 md:ml-3">
+                          <h4 className="text-2xl  font-semibold">DONUT</h4>
+                          <h4 className='text-sm '>{donut?.length} Items</h4>
                         </div>
-                        <img className="absolute bottom-0 translate-y-14 translate-x-11 right-6 w-[11rem] md:w-[13rem] transition duration-300 " src={slideImage2} alt="" />
+                        <img className="absolute bottom-0 translate-y-14 translate-x-9 md:translate-x-11 right-6 w-[11rem] md:w-[13rem] transition duration-300 " src={slideImage2} alt="" />
                       </div>
                     </div>
                   </div>
@@ -119,11 +119,11 @@ const tacos = menu.filter(item => item.category === 'dessert')
                   <div className="mt-4">
                     <div className="relative flex flex-col justify-end  p-2 rounded-b-xl ">
                       <div className="   relative flex cursor-pointer justify-between p-2 rounded-xl before:absolute before:inset-y-0  items-center     before:transition before:duration-500 hover:before:opacity-100">
-                        <div className="  relative">
-                          <h4 className="text-2xl ml-2 font-semibold">HAMBURGER</h4>
-                          <h4 className='text-sm ml-2'>{hamburger?.length} Items</h4>
+                        <div className="  relative ml-4 md:ml-3">
+                          <h4 className="text-2xl  font-semibold">HAMBURGER</h4>
+                          <h4 className='text-sm '>{hamburger?.length} Items</h4>
                         </div>
-                        <img className="absolute bottom-0 translate-y-14 translate-x-11 right-6 w-[11rem] md:w-[13rem] transition duration-300 " src={slideImage3} alt="" />
+                        <img className="absolute bottom-0 translate-y-14 translate-x-9 md:translate-x-11 right-6 w-[11rem] md:w-[13rem] transition duration-300 " src={slideImage3} alt="" />
                       </div>
                     </div>
                   </div>
@@ -137,11 +137,11 @@ const tacos = menu.filter(item => item.category === 'dessert')
                   <div className="mt-4">
                     <div className="relative flex flex-col justify-end  p-2 rounded-b-xl ">
                       <div className="   relative flex cursor-pointer justify-between p-2 rounded-xl before:absolute before:inset-y-0  items-center     before:transition before:duration-500 hover:before:opacity-100">
-                        <div className="  relative">
-                          <h4 className="text-2xl ml-2 font-semibold">PIZZA</h4>
-                          <h4 className='text-sm ml-2'>{pizza?.length} Items</h4>
+                        <div className="  relative ml-4 md:ml-3">
+                          <h4 className="text-2xl  font-semibold">PIZZA</h4>
+                          <h4 className='text-sm '>{pizza?.length} Items</h4>
                         </div>
-                        <img className="absolute bottom-0 translate-y-14 translate-x-11 right-6 w-[11rem] md:w-[13rem] transition duration-300 " src={slideImage5} alt="" />
+                        <img className="absolute bottom-0 translate-y-14 translate-x-9 md:translate-x-11 right-6 w-[11rem] md:w-[13rem] transition duration-300 " src={slideImage5} alt="" />
                       </div>
                     </div>
                   </div>
@@ -155,11 +155,11 @@ const tacos = menu.filter(item => item.category === 'dessert')
                   <div className="mt-4">
                     <div className="relative flex flex-col justify-end  p-2 rounded-b-xl ">
                       <div className="   relative flex cursor-pointer justify-between p-2 rounded-xl before:absolute before:inset-y-0  items-center     before:transition before:duration-500 hover:before:opacity-100">
-                        <div className="  relative">
-                          <h4 className="text-2xl ml-2 font-semibold">SANDWICH</h4>
-                          <h4 className='text-sm ml-2'>{sandwich?.length} Items</h4>
+                        <div className="  relative ml-4 md:ml-3">
+                          <h4 className="text-2xl  font-semibold">SANDWICH</h4>
+                          <h4 className='text-sm '>{sandwich?.length} Items</h4>
                         </div>
-                        <img className="absolute bottom-0 translate-y-14 translate-x-11 right-6 w-[11rem] md:w-[13rem] transition duration-300 " src={slideImage4} alt="" />
+                        <img className="absolute bottom-0 translate-y-14 translate-x-9 md:translate-x-11 right-6 w-[11rem] md:w-[13rem] transition duration-300 " src={slideImage4} alt="" />
 
                       </div>
                     </div>
@@ -174,11 +174,11 @@ const tacos = menu.filter(item => item.category === 'dessert')
                   <div className="mt-4">
                     <div className="relative flex flex-col justify-end  p-2 rounded-b-xl ">
                       <div className="   relative flex cursor-pointer justify-between p-2 rounded-xl before:absolute before:inset-y-0  items-center     before:transition before:duration-500 hover:before:opacity-100">
-                        <div className="  relative">
-                          <h4 className="text-2xl ml-2 font-semibold">TACOS</h4>
-                          <h4 className='text-sm ml-2'>{tacos?.length} Items</h4>
+                        <div className="  relative ml-4 md:ml-3">
+                          <h4 className="text-2xl  font-semibold">TACOS</h4>
+                          <h4 className='text-sm '>{tacos?.length} Items</h4>
                         </div>
-                        <img className="absolute bottom-0 translate-y-14 translate-x-11 right-6 w-[11rem] md:w-[13rem] transition duration-300 " src={slideImage6} alt="" />
+                        <img className="absolute bottom-0 translate-y-14 translate-x-9 md:translate-x-11 right-6 w-[11rem] md:w-[13rem] transition duration-300 " src={slideImage6} alt="" />
                       </div>
                     </div>
                   </div>

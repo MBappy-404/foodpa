@@ -56,14 +56,14 @@ const Banner = () => {
             <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#001300]" style={{ width: '50%' }} ></div>
 
             {/* Text Container */}
-            <div data-aos="fade-right" className="absolute inset-0   flex items-center px-4 md:px-8 lg:px-16 xl:px-24 text-white">
-              <div className="w-1/2"> {/* Adjust the width of the text container */}
-               <h3 className="text-sm md:text-2xl mb-3 md:mb-5 font-[Courgette]">Popular, Well-liked </h3>
-                <h1 className="text-lg md:text-4xl lg:text-5xl font-extrabold leading-tight mb-2 md:mb-4">
+            <div data-aos="fade-right" className="absolute inset-0    flex items-center px-4 md:px-8 lg:px-16 xl:px-24 text-white">
+              <div className="w-1.5/2 ml-3 md:w-1/2 "> {/* Adjust the width of the text container */}
+               <h3 className="text-xs md:text-2xl mb-3 md:mb-5 font-[Courgette]">Popular, Well-liked </h3>
+                <h1 className="text-sm md:text-4xl lg:text-5xl font-extrabold leading-tight mb-2 md:mb-4">
                 DELICIOUS FAST FOOD <br />
                  <span className=" mt-1 md:mt-2 block"> THE TONGUE </span>
                 </h1>
-              <Link to='/order/bread'>  <button className="bg-[#FFA200]   text-white font-bold py-1 px-3 md:py-2 md:px-5 rounded-md text-xs md:text-base ">SOP NOW</button></Link>
+              <Link to='/order/bread'>  <button className="bg-[#FFA200]   text-white font-bold py-1 px-3 md:py-2 md:px-5 rounded-md text-[10px] md:text-base ">SHOP NOW</button></Link>
               </div>
             </div>
 
@@ -84,17 +84,19 @@ const Banner = () => {
             <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#001300]" style={{ width: '50%' }} ></div>
 
             {/* Text Container */}
-            <div data-aos="fade-right" className="absolute inset-0   flex items-center px-4 md:px-8 lg:px-16 xl:px-24 text-white">
-              <div className="w-1/2"> {/* Adjust the width of the text container */}
-               <h3 className="text-sm md:text-2xl mb-3 md:mb-5 font-[Courgette]">Loved by many people</h3>
-                <h1 className="text-lg md:text-4xl lg:text-5xl font-extrabold leading-tight mb-2 md:mb-4">
+           <div>
+           <div data-aos="fade-right" className="absolute inset-0    flex items-center px-4 md:px-8 lg:px-16 xl:px-24 text-white">
+              <div className="w-1.5/2 ml-3 md:w-1/2"> {/* Adjust the width of the text container */}
+               <h3 className="text-xs md:text-2xl mb-3 md:mb-5 font-[Courgette]">Loved by many people</h3>
+                <h1 className="text-sm md:text-4xl lg:text-5xl font-extrabold leading-tight mb-2 md:mb-4">
                   LOOKING FOR POPULAR <br />
                  <span className=" mt-1 md:mt-2 block"> FAST FOOD</span>
                 </h1>
-              <Link to='/order/bread'>  <button className="bg-[#FFA200]   text-white font-bold py-1 px-3 md:py-2 md:px-5 rounded-md text-xs md:text-base ">SOP NOW</button></Link>
+              <Link to='/order/bread'>  <button className="bg-[#FFA200]   text-white font-bold py-1 px-3 md:py-2 md:px-5 rounded-md text-[10px] md:text-base ">SHOP NOW</button></Link>
 
               </div>
             </div>
+           </div>
 
             {/* Bottom Image */}
             <img src={slider4} alt="" className="inset-x-0 absolute bottom-0" />
@@ -113,14 +115,14 @@ const Banner = () => {
             <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#001300]" style={{ width: '50%' }} ></div>
 
             {/* Text Container */}
-            <div data-aos="fade-right" className="absolute inset-0   flex items-center px-4 md:px-8 lg:px-16 xl:px-24 text-white">
-              <div className="w-1/2"> {/* Adjust the width of the text container */}
-               <h3 className="text-sm md:text-2xl mb-3 md:mb-5 font-[Courgette]">Popular Fast Food</h3>
-               <h1 className="text-lg md:text-4xl lg:text-5xl font-extrabold leading-tight mb-2 md:mb-4">
+            <div data-aos="fade-right" className="absolute inset-0    flex items-center px-4 md:px-8 lg:px-16 xl:px-24 text-white">
+              <div className="w-1.5/2 ml-3 md:w-1/2"> {/* Adjust the width of the text container */}
+               <h3 className="text-xs md:text-2xl mb-3 md:mb-5 font-[Courgette]">Popular Fast Food</h3>
+               <h1 className="text-sm md:text-4xl lg:text-5xl font-extrabold leading-tight mb-2 md:mb-4">
                   SELECTION FOR A  <br />
                  <span className=" mt-1 md:mt-2 block"> NEW DAY</span>
                 </h1>
-              <Link to='/order/bread'>  <button className="bg-[#FFA200]   text-white font-bold py-1 px-3 md:py-2 md:px-5 rounded-md text-xs md:text-base ">SOP NOW</button></Link>
+              <Link to='/order/bread'>  <button className="bg-[#FFA200]   text-white font-bold py-1 px-3 md:py-2 md:px-5 rounded-md text-[10px] md:text-base ">SHOP NOW</button></Link>
               </div>
             </div>
 

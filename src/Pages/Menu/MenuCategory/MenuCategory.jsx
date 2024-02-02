@@ -50,7 +50,7 @@ const MenuCategory = ({ items, heading, coverBg }) => {
                   item.category === "offered" ?
 
                     <Badge.Ribbon key={item._id} style={{ fontFamily: "Farro", marginTop: '-8px' }} text="30% Off" color="red">
-                      <div className="bg-gray-100 border border-gray-200 font-[Farro] p-3 my-2 rounded-2xl shadow-lg flex flex-col sm:flex-row gap-5">
+                      <div className="bg-gray-100 border border-gray-200 font-[Farro] p-3 py-5 md:py-3 my-2 rounded-2xl shadow-lg flex flex-col sm:flex-row gap-5">
                         <div
                           style={{ backgroundImage: `url(${item.image})` }}
                           className="w-full h-72 md:w-40 md:h-40 rounded-xl bg-cover "
@@ -64,7 +64,7 @@ const MenuCategory = ({ items, heading, coverBg }) => {
                               item.recipe
                             }
                           </p>
-                          <div className="flex gap-4 mt-auto">
+                          <div className="flex gap-4 pt-5 mt-auto">
                             <Tooltip placement="rightTop" title={item.like?.length > 0 && ` ${item.like?.length} ${item?.like?.length > 1 ? 'Peoples' : 'people'} liked this recipe`}>
                               <button disabled={item.like?.includes(user?.email)} onClick={() => handleLike(item._id)} className="flex bg-gray-300 items-center gap-0.5 sm:text-md border border-gray-300 px-2 py-1 rounded-full transition-colors  focus:outline-none ">
                                 <lord-icon
@@ -88,7 +88,7 @@ const MenuCategory = ({ items, heading, coverBg }) => {
 
                     :
 
-                    <div className="bg-gray-100 p-3 my-2 rounded-2xl shadow-lg flex flex-col sm:flex-row gap-5">
+                    <div className="bg-gray-100 p-3 my-2 py-5 md:py-3 rounded-2xl shadow-lg flex flex-col sm:flex-row gap-5">
                       <div
                         style={{ backgroundImage: `url(${item.image})` }}
                         className="w-full h-72 md:w-40 md:h-40 rounded-xl bg-cover"
@@ -102,7 +102,7 @@ const MenuCategory = ({ items, heading, coverBg }) => {
                             item.recipe
                           }
                         </p>
-                        <div className="flex gap-4 mt-auto">
+                        <div className="flex gap-4 pt-5 mt-auto">
                           <Tooltip placement="rightTop" title={item.like?.length > 0 && `${item.like?.length} ${item?.like?.length > 1 ? 'Peoples' : 'people'} liked this recipe`}>
                             <button disabled={item.like?.includes(user?.email)} onClick={() => handleLike(item._id)} className="flex bg-gray-300 items-center gap-0.5 sm:text-md border border-gray-300 px-2 py-1 rounded-full transition-colors  focus:outline-none ">
                               <lord-icon

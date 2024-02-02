@@ -4,7 +4,6 @@ import {
   FaEye,
   FaEyeSlash,
 } from "react-icons/fa";
-
 import bgImage from "../../assets/assets/home/23.jpg";
 import {
   loadCaptchaEnginge,
@@ -23,16 +22,20 @@ import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 import { Bars } from "react-loader-spinner";
 
 const Login = () => {
-  const { register, formState: { errors }, handleSubmit} = useForm();
-  const [loading, setLoading] = useState()
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+
+  const [loginLoading, setLoginLoading] = useState()
   const [disabled, setDisabled] = useState(true);
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const { signIn } = useContext(AuthContext);
+  const { loading, signIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const [api, contextHolder] = notification.useNotification();
-  
   const openNotification = (placement) => {
     api.success({
       message: "Captcha Correct",
@@ -83,22 +86,26 @@ const Login = () => {
   }, []);
 
   const handleLogin = (data) => {
-    setLoading(true)
+    setLoginLoading(true)
     signIn(data.email, data.password)
       .then((result) => {
         const loggedUser = result.user;
         // console.log(loggedUser);
-        setLoading(false)
+        setLoginLoading(false)
+        console.log(loading);
+        navigate(from, { replace: true });
         Swal.fire({
           icon: "success",
           title: "Sign In Successful",
           backdrop: `rgba(0,0,0,0.8)`,
         });
 
-        navigate(from, { replace: true });
+
+
       })
       .catch((errors) => {
         // console.log(errors);
+        setLoginLoading(false)
         Swal.fire({
           icon: "error",
           title: "Oops...",
@@ -249,7 +256,7 @@ const Login = () => {
                     disabled={disabled}
                   >
                     {
-                      loading ? <div className="flex justify-center">
+                      loginLoading ? <div className="flex justify-center">
                         <Bars
                           height="25"
                           width="25"
