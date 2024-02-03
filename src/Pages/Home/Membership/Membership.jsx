@@ -14,153 +14,168 @@ const Membership = () => {
             <SectionTittle subHeading={'Our Membership'} heading={'Price Plan'} />
           </div>
 
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 mt-10  max-md:mx-auto">
-            <div className="bg-gray-100 w-full rounded-2xl relative overflow-hidden transition-all">
-              <div className="p-6 pb-24">
-                <div className="text-left">
-                  <h4 className="text-xl mb-4 font-semibold">Basic Plan</h4>
-                  <h3 className="text-xl md:text-3xl text-[#FFA200] font-semibold">$19.99/month</h3>
-                  <p className="text-sm mt-4">Enjoy our basic dining experience with a selection of appetizers, entrees, and desserts.</p>
-                </div>
-                <div className="mt-8">
-                  <ul className="space-y-4">
-                    <li className="flex items-center text-sm">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="17" className="mr-4 bg-gray-100 fill-[#333] rounded-full p-[3px]" viewBox="0 0 24 24">
-                        <path d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z" data-original="#000000" />
-                      </svg>
-                      Access to our standard menu items
-                    </li>
-                    <li className="flex items-center text-sm">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="17" className="mr-4 bg-gray-100 fill-[#333] rounded-full p-[3px]" viewBox="0 0 24 24">
-                        <path d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z" data-original="#000000" />
-                      </svg>
-                      10% discount on all beverages
-                    </li>
-                    <li className="flex items-center text-sm">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="17" className="mr-4 bg-gray-100 fill-[#333] rounded-full p-[3px]" viewBox="0 0 24 24">
-                        <path d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z" data-original="#000000" />
-                      </svg>
-                      Priority seating on weekends
-                    </li>
+         
 
-                  </ul>
-                </div>
+          <div className="mt-5  space-y-4 sm:space-y-0 sm:grid md:grid-cols-2 lg:grid-cols-3 sm:gap-6   lg:mx-auto">
+            <div className="border border-neutral-200 rounded-lg shadow-sm divide-y divide-neutral-200">
+              <div className="p-6">
+                <h2 className="text-lg leading-6 font-medium text-neutral-900">Personal</h2>
+                <p className="mt-4 text-sm h-10 text-neutral-500">Enjoy our basic dining experience with a selection of appetizers, entrees, and desserts.</p>
+                <p className="mt-4 flex flex-col space-y-2">
+                  <span className="flex flex-row space-x-2 items-center">
+                    <span className="text-5xl font-extrabold text-neutral-600">$19</span>
+                    <span className="text-sm font-medium text-neutral-500">per month<br /> billed annually</span></span>
+                </p>
+                <a  onClick={() => setOpenModal(true)} 
+                  className="mt-8 block w-full bg-[#FFA200] border cursor-pointer border-transparent rounded-md py-2 text-sm font-semibold text-white text-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Get
+                  Started
+                </a>
               </div>
-
-              <div className="flex  justify-center">
-                <button onClick={() => setOpenModal(true)} type="button" className="my-6 w-[80%] md:w-[50%] mx-auto absolute bottom-0 px-2 h-11  font-semibold text-white    bg-[#FFA200]  hover:bg-[#222] transition-all rounded-full text-sm duration-500">Get started today</button>
-              </div>
-            </div>
-            <div className="bg-gray-100  rounded-lg   relative overflow-hidden transition-all">
-              <div className="p-6 pb-24">
-                <div className="text-left">
-                  <h4 className="text-xl mb-4 font-semibold">Family Plan</h4>
-                  <h3 className="text-xl md:text-3xl text-[#FFA200]  font-semibold">$49.99/month</h3>
-                  <p className="text-sm mt-4">Perfect for families, enjoy a shared dining experience with customizable options.</p>
-                </div>
-                <div className="mt-8">
-                  <ul className="space-y-4">
-                    <li className="flex items-center text-sm">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="17" className="mr-4 bg-gray-100 fill-[#333] rounded-full p-[3px]" viewBox="0 0 24 24">
-                        <path d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z" data-original="#000000" />
-                      </svg>
-                      Shared family-style meals with customizable options
-                    </li>
-                    <li className="flex items-center text-sm">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="17" className="mr-4 bg-gray-100 fill-[#333] rounded-full p-[3px]" viewBox="0 0 24 24">
-                        <path d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z" data-original="#000000" />
-                      </svg>
-                      Access to kids' menu with special pricing
-                    </li>
-                    <li className="flex items-center text-sm">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="17" className="mr-4 bg-gray-100 fill-[#333] rounded-full p-[3px]" viewBox="0 0 24 24">
-                        <path d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z" data-original="#000000" />
-                      </svg>
-                      20% discount on all beverages
-                    </li>
-                    <li className="flex items-center text-sm">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="17" className="mr-4 bg-gray-100 fill-[#333] rounded-full p-[3px]" viewBox="0 0 24 24">
-                        <path d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z" data-original="#000000" />
-                      </svg>
-                      Dedicated family seating area
-                    </li>
-
-                  </ul>
-                </div>
-              </div>
-
-              <div className="flex  justify-center">
-                <button onClick={() => setOpenModal(true)} type="button" className="my-6 w-[80%] md:w-[50%] mx-auto absolute bottom-0 px-2 h-11 text-sm font-semibold   bg-[#FFA200] text-white hover:bg-[#222] transition-all rounded-full  duration-500">Get started today</button>
+              <div className="pt-6 pb-8 px-6">
+                <h3 className="text-xs font-medium text-neutral-900 tracking-wide uppercase">What's included</h3>
+                <ul role="list" className="mt-6 space-y-4">
+                  <li className="flex space-x-3 "><svg stroke="currentColor" fill="none" strokeWidth="0" viewBox="0 0 24 24"
+                    className="flex-shrink-0 h-5 w-5 text-green-500" aria-hidden="true" height="1em" width="1em"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                    <span className="text-sm text-neutral-500"> 10% discount on all beverages</span>
+                  </li>
+                  <li className="flex space-x-3 "><svg stroke="currentColor" fill="none" strokeWidth="0" viewBox="0 0 24 24"
+                    className="flex-shrink-0 h-5 w-5 text-green-500" aria-hidden="true" height="1em" width="1em"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                    <span className="text-sm text-neutral-500"> Priority seating on weekends</span>
+                  </li>
+                  <li className="flex space-x-3 "><svg stroke="currentColor" fill="none" strokeWidth="0" viewBox="0 0 24 24"
+                    className="flex-shrink-0 h-5 w-5 text-green-500" aria-hidden="true" height="1em" width="1em"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                    <span className="text-sm text-neutral-500">Access to our standard menu items</span>
+                  </li>
+                </ul>
               </div>
             </div>
+            <div className="border border-neutral-200 rounded-lg shadow-sm divide-y divide-neutral-200">
+              <div className="p-6">
+                <h2 className="text-lg leading-6 font-medium text-neutral-900">Family</h2>
+                <p className="mt-4 text-sm h-10 text-neutral-500">Perfect for families, enjoy a shared dining experience with customizable options.</p>
+                <p className="mt-4 flex flex-col space-y-2">
 
-            <div className="bg-gray-100 rounded-lg  relative overflow-hidden transition-all">
-              <div className="p-6 pb-24">
-                <div className="text-left">
-                  <h4 className="text-xl mb-4 font-semibold">Premium Plan</h4>
-                  <h3 className="text-xl md:text-3xl text-[#FFA200]  font-semibold">$99.99/month</h3>
-                  <p className="text-sm mt-4">Elevate your dining experience with our exclusive Premium membership.</p>
-                </div>
-                <div className="mt-8">
-                  <ul className="space-y-4">
-                    <li className="flex items-center text-sm">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="17" className="mr-4 bg-gray-100 fill-[#333] rounded-full p-[3px]" viewBox="0 0 24 24">
-                        <path d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z" data-original="#000000" />
-                      </svg>
-                      Access to VIP lounge with private dining options
-                    </li>
-                    <li className="flex items-center text-sm">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="17" className="mr-4 bg-gray-100 fill-[#333] rounded-full p-[3px]" viewBox="0 0 24 24">
-                        <path d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z" data-original="#000000" />
-                      </svg>
-                      Personalized menu customization
-                    </li>
-                    <li className="flex items-center text-sm">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="17" className="mr-4 bg-gray-100 fill-[#333] rounded-full p-[3px]" viewBox="0 0 24 24">
-                        <path d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z" data-original="#000000" />
-                      </svg>
-                      Unlimited complimentary beverages
-                    </li>
-                    <li className="flex items-center text-sm">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="17" className="mr-4 bg-gray-100 fill-[#333] rounded-full p-[3px]" viewBox="0 0 24 24">
-                        <path d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z" data-original="#000000" />
-                      </svg>
-                      Priority access to special events and promotions
-                    </li>
-                    <li className="flex items-center text-sm">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="17" className="mr-4 bg-gray-100 fill-[#333] rounded-full p-[3px]" viewBox="0 0 24 24">
-                        <path d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z" data-original="#000000" />
-                      </svg>
-                      Dedicated concierge service
-                    </li>
-                  </ul>
-                </div>
+                  <span className="flex flex-row space-x-2 items-center">
+                    <span className="text-5xl font-extrabold text-neutral-600">$69</span>
+                    <span className="text-sm font-medium text-neutral-500">per month<br /> billed annually</span></span>
+                </p>
+                <a  onClick={() => setOpenModal(true)} 
+                  className="mt-8 block w-full bg-[#FFA200] border cursor-pointer border-transparent rounded-md py-2 text-sm font-semibold text-white text-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Get
+                  Started
+                </a>
               </div>
+              <div className="pt-6 pb-8 px-6">
+                <h3 className="text-xs font-medium text-neutral-900 tracking-wide uppercase">What's included</h3>
+                <ul role="list" className="mt-6 space-y-4">
+                  <li className="flex space-x-3 "><svg stroke="currentColor" fill="none" strokeWidth="0" viewBox="0 0 24 24"
+                    className="flex-shrink-0 h-5 w-5 text-green-500" aria-hidden="true" height="1em" width="1em"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                    <span className="text-sm text-neutral-500">20% discount on all beverages</span>
+                  </li>
+                  <li className="flex space-x-3 "><svg stroke="currentColor" fill="none" strokeWidth="0" viewBox="0 0 24 24"
+                    className="flex-shrink-0 h-5 w-5 text-green-500" aria-hidden="true" height="1em" width="1em"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                    <span className="text-sm text-neutral-500"> Dedicated family seating area</span>
+                  </li>
+                  <li className="flex space-x-3 "><svg stroke="currentColor" fill="none" strokeWidth="0" viewBox="0 0 24 24"
+                    className="flex-shrink-0 h-5 w-5 text-green-500" aria-hidden="true" height="1em" width="1em"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                    <span className="text-sm text-neutral-500"> Access to kids' menu with special pricing</span>
+                  </li>
+                  <li className="flex space-x-3 "><svg stroke="currentColor" fill="none" strokeWidth="0" viewBox="0 0 24 24"
+                    className="flex-shrink-0 h-5 w-5 text-green-500" aria-hidden="true" height="1em" width="1em"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                    <span className="text-sm text-neutral-500"> Shared family meals with customizable options</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="border border-neutral-200 rounded-lg shadow-sm divide-y divide-neutral-200">
+              <div className="p-6">
+                <h2 className="text-lg leading-6 font-medium text-neutral-900">Premium</h2>
+                <p className="mt-4 text-sm h-10 text-neutral-500">Elevate your dining experience with our exclusive Premium membership..</p>
+                <p className="mt-4 flex flex-col space-y-2">
 
-              <div className="flex  justify-center">
-                <button onClick={() => setOpenModal(true)} type="button" className="my-6 w-[80%] md:w-[50%] mx-auto absolute bottom-0 px-2 h-11   font-semibold text-white   bg-[#FFA200]  hover:bg-[#222] transition-all rounded-full text-sm duration-500">Get started today</button>
+                  <span className="flex flex-row space-x-2 items-center">
+                    <span className="text-5xl font-extrabold text-neutral-600">$99</span>
+                    <span className="text-sm font-medium text-neutral-500">per month<br /> billed annually</span></span>
+                </p>
+                <a  onClick={() => setOpenModal(true)} 
+                  className="mt-8 block w-full bg-[#FFA200] border cursor-pointer border-transparent rounded-md py-2 text-sm font-semibold text-white text-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Get
+                  Started
+                </a>
+              </div>
+              <div className="pt-6 pb-8 px-6">
+                <h3 className="text-xs font-medium text-neutral-900 tracking-wide uppercase">What's included</h3>
+                <ul role="list" className="mt-6 space-y-4">
+                  <li className="flex space-x-3 "><svg stroke="currentColor" fill="none" strokeWidth="0" viewBox="0 0 24 24"
+                    className="flex-shrink-0 h-5 w-5 text-green-500" aria-hidden="true" height="1em" width="1em"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                    <span className="text-sm text-neutral-500"> Unlimited complimentary beverages</span>
+                  </li>
+                  <li className="flex space-x-3 "><svg stroke="currentColor" fill="none" strokeWidth="0" viewBox="0 0 24 24"
+                    className="flex-shrink-0 h-5 w-5 text-green-500" aria-hidden="true" height="1em" width="1em"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                    <span className="text-sm text-neutral-500"> Access to VIP lounge with private dining options</span>
+                  </li>
+                  <li className="flex space-x-3 "><svg stroke="currentColor" fill="none" strokeWidth="0" viewBox="0 0 24 24"
+                    className="flex-shrink-0 h-5 w-5 text-green-500" aria-hidden="true" height="1em" width="1em"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                    <span className="text-sm text-neutral-500"> Personalized menu customization</span>
+                  </li>
+                  <li className="flex space-x-3 "><svg stroke="currentColor" fill="none" strokeWidth="0" viewBox="0 0 24 24"
+                    className="flex-shrink-0 h-5 w-5 text-green-500" aria-hidden="true" height="1em" width="1em"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                    <span className="text-sm text-neutral-500">Priority access to special events and promotions</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
         {/* modal  */}
         <div className="mx-auto flex items-center justify-center">
-        <div className={`fixed flex justify-center items-center z-[100] ${openModal ? 'visible opacity-1' : 'invisible opacity-0'} p-2 sm:p-0 inset-0 backdrop-blur-sm bg-black/20 duration-100`}>
-          <div className={`  w-full max-w-lg  2xl:max-w-xl p-4 text-center bg-white drop-shadow-2xl rounded-2xl ${openModal ? 'scale-1 opacity-1 duration-500' : 'scale-0 opacity-0 duration-500'}`}>
-            <div className="flex justify-end pr-2">
-              <lord-icon onClick={() => setOpenModal(false)}
-                src="https://cdn.lordicon.com/nqtddedc.json"
-                trigger="hover"
-                colors="primary:black"
-                style={{ width: "25px", height: "25px", cursor: 'pointer' }}>
-              </lord-icon>
-            </div>
-            <div className="flex justify-center">
-            <img src={comingSoon} alt="" />
+          <div className={`fixed flex justify-center items-center z-[100] ${openModal ? 'visible opacity-1' : 'invisible opacity-0'} p-2 sm:p-0 inset-0 backdrop-blur-sm bg-black/20 duration-100`}>
+            <div className={`  w-full max-w-lg  2xl:max-w-xl p-4 text-center bg-white drop-shadow-2xl rounded-2xl ${openModal ? 'scale-1 opacity-1 duration-500' : 'scale-0 opacity-0 duration-500'}`}>
+              <div className="flex justify-end pr-2">
+                <lord-icon onClick={() => setOpenModal(false)}
+                  src="https://cdn.lordicon.com/nqtddedc.json"
+                  trigger="hover"
+                  colors="primary:black"
+                  style={{ width: "25px", height: "25px", cursor: 'pointer' }}>
+                </lord-icon>
+              </div>
+              <div className="flex justify-center">
+                <img src={comingSoon} alt="" />
+              </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
     </div>
   );

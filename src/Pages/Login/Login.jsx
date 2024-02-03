@@ -6,8 +6,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { Bars } from "react-loader-spinner";
 import SocialLogin from "../../Components/SocialLogin/SocialLogin";
-import logo from '../../assets/assets/Logo/logo2.png'
-import bgImage from '../../assets/assets/home/contact3.jpg'
+import bgImage from '../../assets/assets/home/contact.jpg'
+import bottomBg from '../../assets/assets/home/4.png'
 import { Divider } from "antd";
 
 
@@ -30,7 +30,6 @@ const Login = () => {
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
-
 
 
   const handleLogin = (data) => {
@@ -63,19 +62,18 @@ const Login = () => {
 
   return (
     <div>
-      <div className="  text-gray-700 ">
-        <div style={{backgroundImage:`url(${bgImage})`, backgroundSize:"cover center", backgroundPosition:"center"}}  className="grid lg:grid-cols-2 gap-4   sm:p-8 p-4 h-[320px]">
+      <div className="  text-gray-700  ">
+        <div style={{backgroundImage:`url(${bgImage})`, backgroundSize:"cover", backgroundPosition:"center",}}  className="grid lg:grid-cols-2 gap-4 relative sm:p-8 p-4 h-[320px]">
           <div>
-
-            <div className="max-w-lg mt-16 px-6 max-lg:hidden">
-            <img src={logo} className="w-40 shadow-xl " alt="" />
-              <p className="text-sm mt-4 text-white">Embark on a seamless journey as you sign in to your account. Unlock a realm of opportunities and possibilities that await you.</p>
+            <div className="max-w-lg mt-24 px-6 bg-no-repeat max-lg:hidden">
+              {/* <h2 className="text-3xl font-bold">Food<span className="  text-white">Pa</span></h2> */}
+              <p className="text-md mt-4 text-black">Embark on a seamless journey as you sign in to your account. Unlock a realm of opportunities and possibilities that await you.</p>
             </div>
           </div>
-          <div className="bg-white my-4 rounded-xl sm:px-6 px-4 py-8 max-w-md w-full h-max shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] max-lg:mx-auto">
+          <div className="bg-white border z-10 border-gray-300 my-4 rounded-xl sm:px-6 px-4 py-6 max-w-md w-full h-max shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] max-lg:mx-auto">
             <form onSubmit={handleSubmit(handleLogin)} >
               <div className="mb-5">
-                <h3 className="text-3xl font-extrabold">Sign in</h3>
+                <h3 className="text-3xl font-extrabold">Log in</h3>
               </div>
 
               <SocialLogin />
@@ -137,7 +135,7 @@ const Login = () => {
               </div>
          
               <div className="mt-10">
-                <button type="submit" className="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded text-black bg-[#FFA200] hover:bg-[#D58B09] focus:outline-none transition-all duration-300  focus:border-gray-400">
+                <button type="submit" disabled={loginLoading}  className="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded text-black bg-[#FFA200] hover:bg-[#D58B09] focus:outline-none transition-all duration-300  focus:border-gray-400">
                   {
                     loginLoading ? <div className="flex justify-center">
                       <Bars
@@ -157,6 +155,7 @@ const Login = () => {
               </Link>
             </form>
           </div>
+          <img src={bottomBg} alt="" className="inset-x-0 absolute bottom-0" />
         </div>
       </div>
     </div>

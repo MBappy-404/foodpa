@@ -1,8 +1,9 @@
 
-import bgImage from "../../assets/assets/home/contact3.jpg";
+import bgImage from "../../assets/assets/home/contact.jpg";
 import logo from "../../assets/assets/Logo/logo2.png";
+import bottomBg from "../../assets/assets/home/4.png";
 import donut from "../../assets/assets/home/hamburger-1.png";
-import { useContext, useEffect, useState } from "react";
+import { useContext,  useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -93,16 +94,16 @@ const SignUp = () => {
   return (
     <div>
       <div className=" text-[#333]">
-        <div style={{backgroundImage:`url(${bgImage})`, backgroundSize:"cover center", backgroundPosition:"center"}} className="grid lg:grid-cols-2 gap-4  sm:p-8 p-4 h-[320px]">
+        <div style={{backgroundImage:`url(${bgImage})`, backgroundSize:"cover", backgroundPosition:"center"}} className="grid lg:grid-cols-2 gap-4  relative sm:p-8 p-4 h-[320px]">
           <div>
 
-            <div className="max-w-lg mt-16 px-6 max-lg:hidden">
+            <div className="max-w-lg mt-24 px-6 max-lg:hidden">
               {/* <h3 className="text-3xl font-bold text-white">FoodPa</h3> */}
-              <img src={logo} className="w-40 shadow-xl " alt="" />
-              <p className="text-sm mt-4 text-white">Embark on a seamless journey as you sign in to your account. Unlock a realm of opportunities and possibilities that await you.</p>
+              {/* <img src={logo} className="w-40" alt="" /> */}
+              <p className="text-md mt-4 text-black">Embark on a seamless journey as you create your account. Unlock a realm of opportunities and possibilities that await you.</p>
             </div>
           </div>
-          <div className="bg-white my-4 rounded-xl sm:px-6 px-4 py-8 max-w-md w-full h-max shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] max-lg:mx-auto">
+          <div className="bg-white border z-10 border-gray-300  my-4 rounded-xl sm:px-6 px-4 py-8 max-w-md w-full h-max shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] max-lg:mx-auto">
             <form onSubmit={handleSubmit(handleSignUp)} >
               <div className="mb-5">
                 <h3 className="text-3xl font-extrabold">Sign Up</h3>
@@ -186,7 +187,7 @@ const SignUp = () => {
               </div>
 
               <div className="mt-10">
-                <button type="submit" className="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded text-black bg-[#FFA200] hover:bg-[#D58B09] focus:outline-none transition-all duration-300  focus:border-gray-400">
+                <button disabled={loading}  type="submit" className="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded text-black bg-[#FFA200] hover:bg-[#D58B09] focus:outline-none transition-all duration-300  focus:border-gray-400">
                   {
                     loading ? <div className="flex justify-center">
                       <Bars
@@ -205,6 +206,7 @@ const SignUp = () => {
               </Link>
             </form>
           </div>
+          <img src={bottomBg} alt="" className="inset-x-0  absolute bottom-0" />
         </div>
       </div>
     </div>

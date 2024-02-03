@@ -2,7 +2,6 @@ import slider1 from '../../../assets/assets/home/22.jpg'
 import slider2 from '../../../assets/assets/home/16-2.jpg'
 import slider3 from '../../../assets/assets/home/15-3.jpg'
 import slider4 from '../../../assets/assets/home/4.png'
-import slider5 from '../../../assets/assets/home/05.png'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/effect-fade';

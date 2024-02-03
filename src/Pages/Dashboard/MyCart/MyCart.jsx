@@ -106,15 +106,15 @@ const MyCart = () => {
                           </td>
                           <td className=" py-3 px-4">
                             <div className="flex divide-x border w-max">
-                              <button onClick={handleDecrease} type="button" className="bg-gray-100 px-2 py-1 md:px-4 md:py-2 font-semibold">
+                              <button onClick={handleDecrease} type="button" className="bg-gray-100 px-2 py-1 font-semibold">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="w-3 fill-current" viewBox="0 0 124 124">
                                   <path d="M112 50H12C5.4 50 0 55.4 0 62s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12z" data-original="#000000"></path>
                                 </svg>
                               </button>
-                              <button type="button" className="bg-transparent px-2 py-1 md:px-4 md:py-2 font-semibold text-gray-500 text-md">
+                              <button type="button" className="bg-transparent px-3 py-1   font-semibold text-gray-500 text-md">
                                 {counter}
                               </button>
-                              <button onClick={handleIncrease} type="button" className="bg-gray-600 text-white px-2 py-1 md:px-4 md:py-2 font-semibold">
+                              <button onClick={handleIncrease} type="button" className="bg-gray-600 text-white px-2 py-1    font-semibold">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="w-3 fill-current" viewBox="0 0 42 42">
                                   <path d="M37.059 16H26V4.941C26 2.224 23.718 0 21 0s-5 2.224-5 4.941V16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5H16v11.059C16 39.776 18.282 42 21 42s5-2.224 5-4.941V26h11.059C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z" data-original="#000000"></path>
                                 </svg>
@@ -138,22 +138,22 @@ const MyCart = () => {
                   </> : <> <tr>
                     <td className=" py-3 px-4">
                       <div className="flex items-center gap-6 w-max">
-                        <div className="h-20 w-28 bg-gray-300 "></div>
-                        <div className="w-32 h-6 bg-gray-300 "></div>
+                        <div className="h-10 w-16 md:h-20 md:w-28 bg-gray-300 "></div>
+                        <div className="w-16 h-4 md:w-32 md:h-6 bg-gray-300 "></div>
                       </div>
                     </td>
                     <td className=" py-3 px-4">
-                      <div className="w-16 h-6 bg-gray-300 "></div>
+                      <div className="w-10 h-4 md:w-16 md:h-6 bg-gray-300 "></div>
                     </td>
                     <td className=" py-3 px-4">
                       <div className="flex divide-x border w-max">
-                        <div className="bg-gray-100 px-4 py-2 font-semibold w-10 h-6 "></div>
-                        <div className="bg-transparent px-4 py-2 font-semibold text-gray-500 text-md w-10 h-6 "></div>
-                        <div className="bg-gray-300 text-white px-4 py-2 font-semibold w-10 h-6 "></div>
+                        <div className="bg-gray-100 px-4 py-2 font-semibold  w-10 h-3 md:h-6 "></div>
+                        <div className="bg-transparent px-4 py-2 font-semibold text-gray-500 text-md w-10 h-3 md:h-6 "></div>
+                        <div className="bg-gray-300 text-white px-4 py-2 font-semibold w-10 h-3 md:h-6 "></div>
                       </div>
                     </td>
                     <td className=" py-3 px-4">
-                      <div className="bg-gray-300 border  flex items-center px-2 py-2 font-semibold w-12 h-6 "></div>
+                      <div className="bg-gray-300 border  flex items-center px-2 py-2 font-semibold  h-2 md:w-12 md:h-6 "></div>
                     </td>
 
                   </tr>
@@ -171,10 +171,12 @@ const MyCart = () => {
                   <p className="text-lg text-center text-gray-500">Your Cart is empty.</p>
                   <div className="  flex  mb-5 justify-center">
 
-                    <Link to='/order/bread'> 
-                    <button className=" ml-1 mt-6 flex  gap-1 px-7 py-2.5 bg-[#FFA200] mb-3 hover:bg-[#222] transition-all text-sm duration-300 text-white    rounded-full ">
-                      Add To Cart
-                    </button>
+                    <Link to='/order/bread'>
+                      <Link to='/order/bread'>
+                        <button className=" ml-1 mt-6 flex  gap-1 px-5 md:px-7 py-2 md:py-2.5 bg-[#FFA200] mb-3 hover:bg-[#222] transition-all text-xs md:text-sm duration-300 text-white    rounded-full ">
+                          Go to Order
+                        </button>
+                      </Link>
                     </Link>
                   </div>
                 </>
@@ -197,9 +199,9 @@ const MyCart = () => {
 
           }
         </div>
-     {
-      cart?.length > 0 &&    <p  className="  flex justify-end" >  <a target=" _blank" href="https://stripe.com/docs/testing" className="text-xs   pt-3 text-blue-600 font-semibold underline">Try demo payment</a></p>
-     }
+        {
+          cart?.length > 0 && <p className="  flex justify-end" >  <a target=" _blank" href="https://stripe.com/docs/testing" className="text-xs   pt-3 text-blue-600 font-semibold underline">Try demo payment</a></p>
+        }
       </div>
 
 
@@ -215,7 +217,7 @@ const MyCart = () => {
               </lord-icon>
             </div>
             <Payments />
-  
+
           </div>
         </div>
       </div>

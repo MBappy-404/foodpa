@@ -111,10 +111,10 @@ const WishList = () => {
                       <td className="py-3 px-4">
                         <h4 className="text-sm md:text-lg font-bold text-gray-500">${item.price}</h4>
                       </td>
-                      <td className="py-3 px-4">
-                        <button onClick={() => handleCart(item)} className="font-base text-xs md:text-sm bg-[#FFA200] text-white px-3 py-1.5 rounded-full">Move To Cart</button>
+                      <td className="py-3 ">
+                        <button onClick={() => handleCart(item)} className="font-base text-xs  hover:bg-[#222] transition-all duration-500   bg-[#FFA200] text-white px-4 py-1.5 rounded-full">Move To Cart</button>
                       </td>
-                      <td className="py-3 px-4">
+                      <td className="py-3 px-8">
                         <button onClick={() => handleDeleteWishlist(item._id)} type="button" className="bg-transparent border flex items-center  px-2 py-2 font-semibold">
                           <lord-icon
                             src="https://cdn.lordicon.com/wpyrrmcq.json"
@@ -131,20 +131,20 @@ const WishList = () => {
                       <tr>
                         <td className="py-3 px-4">
                           <div className="flex items-center gap-6 w-max">
-                            <div className="h-20 w-28 bg-gray-300 "></div>
-                            <div className="w-32 h-6 bg-gray-300 "></div>
+                            <div className="h-10 md:h-20 w-16 md:w-28 bg-gray-300 "></div>
+                            <div className="w-16 md:w-32 h-4 md:h-6 bg-gray-300 "></div>
                           </div>
                         </td>
                         <td className="py-3 px-4">
-                          <div className="w-16 h-6 bg-gray-300 "></div>
+                          <div className="w-10 md:w-16  md:h-6 h-4 bg-gray-300 "></div>
                         </td>
                         <td className="py-3 px-4">
                           <div className="flex items-center">
-                            <button className="font-base text-sm bg-gray-300 text-white px-3 h-6 rounded-full w-20 "></button>
+                            <button className="font-base text-sm bg-gray-300 text-white px-3 h-4 md:h-6 rounded-full w-20 "></button>
                           </div>
                         </td>
                         <td className="py-3 px-4">
-                          <div className="bg-gray-300 border flex items-center px-2 py-2 font-semibold w-12 h-6 "></div>
+                          <div className="bg-gray-300 border flex items-center px-2 py-2 font-semibold w-12 h-4 md:h-6 "></div>
                         </td>
                       </tr>
 
@@ -158,8 +158,8 @@ const WishList = () => {
               <p className="text-lg text-center text-gray-500">Your wishlist is empty.</p>
               <div className=" flex justify-center mb-5">
                 <Link to='/order/bread'>
-                <button className=" ml-1 mt-6 flex  gap-1 px-7 py-2.5 bg-[#FFA200] mb-3 hover:bg-[#222] transition-all text-sm duration-300 text-white    rounded-full ">
-                      Add To Cart
+                <button className=" ml-1 mt-6 flex  gap-1 px-5 md:px-7 py-2 md:py-2.5 bg-[#FFA200] mb-3 hover:bg-[#222] transition-all text-xs md:text-sm duration-300 text-white    rounded-full ">
+                      Go to Order
                     </button>
                 </Link>
               </div>

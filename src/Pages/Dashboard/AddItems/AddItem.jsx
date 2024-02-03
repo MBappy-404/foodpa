@@ -1,11 +1,11 @@
 import SectionTittle from "../../../Components/SectionTittle/SectionTittle";
 import { useEffect, useState } from "react";
-import { message } from "antd";
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { Bars } from "react-loader-spinner";
 
 const hostImageKey = import.meta.env.VITE_Image_Upload_Token;
 // console.log(hostImage);
@@ -18,7 +18,6 @@ const AddItem = () => {
   const [loading, setLoading] = useState();
   const {
     register,
-    formState: { errors },
     handleSubmit,
     reset,
   } = useForm();
@@ -69,24 +68,24 @@ const AddItem = () => {
           };
           // console.log(newMenuItems);
           axiosSecure.post("/menu", newMenuItems)
-          .then((data) => {
-            if (data.data.insertedId) {
-              reset();
-              setLoading(false)
-              navigate("/dashboard/manage-item");
-              Swal.fire({
-                title: "Added Success!",
-                text: "Your new menu item added successfully. Now you can mange your item.",
-                icon: "success",
-              });
-            }
-          });
+            .then((data) => {
+              if (data.data.insertedId) {
+                reset();
+                setLoading(false)
+                navigate("/dashboard/manage-item");
+                Swal.fire({
+                  title: "Added Success!",
+                  text: "Your new menu item added successfully. Now you can mange your item.",
+                  icon: "success",
+                });
+              }
+            });
         }
       });
   };
 
   return (
-    <div className="px-2 md:px-5  lg:px-10   ">
+    <div className="px-2 md:px-5 min-h-[100vh]  lg:px-10   ">
       <Helmet>
         <title>Foodpa | Add-Items</title>
       </Helmet>
@@ -186,8 +185,20 @@ const AddItem = () => {
             </div>
           </div>
 
-          <button disabled={loading} type="submit"   className="  ml-1 mt-6 flex  gap-1 px-7 py-2.5 bg-[#FFA200] mb-3 hover:bg-[#222] transition-all text-sm duration-300 text-white    rounded-full  "> {loading ? <div className="loader"></div> : 'Add Item'}
+          <button
+            type="submit"
+            className="  ml-1 mt-6 flex  gap-1 px-7 py-2.5 bg-[#FFA200] mb-3 hover:bg-[#222] transition-all text-sm duration-300 text-white    rounded  "
+          >
+            {
+              loading ? <div className="px-8"><Bars
+                height="20"
+                width="20"
+                color="white"
+                ariaLabel="bars-loading"
+                visible={true}
+              /></div> : 'Send Review'
 
+            }
           </button>
         </form>
 

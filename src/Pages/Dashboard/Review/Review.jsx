@@ -5,13 +5,16 @@ import useAuth from "../../../hooks/useAuth.jsx";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 import useAxiosSecure from "../../../hooks/useAxiosSecure.jsx";
+import { Bars } from "react-loader-spinner";
 
 const Review = () => {
   const { user } = useAuth();
   const [value, setValue] = useState(0);
   const desc = ["terrible", "bad", "normal", "good", "wonderful"];
   const [axiosSecure] = useAxiosSecure();
+  const [loading, setLoading] = useState();
   const handleReview = (event) => {
+    setLoading(true)
     event.preventDefault();
 
     const form = event.target;
@@ -19,7 +22,6 @@ const Review = () => {
     const suggest = form.suggest.value;
     const details = form.message.value;
     const rating = value;
-
 
     const review = {
       photo: user?.photoURL,
@@ -42,12 +44,12 @@ const Review = () => {
             timer: 1000,
             showConfirmButton: false,
           });
-
+          setLoading(false)
           form.reset();
         }
       });
 
-    console.log(review);
+    // console.log(review);
   };
   return (
     <div className="px-2 min-h-[100vh]  md:px-5 lg:px-16  ">
@@ -116,7 +118,16 @@ const Review = () => {
             type="submit"
             className="  ml-1 mt-6 flex  gap-1 px-7 py-2.5 bg-[#FFA200] mb-3 hover:bg-[#222] transition-all text-sm duration-300 text-white    rounded  "
           >
-            Send Review
+            {
+              loading ? <div className="px-8"><Bars
+              height="20"
+              width="20"
+              color="white"
+              ariaLabel="bars-loading"
+              visible={true}
+            /></div> : 'Send Review'
+          
+            }
           </button>
         </form>
       </div>
