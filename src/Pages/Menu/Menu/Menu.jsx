@@ -17,7 +17,7 @@ const Menu = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const [menu] = useMenuData();
+  const [menu,, loading] = useMenuData();
 
   const bread = menu.filter((item) => item?.category === "dessert");
   const donut = menu.filter((item) => item?.category === "soup");
@@ -42,24 +42,24 @@ const Menu = () => {
           heading={"Todays Offer"}
           className="py-10"
         />
-        <MenuCategory items={offered} />
+        <MenuCategory loading={loading} items={offered} />
       </div>
       <div>
-        <MenuCategory items={bread} heading="bread" coverBg={breadImage} />
+        <MenuCategory loading={loading} items={bread} heading="bread" coverBg={breadImage} />
       </div>
-      <MenuCategory items={donut} heading="donut" coverBg={donutImage} />
+      <MenuCategory loading={loading} items={donut} heading="donut" coverBg={donutImage} />
       <MenuCategory
         items={hamburger}
         heading="hamburger"
         coverBg={hamburgerImage}
       />
-      <MenuCategory items={pizza} heading="pizza" coverBg={pizzaImage} />
+      <MenuCategory loading={loading} items={pizza} heading="pizza" coverBg={pizzaImage} />
       <MenuCategory
         items={sandwich}
         heading="sandwich"
         coverBg={sandwichImage}
       />
-      <MenuCategory items={tacos} heading="tacos" coverBg={tacosImage} />
+      <MenuCategory loading={loading} items={tacos} heading="tacos" coverBg={tacosImage} />
     </div>
   );
 };

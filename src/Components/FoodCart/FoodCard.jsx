@@ -6,8 +6,9 @@ import { Tooltip, message } from "antd";
 import useCart from "../../hooks/useCart";
 import useWishlist from "../../hooks/useWishlist";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Spinner from "../Spinner/Spinner";
 
-const FoodCard = ({ item }) => {
+const FoodCard = ({ item, loading }) => {
   const today = new Date();
   const date = new Intl.DateTimeFormat("en-US", {
     day: "numeric",
@@ -26,7 +27,7 @@ const FoodCard = ({ item }) => {
   const location = useLocation();
   const [, wishlistRefetch] = useWishlist();
   const [, cartRefetch] = useCart();
-  const [axiosSecure] = useAxiosSecure()
+  const [axiosSecure] = useAxiosSecure();
 
   const [messageApi, contextHolder] = message.useMessage();
   const info = () => {
@@ -123,86 +124,87 @@ const FoodCard = ({ item }) => {
     <div>
       {contextHolder}
 
-      <div className="bg-gray-100 rounded-2xl p-3 cursor-pointer  duration-500 transition-all relative">
-        <Tooltip
-        overlayStyle={{overflow:'hidden'}}
-          placement="leftTop"
-          title={isWishlist ? "Already Added" : "Add To Wishlist"}
-        >
-          <button
-            disabled={isWishlist}
-            onClick={() => addWishList(item)}
-            data-play={`play-${_id}`}
-            className={` play-${_id} w-8 h-8 flex items-center ${isWishlist ? "bg-[#FFA200]" : "bg-gray-200"}   hover:bg-[#FFA200] transition-all duration-500  justify-center rounded-full cursor-pointer absolute top-4 right-4`}
-          >
-            {isWishlist ? (
-              <lord-icon
-                src="https://cdn.lordicon.com/ulnswmkk.json"
-                trigger="click"
-                target={`.play-${_id}`}
-                colors="primary:white"
-                style={{ width: "20px", height: "20px" }}
-              ></lord-icon>
-            ) : (
-              <lord-icon
-                src="https://cdn.lordicon.com/xyboiuok.json"
-                trigger="click"
-                target={`.play-${_id}`}
-                colors="primary:black"
-                style={{ width: "20px", height: "20px" }}
-              ></lord-icon>
-            )}
-          </button>
-        </Tooltip>
-        <div className="    overflow-hidden mx-auto  ">
-          <img
-            src={image}
-            alt="Product 1"
-            className="h-full w-full  rounded-lg object-contain"
-          />
-        </div>
-        <div className="text-center mt-4">
-          <h3 className="text-lg font-bold text-gray-800">{name}</h3>
-          <h4 className="text-xl text-gray-700 font-bold mt-4">
-            ${price} <del className="text-gray-400 ml-2 font-medium ">$15</del>
-          </h4>
-
-          {isCart ? (
-            <Link to="/dashboard/myCart">
+      {
+        loading ? <Spinner /> :
+          <div className="bg-gray-100 rounded-2xl p-3 cursor-pointer  duration-500 transition-all relative">
+            <Tooltip
+              overlayStyle={{ overflow: 'hidden' }}
+              placement="leftTop"
+              title={isWishlist ? "Already Added" : "Add To Wishlist"} >
               <button
-                type="button"
-                data-play="play-view"
-                className=" mx-auto mt-6 flex items-center justify-center play-view gap-1 px-6 py-2 bg-[#FFA200] mb-3 hover:bg-[#222] transition-all text-sm duration-500 text-white     rounded-full"
-              >
-                View in cart
-                <lord-icon
-                  src="https://cdn.lordicon.com/mfmkufkr.json"
-                  trigger="click"
-                  target=".play-view"
-                  colors="primary:white"
-                  style={{ width: "20px", height: "20px" }}
-                ></lord-icon>
+                disabled={isWishlist}
+                onClick={() => addWishList(item)}
+                data-play={`play-${_id}`}
+                className={` play-${_id} w-8 h-8 flex items-center ${isWishlist ? "bg-[#FFA200]" : "bg-gray-200"}   hover:bg-[#FFA200] transition-all duration-500  justify-center rounded-full cursor-pointer absolute top-4 right-4`}>
+                {isWishlist ? (
+                  <lord-icon
+                    src="https://cdn.lordicon.com/ulnswmkk.json"
+                    trigger="click"
+                    target={`.play-${_id}`}
+                    colors="primary:white"
+                    style={{ width: "20px", height: "20px" }}
+                  ></lord-icon>
+                ) : (
+                  <lord-icon
+                    src="https://cdn.lordicon.com/xyboiuok.json"
+                    trigger="click"
+                    target={`.play-${_id}`}
+                    colors="primary:black"
+                    style={{ width: "20px", height: "20px" }}
+                  ></lord-icon>
+                )}
               </button>
-            </Link>
-          ) : (
-            <button
-              onClick={() => handleCart(item)}
-              type="button"
-              data-play="play-cart"
-              className="play-cart mx-auto mt-6 flex items-center justify-center gap-1 px-6 py-2 bg-[#FFA200] mb-3 hover:bg-[#222] transition-all text-sm duration-500 text-white     rounded-full"
-            >
-              Add to cart
-              <lord-icon
-                src="https://cdn.lordicon.com/mfmkufkr.json"
-                trigger="click"
-                target=".play-cart"
-                colors="primary:white"
-                style={{ width: "20px", height: "20px" }}
-              ></lord-icon>
-            </button>
-          )}
-        </div>
-      </div>
+            </Tooltip>
+            <div className="overflow-hidden mx-auto  ">
+              <img
+                src={image}
+                alt="Product"
+                className="h-full w-full  rounded-lg"
+              />
+            </div>
+            <div className="text-center mt-4">
+              <h3 className="text-lg font-bold text-gray-800">{name}</h3>
+              <h4 className="text-xl text-gray-700 font-bold mt-4">
+                ${price} <del className="text-gray-400 ml-2 font-medium ">$15</del>
+              </h4>
+
+              {isCart ? (
+                <Link to="/dashboard/myCart">
+                  <button
+                    type="button"
+                    data-play="play-view"
+                    className=" mx-auto mt-6 flex items-center justify-center play-view gap-1 px-6 py-2.5 bg-[#FFA200] mb-3 hover:bg-[#222] transition-all text-sm duration-500 text-white     rounded-full"
+                  >
+                    View in cart
+                    <lord-icon
+                      src="https://cdn.lordicon.com/mfmkufkr.json"
+                      trigger="click"
+                      target=".play-view"
+                      colors="primary:white"
+                      style={{ width: "20px", height: "20px" }}
+                    ></lord-icon>
+                  </button>
+                </Link>
+              ) : (
+                <button
+                  onClick={() => handleCart(item)}
+                  type="button"
+                  data-play="play-cart"
+                  className="play-cart mx-auto mt-6 flex items-center justify-center gap-1 px-6 py-2.5 bg-[#FFA200] mb-3 hover:bg-[#222] transition-all text-sm duration-500 text-white     rounded-full"
+                >
+                  Add to cart
+                  <lord-icon
+                    src="https://cdn.lordicon.com/mfmkufkr.json"
+                    trigger="click"
+                    target=".play-cart"
+                    colors="primary:white"
+                    style={{ width: "20px", height: "20px" }}
+                  ></lord-icon>
+                </button>
+              )}
+            </div>
+          </div>
+      }
     </div>
   );
 };

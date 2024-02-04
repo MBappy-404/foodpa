@@ -18,7 +18,7 @@ const MenuItems = ({ image, name }) => {
 
                     <h3 className="flex items-center my-4">
                          <span aria-hidden="true" className="flex-grow bg-gray-200 rounded h-0.5"></span>
-                         <span className="inline-block uppercase px-40 py-3 text-lg md:text-3xl font-bold text-center text-gray-500 bg-gray-200 rounded-lg">
+                         <span className="inline-block uppercase px-16 md:px-40 py-3 text-lg md:text-3xl font-bold text-center text-gray-500 bg-gray-200 rounded-lg">
                              {name}
                              
                          </span>

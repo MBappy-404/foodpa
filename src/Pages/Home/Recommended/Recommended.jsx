@@ -5,7 +5,7 @@ import useMenuData from "../../../hooks/useMenuData";
 
 const Recommended = () => {
 
-     const [menu] = useMenuData();
+     const [menu,, loading] = useMenuData();
 
      return (
           <div className="py-16">
@@ -17,7 +17,7 @@ const Recommended = () => {
 
                     <div className="grid grid-cols-1 py-5 md:grid-cols-3 lg:grid-cols-4 gap-2">
                          {
-                              menu?.slice(0, 4).map(item => <FoodCard key={item._id} item={item} />)
+                              menu?.slice(0, 4).map(item => <FoodCard loading={loading} key={item._id} item={item} />)
                          }
                     </div>
                </div>

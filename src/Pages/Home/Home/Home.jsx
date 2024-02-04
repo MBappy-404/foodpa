@@ -7,6 +7,7 @@ import Recommended from "../Recommended/Recommended";
 import Testimonials from "../Testimonilas/Testimonials";
 import Membership from "../Membership/Membership";
 import { useEffect } from "react";
+import Faq from "../Faq/Faq";
 
 
 
@@ -27,6 +28,7 @@ const Home = () => {
                <Feature />
                <Testimonials />
                <Membership/>
+               <Faq/>
           </div>
      );
 };

@@ -27,7 +27,7 @@ const Membership = () => {
                     <span className="text-sm font-medium text-neutral-500">per month<br /> billed annually</span></span>
                 </p>
                 <a  onClick={() => setOpenModal(true)} 
-                  className="mt-8 block w-full bg-[#FFA200] border cursor-pointer border-transparent rounded-md py-2 text-sm font-semibold text-white text-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Get
+                  className="mt-8 block w-full bg-[#FFA200] border hover:bg-[#222] transition-all  duration-500 cursor-pointer border-transparent rounded-md py-2.5 text-sm font-semibold text-white text-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Get
                   Started
                 </a>
               </div>
@@ -69,7 +69,7 @@ const Membership = () => {
                     <span className="text-sm font-medium text-neutral-500">per month<br /> billed annually</span></span>
                 </p>
                 <a  onClick={() => setOpenModal(true)} 
-                  className="mt-8 block w-full bg-[#FFA200] border cursor-pointer border-transparent rounded-md py-2 text-sm font-semibold text-white text-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Get
+                  className="mt-8 block w-full bg-[#FFA200] border hover:bg-[#222] transition-all  duration-500 cursor-pointer border-transparent rounded-md py-2.5 text-sm font-semibold text-white text-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Get
                   Started
                 </a>
               </div>
@@ -118,7 +118,7 @@ const Membership = () => {
                     <span className="text-sm font-medium text-neutral-500">per month<br /> billed annually</span></span>
                 </p>
                 <a  onClick={() => setOpenModal(true)} 
-                  className="mt-8 block w-full bg-[#FFA200] border cursor-pointer border-transparent rounded-md py-2 text-sm font-semibold text-white text-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Get
+                  className="mt-8 block w-full bg-[#FFA200] border hover:bg-[#222] transition-all  duration-500 cursor-pointer border-transparent rounded-md py-2.5 text-sm font-semibold text-white text-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Get
                   Started
                 </a>
               </div>

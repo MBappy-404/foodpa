@@ -1,6 +1,6 @@
  
 import { Navigate, useLocation } from "react-router-dom";
-import { Spin } from "antd";
+import loadingImage from '../../src/assets/assets/home/d62bac00e58a2a1e41d1b77ebcd889b4.gif'
 import useAuth from "../hooks/useAuth";
 import useAdmin from "../hooks/useAdmin";
 
@@ -12,7 +12,7 @@ const AdminRoute = ({children}) => {
      const [isAdmin,isAdminLoading] = useAdmin();
 
      if(loading || isAdminLoading){
-          return <div className="flex justify-center  mt-[300px]"><Spin size="large" /></div>
+          return <div className="flex justify-center min-h-[100vh]  "> <img src={loadingImage} className="w-80 mx-auto h-80" alt="" /></div>
      }
 
      if(user && isAdmin){

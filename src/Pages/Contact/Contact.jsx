@@ -14,7 +14,7 @@ const Contact = () => {
 
 
       <div className='pt-8'>
-        <SectionTittle heading={"Our Location"} subHeading={"Visit Us"} />
+        <SectionTittle heading={"Reach out"} subHeading={"Visit Us"} />
       </div>
 
 

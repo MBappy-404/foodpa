@@ -22,7 +22,7 @@ const Order = () => {
   const categoryIndex = categories.indexOf(category);
   const [selectedIndex, setSelectedIndex] = useState(categoryIndex)
 
-  const [menu] = useMenuData();
+  const [menu,,loading] = useMenuData();
 
 
   const dessert = menu.filter(item => item?.category === 'dessert')
@@ -40,7 +40,7 @@ const Order = () => {
       <Cover heading={"Order"} active={'Order'} image={image} />
 
       <Tab.Group selectedIndex={selectedIndex} onChange={(index) => setSelectedIndex(index)}>
-        <Tab.List className="bg-gray-100  flex justify-center my-10  mx-auto rounded-md flex-wrap gap-2 p-4">
+        <Tab.List className="bg-gray-100  flex justify-center my-10 w-[98%]  md:w-[90%] lg:w-[60%]  mx-auto rounded-md flex-wrap gap-2 p-4">
           {categories.map((category, i) => (
             <Tab key={i + 1} as={Fragment}>
               {({ selected }) => (
@@ -63,32 +63,32 @@ const Order = () => {
 
           <Tab.Panel className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 px-3 mb-10 ">
             {
-              dessert.map(item => <FoodCard key={item._id} item={item}></FoodCard>)
+              dessert.map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
             }
           </Tab.Panel>
           <Tab.Panel className="grid grid-cols-1 md:grid-cols-2 gap-3 px-3 lg:grid-cols-4 mb-10 ">
             {
-              soup.map(item => <FoodCard key={item._id} item={item}></FoodCard>)
+              soup.map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
             }
           </Tab.Panel>
           <Tab.Panel className="grid grid-cols-1 md:grid-cols-2 gap-3 px-3 lg:grid-cols-4 mb-10 ">
             {
-              salad.map(item => <FoodCard key={item._id} item={item}></FoodCard>)
+              salad.map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
             }
           </Tab.Panel>
           <Tab.Panel className="grid grid-cols-1 md:grid-cols-2 gap-3 px-3 lg:grid-cols-4 mb-10 ">
             {
-              pizza.map(item => <FoodCard key={item._id} item={item}></FoodCard>)
+              pizza.map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
             }
           </Tab.Panel>
           <Tab.Panel className="grid grid-cols-1 md:grid-cols-2 gap-3 px-3 lg:grid-cols-4 mb-10 ">
             {
-              pizza.map(item => <FoodCard key={item._id} item={item}></FoodCard>)
+              pizza.map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
             }
           </Tab.Panel>
           <Tab.Panel className="grid grid-cols-1 md:grid-cols-2 gap-3 px-3 lg:grid-cols-4 mb-10 ">
             {
-              pizza.map(item => <FoodCard key={item._id} item={item}></FoodCard>)
+              pizza.map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
             }
           </Tab.Panel>
 
