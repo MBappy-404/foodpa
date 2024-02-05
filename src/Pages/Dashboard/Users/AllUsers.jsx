@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import { Tooltip } from "antd";
 import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
@@ -65,6 +64,8 @@ const AllUsers = () => {
                   title: "Deleted!",
                   text: "User has been deleted.",
                   icon: "success",
+                  showConfirmButton: false,
+                  timer: 1500,
                 });
               }
             });
@@ -77,9 +78,9 @@ const AllUsers = () => {
 
   //   Promote  Admin ///////////////////////////
 
-  const handleAdmin = (user) => {
-    // console.log(id);
-    if(user?.email  != "sadikulsad0810@gmail.com"){
+  const handleAdmin = (promoteUser) => {
+    // console.log(user.email);
+    if (user?.email !== "sadikulsad0810@gmail.com") {
       Swal.fire({
         title: "OPS!",
         text: " You can't change or modify 😃.",
@@ -87,7 +88,7 @@ const AllUsers = () => {
         footer:'Only Main Admin Can Changes'
       });
     }else{
-      fetch(`https://bistro-boss-server-mbappy-404.vercel.app/users/admin/${user._id}`, {
+      fetch(`https://bistro-boss-server-mbappy-404.vercel.app/users/admin/${promoteUser._id}`, {
         method: "PATCH",
       })
         .then((res) => res.json())
@@ -97,10 +98,10 @@ const AllUsers = () => {
             refetch();
             Swal.fire({
               title: "Success!",
-              text: `${user.name} Promoted to ADMIN.`,
+              text: `${promoteUser.name} Promoted to ADMIN.`,
               icon: "success",
-              showConfirmButton: false,
-              timer: 1500,
+              showConfirmButton: true,
+             
             });
           }
         });
@@ -192,12 +193,7 @@ const AllUsers = () => {
 
                         className="px-5 cursor-pointer  py-3 text-xs"
                       >
-                        <Tooltip
-                          title="Make Admin"
-                          placement="leftTop"
-                          color="green"
-                          overlayStyle={{ overflow: 'hidden' }}
-                        >
+                       
                           <span className="px-2 py-2  flex md:block  font-semibold leading-tight text-gray-500 bg-green-100 rounded-full  ">
                             <lord-icon
                               target=".play-customer"
@@ -212,7 +208,7 @@ const AllUsers = () => {
                             ></lord-icon>
                             <span className="mt-1 md:mt-0">Customer</span>
                           </span>
-                        </Tooltip>
+                      
                       </td>
                     )}
 
@@ -223,19 +219,14 @@ const AllUsers = () => {
                       className="px-5 cursor-pointer play-trash py-3 text-xs"
                     >
                       <div className="font-semibold py-3 px-2  leading-tight rounded-full  ">
-                        <Tooltip
-                          overlayStyle={{ overflow: 'hidden' }}
-                          title={user.role === "admin" ? "Delete Admin" : "Delete Customer"}
-                          placement="leftTop"
-                          color="red"
-                        >
+                         
                           <lord-icon
                             target=".play-trash"
                             src="https://cdn.lordicon.com/wpyrrmcq.json"
                             trigger="click"
                             style={{ width: "25px", height: "25px" }}
                           ></lord-icon>
-                        </Tooltip>
+                       
                       </div>
                     </td>
                   </tr>

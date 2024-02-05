@@ -5,6 +5,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Helmet } from "react-helmet-async";
 import { useEffect } from "react";
 import TableSpinner from "../../../Components/Spinner/TableSpinner";
+import { Link } from "react-router-dom";
 
 
 const ManageItems = () => {
@@ -77,8 +78,8 @@ const ManageItems = () => {
             <tbody className="whitespace-nowrap">
             
             {
-              !loading && <> {
-                menu.slice().reverse().map((item,index) =>   
+              !loading && Array.isArray(menu) && <> {
+                menu?.slice().reverse().map((item,index) =>   
                 <tr key={item._id} className="bg-white border-b">
                   <td className="px-6 py-3 text-sm">{index+1}</td>
                 <td className="px-6 py-3 text-sm">
@@ -95,7 +96,8 @@ const ManageItems = () => {
                 </td>
                
                 <td className="px-6 py-3">
-                  <button className="mr-4" title="Edit">
+               <Link to={`/dashboard/update-item/${item._id}`}>
+               <button className="mr-4" title="Edit">
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-5 fill-blue-500 hover:fill-blue-700"
                       viewBox="0 0 348.882 348.882">
                       <path
@@ -106,6 +108,7 @@ const ManageItems = () => {
                         data-original="#000000" />
                     </svg>
                   </button>
+               </Link>
                   <button onClick={() => handleDelete(item)} data-play="play-trash" className="px-2    py-1 cursor-pointer play-trash text-sm">
                         <lord-icon
                           target=".play-trash"

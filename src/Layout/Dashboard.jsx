@@ -23,7 +23,7 @@ const Dashboard = () => {
                 <li className="px-5  border-b-2 border-gray-300 pb-4 mb-5 ">
                   <div className="flex flex-row items-center h-8">
                     <div className="flex items-center justify-start      border-none">
-                      <img className="w-[50%]   mr-2 rounded-md " src={logo} />
+                      <h1 className="text-xl font-bold">DASHBOARD</h1>
                     </div>
                   </div>
                 </li>

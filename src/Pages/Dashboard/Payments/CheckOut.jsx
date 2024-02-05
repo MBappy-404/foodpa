@@ -6,6 +6,7 @@ import useCart from "../../../hooks/useCart";
 import "./CheckOut.css";
 import { Button, Result } from "antd";
 import { Link } from "react-router-dom";
+import { Bars } from "react-loader-spinner";
 
 const CheckOut = () => {
   const today = new Date();
@@ -55,7 +56,7 @@ const CheckOut = () => {
     });
 
     if (error) {
-      console.log("error", error.message);
+      // console.log("error", error.message);
       setCardError(error.message);
     } else {
       // console.log("PaymentMethod", paymentMethod);
@@ -154,19 +155,22 @@ const CheckOut = () => {
               }}
             />
 
-            {process ? (
-              <div className="flex justify-center py-6">
-                <div className="loader"></div>
-              </div>
-            ) : (
-              <button
-                type="submit"
-                className=" mx-auto mt-6 flex items-center justify-center play-view gap-1 px-8 py-2 bg-[#FFA200] mb-3 hover:bg-[#222] transition-all text-sm duration-500 text-white     rounded-full"
-                disabled={!stripe || !clientSecret}
-              >
-                Pay
-              </button>
-            )}
+            <button
+              type="submit"
+              className=" mx-auto mt-6 flex items-center justify-center play-view gap-1 px-8 py-2 bg-[#FFA200] mb-3 hover:bg-[#222] transition-all text-sm duration-500 text-white     rounded-full"
+              disabled={!stripe || !clientSecret || process}
+            >
+            {
+              process ? <Bars
+              height="20"
+              width="25"
+              color="white"
+              ariaLabel="bars-loading"
+              visible={true}
+            /> : 'Pay'
+            }
+            </button>
+            
           </form>
         </div>
       )}

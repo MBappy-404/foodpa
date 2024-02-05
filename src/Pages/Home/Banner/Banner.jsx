@@ -46,7 +46,7 @@ const Banner = () => {
           <div className="relative mt-16 bg-gray-900">
             {/* Background Image */}
             <img
-              className="w-full bg-cover h-full"
+              className="w-full object-cover h-[200px] md:h-full"
               src={slider1}
               alt="Background Image"
             />
@@ -74,7 +74,7 @@ const Banner = () => {
           <div className="relative mt-16 bg-gray-900">
             {/* Background Image */}
             <img
-              className="w-full bg-cover h-full"
+              className="w-full object-cover h-[200px] md:h-full"
               src={slider2}
               alt="Background Image"
             />
@@ -105,7 +105,7 @@ const Banner = () => {
           <div className="relative mt-16 bg-gray-900">
             {/* Background Image */}
             <img
-              className="w-full bg-cover h-full"
+              className="w-full object-cover h-[200px] md:h-full"
               src={slider3}
               alt="Background Image"
             />

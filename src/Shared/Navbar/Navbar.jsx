@@ -7,7 +7,7 @@ import useCart from '../../hooks/useCart';
 import useWishlist from '../../hooks/useWishlist';
 import useAdmin from '../../hooks/useAdmin';
 
-function getItem(label, key, icon, children, type, linkTo,onClick) {
+function getItem(label, key, icon, children, type, linkTo, onClick) {
   return {
     key,
     icon,
@@ -15,7 +15,7 @@ function getItem(label, key, icon, children, type, linkTo,onClick) {
     label,
     type,
     linkTo,
-    onClick 
+    onClick
   };
 }
 const Navbar = () => {
@@ -24,6 +24,7 @@ const Navbar = () => {
   const [cart] = useCart();
   const [wishlist] = useWishlist();
   const [isAdmin] = useAdmin();
+  const [collapsed, setCollapsed] = useState(true);
 
   // console.log(wishlist);
 
@@ -44,7 +45,9 @@ const Navbar = () => {
 
 
 
-
+  const handleMenuClick = () => {
+    setOpen(false);
+  };
 
 
   const items = [
@@ -76,7 +79,7 @@ const Navbar = () => {
   const menuItems = [
     getItem('Home', '1', null, null, null, '/'),
     getItem('Menu', '2', null, null, null, '/menu'),
-    getItem('Order', '3', null, null, null, '/order/bread', ),
+    getItem('Order', '3', null, null, null, '/order/bread',),
     getItem('Contact', '4', null, null, null, '/contact'),
   ];
 
@@ -85,19 +88,19 @@ const Navbar = () => {
   // show link user type 
   if (admin) {
     menuItems.push(getItem('Dashboard', 'sub2', null, [
-      getItem('Dashboard', '9', null, null, null, '/dashboard/admin-dashboard'),
+      getItem('Admin', '9', null, null, null, '/dashboard/admin-dashboard'),
       getItem('All-Users', '15', null, null, null, '/dashboard/all-users'),
       getItem('Add-Items', '16', null, null, null, '/dashboard/add-item'),
       getItem('Manage-Items', '17', null, null, null, '/dashboard/manage-item'),
-  
+
     ]),);
-  } else if(user) {
+  } else if (user) {
     menuItems.push(getItem('Dashboard', 'sub2', null, [
       getItem('My-Activity', '9', null, null, null, '/dashboard/user-dashboard'),
       getItem('Wishlist', '12', null, null, null, '/dashboard/wishlist'),
       getItem('My-Cart', '13', null, null, null, '/dashboard/myCart'),
       getItem('Payments', '14', null, null, null, '/dashboard/payment-history'),
-  
+
 
     ]),);
   }
@@ -108,12 +111,12 @@ const Navbar = () => {
 
     <div className="fixed left-0 right-0 top-0  z-20">
       <div className="  mx-auto bg-white shadow-lg ">
-        <div className="flex justify-between  max-w-screen-xl mx-auto items-center px-2 md:px-8">
+        <div className="flex justify-between  max-w-screen-xl mx-auto items-center px-3 md:px-8">
           <div className="flex">
             <div>
               {/* <!-- Website Logo --> */}
               <a href="#" className="flex items-center py-4 md:py-6">
-                <img src={logo} alt="Logo" className="w-36 mr-4" />
+                <Link to='/'> <img src={logo} alt="Logo" className="w-36 mr-4" /></Link>
               </a>
             </div>
           </div>
@@ -158,8 +161,8 @@ const Navbar = () => {
                       items,
                     }}
                     placement="bottomRight"
-                    overlayStyle={{ width: '150px',}}
-                     
+                    overlayStyle={{ width: '150px', }}
+
                   >
 
                     <lord-icon
@@ -172,9 +175,9 @@ const Navbar = () => {
                 </div> :
                   <div className=' hidden md:block'>
                     <div className='flex -mt-3 items-center  gap-2'>
-                    <Link to='login' className="py-2 px-2 font-medium text-gray-500 rounded hover:bg-yellow-500 hover:text-white transition duration-300">Log In</Link>
-                    <Link to='signUp' className="py-2 px-2 font-medium text-white bg-yellow-500 rounded hover:bg-yellow-400 transition duration-300">Sign Up</Link>
-                  </div>
+                      <Link to='login' className="py-2 px-2 font-medium text-gray-500 rounded hover:bg-yellow-500 hover:text-white transition duration-300">Log In</Link>
+                      <Link to='signUp' className="py-2 px-2 font-medium text-white bg-yellow-500 rounded hover:bg-yellow-400 transition duration-300">Sign Up</Link>
+                    </div>
                   </div>
 
               }
@@ -182,21 +185,21 @@ const Navbar = () => {
           </div>
           {/* <!-- Mobile menu button --> */}
           <div className="md:hidden flex gap-5 justify-center items-center">
-           {
-            user?  <div className='flex justify-center items-center'>
-              <Link className=' rounded-full mt-3' to="/dashboard/myCart">
-            <Badge showZero offset={[-3, 3]} count={cart?.length ? cart?.length : 0} style={{ backgroundColor: '#FFA200' }}>
-              <lord-icon
-                src="https://cdn.lordicon.com/pbrgppbb.json"
-                colors="primary:black"
-                trigger="hover"
-                style={{ width: "30px", height: "30px", }}>
-              </lord-icon>
-            </Badge>
-          </Link> 
-            </div>:  <Link to='login' className="py-1 px-2 font-medium text-gray-500 rounded hover:bg-yellow-500 hover:text-white transition duration-300">Log In</Link>
-          
-           }
+            {
+              user ? <div className='flex justify-center items-center'>
+                <Link className=' rounded-full mt-3' to="/dashboard/myCart">
+                  <Badge showZero offset={[-3, 3]} count={cart?.length ? cart?.length : 0} style={{ backgroundColor: '#FFA200' }}>
+                    <lord-icon
+                      src="https://cdn.lordicon.com/pbrgppbb.json"
+                      colors="primary:black"
+                      trigger="hover"
+                      style={{ width: "30px", height: "30px", }}>
+                    </lord-icon>
+                  </Badge>
+                </Link>
+              </div> : <Link to='login' className="py-1 px-2 font-medium text-gray-500 rounded hover:bg-yellow-500 hover:text-white transition duration-300">Log In</Link>
+
+            }
             <Button onClick={showDrawer} className="outline-none mobile-menu-button">
               <svg className=" w-6 h-6 text-gray-500 hover:text-yellow-500 "
 
@@ -215,8 +218,7 @@ const Navbar = () => {
       </div>
       {/* <!-- mobile menu --> */}
       <div className="hidden mobile-menu">
-        <Drawer title="FoodPa"   placement="right" onClose={onClose} open={open}>
-
+        <Drawer title="FoodPa" placement="right" onClose={onClose} open={open}>
           <div
             style={{
               width: 300,
@@ -233,7 +235,7 @@ const Navbar = () => {
                   return (
                     <Menu.SubMenu key={item.key} icon={item.icon} title={item.label}>
                       {item.children.map(subItem => (
-                        <Menu.Item key={subItem.key}>
+                        <Menu.Item onClick={handleMenuClick} key={subItem.key}>
                           <Link to={subItem.linkTo}>{subItem.label}</Link>
                         </Menu.Item>
                       ))}
@@ -241,7 +243,7 @@ const Navbar = () => {
                   );
                 } else {
                   return (
-                    <Menu.Item style={{ marginBottom: '15px', }} key={item.key}  >
+                    <Menu.Item onClick={handleMenuClick} style={{ marginBottom: '15px', }} key={item.key}  >
                       <Link to={item.linkTo}>{item.label}</Link>
                     </Menu.Item>
                   );
@@ -249,7 +251,7 @@ const Navbar = () => {
               })}
               {
                 user && <Menu.Item key={'logout'}>
-                <Link onClick={handleLogout}>Logout</Link>
+                  <Link onClick={handleLogout}>Logout</Link>
                 </Menu.Item>
               }
             </Menu>

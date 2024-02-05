@@ -15,6 +15,7 @@ const FoodCard = ({ item, loading }) => {
     month: "short",
     year: "numeric",
   }).format(today);
+  
   const { name, image, price, recipe, _id } = item;
   const [wishlist] = useWishlist();
   const [cart] = useCart();

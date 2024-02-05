@@ -143,7 +143,6 @@ const Login = () => {
                         width="20"
                         color="black"
                         ariaLabel="bars-loading"
-                        
                         visible={true}
                       />
                     </div> : ' LogIn'

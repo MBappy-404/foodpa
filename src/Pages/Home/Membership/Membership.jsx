@@ -20,7 +20,7 @@ const Membership = () => {
             <div className="border border-neutral-200 rounded-lg shadow-sm divide-y divide-neutral-200">
               <div className="p-6">
                 <h2 className="text-lg leading-6 font-medium text-neutral-900">Personal</h2>
-                <p className="mt-4 text-sm h-10 text-neutral-500">Enjoy our basic dining experience with a selection of appetizers, entrees, and desserts.</p>
+                <p className="mt-4 text-sm h-14 md:h-10 text-neutral-500">Enjoy our basic dining experience with a selection of appetizers, entrees, and desserts.</p>
                 <p className="mt-4 flex flex-col space-y-2">
                   <span className="flex flex-row space-x-2 items-center">
                     <span className="text-5xl font-extrabold text-neutral-600">$19</span>
@@ -63,7 +63,6 @@ const Membership = () => {
                 <h2 className="text-lg leading-6 font-medium text-neutral-900">Family</h2>
                 <p className="mt-4 text-sm h-10 text-neutral-500">Perfect for families, enjoy a shared dining experience with customizable options.</p>
                 <p className="mt-4 flex flex-col space-y-2">
-
                   <span className="flex flex-row space-x-2 items-center">
                     <span className="text-5xl font-extrabold text-neutral-600">$69</span>
                     <span className="text-sm font-medium text-neutral-500">per month<br /> billed annually</span></span>

@@ -20,6 +20,7 @@ import AdminRoute from "./AdminRoute";
 import AdminDashboard from "../Pages/Dashboard/AdminDashboard/AdminDashboard";
 import PaymentHistory from "../Pages/Dashboard/Payments/PaymentHistory";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import UpdateItem from "../Pages/Dashboard/UpdateItem/UpdateItem";
  
  
  
@@ -97,6 +98,10 @@ export const router = createBrowserRouter([
         {
           path:"manage-item",
           element: <AdminRoute><ManageItems/></AdminRoute>
+        },
+        {
+          path:"update-item/:id",
+          element: <AdminRoute><UpdateItem/></AdminRoute>
         },
         {
           path:"payments",

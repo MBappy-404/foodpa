@@ -25,9 +25,9 @@ const Order = () => {
   const [menu,,loading] = useMenuData();
 
 
-  const dessert = menu.filter(item => item?.category === 'dessert')
-  const soup = menu.filter(item => item?.category === "soup")
-  const salad = menu.filter(item => item?.category === "salad")
+  const bread = menu.filter(item => item?.category === 'bread')
+  const donut = menu.filter(item => item?.category === "donut")
+  const hamburger = menu.filter(item => item?.category === "hamburger")
   const pizza = menu.filter(item => item?.category === "pizza")
   //  const offered = menu.filter(item => item?.category === "offered")
 
@@ -63,17 +63,17 @@ const Order = () => {
 
           <Tab.Panel className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 px-3 mb-10 ">
             {
-              dessert.map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
+              bread.map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
             }
           </Tab.Panel>
           <Tab.Panel className="grid grid-cols-1 md:grid-cols-2 gap-3 px-3 lg:grid-cols-4 mb-10 ">
             {
-              soup.map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
+              donut.map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
             }
           </Tab.Panel>
           <Tab.Panel className="grid grid-cols-1 md:grid-cols-2 gap-3 px-3 lg:grid-cols-4 mb-10 ">
             {
-              salad.map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
+              hamburger.map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
             }
           </Tab.Panel>
           <Tab.Panel className="grid grid-cols-1 md:grid-cols-2 gap-3 px-3 lg:grid-cols-4 mb-10 ">

@@ -106,6 +106,7 @@ const AddItem = () => {
               type="text"
               placeholder="Name"
               name="name"
+              required
               {...register("name", {
                 required: "Name is Required",
                 maxLength: 40,
@@ -120,6 +121,7 @@ const AddItem = () => {
               </label>
               <input
                 type="number"
+                required
                 name="price"
                 {...register("price", { required: "Name is Required" })}
                 placeholder="Price(number)"
@@ -132,6 +134,7 @@ const AddItem = () => {
               </label>
               <select
                 name="category"
+                required
                 {...register("category", { required: "Name is Required" })}
                 className="w-full appearance-none bg-white border border-gray-300 hover:border-gray-500 px-4 py-2.5 rounded-md   leading-tight focus:outline-none   transition"
               >
@@ -151,6 +154,7 @@ const AddItem = () => {
             </label>
             <textarea
               placeholder="Recipe Details"
+              required
               name="recipe"
               {...register("recipe", { required: "Name is Required" })}
               rows="6"
@@ -190,13 +194,13 @@ const AddItem = () => {
             className="  ml-1 mt-6 flex  gap-1 px-7 py-2.5 bg-[#FFA200] mb-3 hover:bg-[#222] transition-all text-sm duration-300 text-white    rounded  "
           >
             {
-              loading ? <div className="px-8"><Bars
+              loading ? <div className="px-3.5"><Bars
                 height="20"
                 width="20"
                 color="white"
                 ariaLabel="bars-loading"
                 visible={true}
-              /></div> : 'Send Review'
+              /></div> : 'Submit'
 
             }
           </button>
