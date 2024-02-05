@@ -8,7 +8,7 @@ import CheckOut from "./CheckOut";
 
  const stripePromise = loadStripe(import.meta.env.VITE_Payment_Key);
 //  console.log(stripePromise);
-const Payments = () => {
+const Payments = ({counter}) => {
 
   
  
@@ -16,7 +16,7 @@ const Payments = () => {
           <div className=" mx-auto my-8">
          <div className=" mx-auto">
          <Elements stripe={stripePromise}>
-            <CheckOut/>
+            <CheckOut  counter={counter}/>
           </Elements>
          </div>
          

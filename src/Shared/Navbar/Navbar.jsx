@@ -6,6 +6,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 import useCart from '../../hooks/useCart';
 import useWishlist from '../../hooks/useWishlist';
 import useAdmin from '../../hooks/useAdmin';
+import { FaCartArrowDown, FaChartSimple,  FaFilePen, FaHeart, FaHouse,  FaPhoneVolume,  FaRegCalendarDays, FaRegCalendarPlus, FaRightFromBracket, FaRightToBracket, FaStar, FaUsers, FaUtensils } from "react-icons/fa6";
 
 function getItem(label, key, icon, children, type, linkTo, onClick) {
   return {
@@ -218,43 +219,189 @@ const Navbar = () => {
       </div>
       {/* <!-- mobile menu --> */}
       <div className="hidden mobile-menu">
-        <Drawer title="FoodPa" placement="right" onClose={onClose} open={open}>
+        <Drawer placement="right" onClose={onClose} open={open}>
           <div
             style={{
-              width: 300,
+              width: 'full',
               margin: 'auto',
 
             }}
           >
-            <Menu
-              mode="inline"
-              style={{ borderRadius: '20px', padding: '15px', backgroundColor: '#D58B09', fontSize: '15px', color: 'white', fontFamily: 'Farro' }}
-            >
-              {menuItems.map(item => {
-                if (item.children) {
-                  return (
-                    <Menu.SubMenu key={item.key} icon={item.icon} title={item.label}>
-                      {item.children.map(subItem => (
-                        <Menu.Item onClick={handleMenuClick} key={subItem.key}>
-                          <Link to={subItem.linkTo}>{subItem.label}</Link>
-                        </Menu.Item>
-                      ))}
-                    </Menu.SubMenu>
-                  );
-                } else {
-                  return (
-                    <Menu.Item onClick={handleMenuClick} style={{ marginBottom: '15px', }} key={item.key}  >
-                      <Link to={item.linkTo}>{item.label}</Link>
-                    </Menu.Item>
-                  );
+
+            {/* small device side menu  */}
+            <nav
+              className="bg-[#f7f7f8] font-[Farro]   min-w-[250px] py-6 px-4 flex flex-col overflow-auto">
+              <a href="javascript:void(0)"><img src={logo} alt="logo" className='w-[100px]' />
+              </a>
+              <ul onClick={handleMenuClick} className="space-y-3 flex-1 mt-6">
+                <li>
+                  <Link to='/' className='text-gray-600'>
+                    <a href="javascript:void(0)"
+                      className="text-gray-600  hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all">
+                      <FaHouse className='mr-3 text-gray-500 mb-1 w-5 h-5' />
+                      Home
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link to='/menu' className='text-gray-600'>
+                    <a href="javascript:void(0)"
+                      className="text-gray-600  hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all">
+                      <FaUtensils className='mr-3 text-gray-500 mb-1 w-5 h-5' />
+                      Menu
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link to='/order/bread' className='text-gray-600'>
+                    <a href="javascript:void(0)"
+                      className="text-gray-600  hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all relative">
+                      <FaFilePen className='mr-3 text-gray-500 mb-1 w-5 h-5' />
+                      Order
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link to='/contact' className='text-gray-600'>
+                    <a href="javascript:void(0)"
+                      className="text-gray-600  hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all relative">
+                      <FaPhoneVolume className='mr-3 text-gray-500 mb-1 w-5 h-5' />
+                      Contact
+                    </a>
+                  </Link>
+                </li>
+
+                {
+                  user && <>
+
+                    {
+                      isAdmin ? <>
+                      {/* admin dashboard  small device */}
+                        <li>
+                          <a href="javascript:void(0)"
+                            className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-4 border-b transition-all">
+                            Dashboard
+                          </a>
+                        </li>
+                        <li>
+                          <Link to='/dashboard/admin-dashboard' className='text-gray-600'>
+                            <a href="javascript:void(0)"
+                              className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all">
+                              <FaChartSimple className='mr-3 text-gray-500 mb-1 w-5 h-5' />
+                              Admin-Panel
+                            </a>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to='/dashboard/add-item' className='text-gray-600'>
+                            <a href="javascript:void(0)"
+                              className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all">
+                              <FaRegCalendarPlus className='mr-3 text-gray-500 mb-1 w-5 h-5' />
+                              Add-Items
+                            </a>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to='/dashboard/manage-item' className='text-gray-600'>
+                            <a href="javascript:void(0)"
+                              className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all">
+                              <FaRegCalendarDays className='mr-3 text-gray-500 mb-1 w-5 h-5' />
+                              Manage-Items
+                            </a>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to='/dashboard/all-users' className='text-gray-600'>
+                            <a href="javascript:void(0)"
+                              className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all">
+                              <FaUsers className='mr-3 text-gray-500 mb-1 w-5 h-5' />
+                              All-Users
+                            </a>
+                          </Link>
+                        </li></> :
+                        <>
+
+                        {/* user dashboard small device */}
+                          <li>
+
+                            <a href="javascript:void(0)"
+                              className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-4 border-b transition-all">
+                              Dashboard
+                            </a>
+                          </li>
+                          <li>
+                            <Link to='/dashboard/user-dashboard' className='text-gray-600'>
+                              <a href="javascript:void(0)"
+                                className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all">
+                                <FaChartSimple className='mr-3 text-gray-500 mb-1 w-5 h-5' />
+                                My-Activity
+                              </a>
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to='/dashboard/wishlist' className='text-gray-600'>
+                              <a href="javascript:void(0)"
+                                className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all">
+                                <FaHeart className='mr-3 text-gray-500 mb-1 w-5 h-5' />
+                                WIshlist
+                                <span
+                                  className="bg-red-400 w-[18px] h-[18px] flex items-center justify-center text-white text-[11px] font-bold ml-auto rounded-full">{wishlist?.length}</span>
+                              </a>
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link to='/dashboard/myCart' className='text-gray-600'>
+                              <a href="javascript:void(0)"
+                                className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all relative">
+                                <FaCartArrowDown className='mr-3 text-gray-500 mb-1 w-5 h-5' />
+                                My-Cart
+                                <span
+                                  className="bg-red-400 w-[18px] h-[18px] flex items-center justify-center text-white text-[11px] font-bold ml-auto rounded-full">{cart?.length}</span>
+                              </a>
+                            </Link>
+                          </li>
+
+                          <li>
+                            <Link to='/dashboard/review' className='text-gray-600'>
+                              <a href="javascript:void(0)"
+                                className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all">
+                                <FaStar className='mr-3 text-gray-500 mb-1 w-5 h-5' />
+                                Give-Review
+                              </a>
+                            </Link>
+                          </li>
+                        
+                        </>
+                    }
+                  </>
                 }
-              })}
-              {
-                user && <Menu.Item key={'logout'}>
-                  <Link onClick={handleLogout}>Logout</Link>
-                </Menu.Item>
-              }
-            </Menu>
+
+              </ul>
+
+              <ul onClick={handleMenuClick} className="space-y-3 text-gray-600 mt-3">
+
+                {
+                  user ? <li>
+                    <a href="javascript:void(0)"
+                      className="   font-semibold text-sm flex items-center  rounded px-4 py-3 transition-all">
+                      <FaRightFromBracket className='mr-3 text-gray-500 mb-1 w-5 h-5' />
+                      <Link onClick={handleLogout} >Log out</Link>
+                    </a>
+                  </li> :
+
+                    <li>
+                      <Link to='/login' className='text-gray-600'>
+                        <a href="javascript:void(0)"
+                          className="text-gray-600  hover:text-gray-600 font-semibold text-sm flex items-center rounded px-4 py-3 transition-all">
+                          <FaRightToBracket className='mr-3 text-gray-500 mb-1 w-5 h-5' />
+                          Log In
+                        </a>
+                      </Link>
+                    </li>
+                }
+              </ul>
+            </nav>
 
           </div>
         </Drawer>

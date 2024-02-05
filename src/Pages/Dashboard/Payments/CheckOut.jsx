@@ -8,7 +8,7 @@ import { Button, Result } from "antd";
 import { Link } from "react-router-dom";
 import { Bars } from "react-loader-spinner";
 
-const CheckOut = () => {
+const CheckOut = ({counter}) => {
   const today = new Date();
   const date = new Intl.DateTimeFormat("en-US", {
     day: "numeric",
@@ -26,7 +26,7 @@ const CheckOut = () => {
 
   const [cart, cartRefetch] = useCart();
   const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
-  const price = parseFloat(totalPrice.toFixed(2));
+  const price = counter* parseFloat(totalPrice.toFixed(2));
 
   useEffect(() => {
     if (price > 0) {
