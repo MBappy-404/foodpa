@@ -45,7 +45,7 @@ const MenuCategory = ({ items, heading, coverBg, loading }) => {
 
         <div className=" grid grid-cols-1 mx-auto md:grid-cols-1 lg:grid-cols-2 gap-5   ">
           {
-            items.map(item =>
+            items.slice().reverse().map(item =>
 
               <> {loading ? <RecipeSpinner /> : <div key={item._id}>
 
@@ -63,8 +63,8 @@ const MenuCategory = ({ items, heading, coverBg, loading }) => {
                           </h1>
                           <p className="text-gray-500 text-sm md:text-base">
                             {
-                              item.recipe
-                            }
+                              item.recipe.slice(0,100)
+                            }...
                           </p>
                           <div className="flex gap-4 pt-5 mt-auto">
                             <Tooltip placement="rightTop" title={item.like?.length > 0 && ` ${item.like?.length} ${item?.like?.length > 1 ? 'Peoples' : 'people'} liked this recipe`}>
@@ -100,8 +100,8 @@ const MenuCategory = ({ items, heading, coverBg, loading }) => {
                         </h1>
                         <p className="text-gray-500 text-sm md:text-base">
                           {
-                            item.recipe
-                          }
+                            item.recipe.slice(0,110)
+                          }...
                         </p>
                         <div className="flex gap-4 pt-5 mt-auto">
                           <Tooltip placement="rightTop" title={item.like?.length > 0 && `${item.like?.length} ${item?.like?.length > 1 ? 'Peoples' : 'people'} liked this recipe`}>

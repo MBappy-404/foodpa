@@ -83,7 +83,7 @@ const UpdateItem = () => {
                      image: imageUrl,
                   };
                   // console.log(newMenuItems);
-               //    console.log(updateMenuItems);
+                  //    console.log(updateMenuItems);
                   fetch(
                      `https://bistro-boss-server-mbappy-404.vercel.app/menu/${menu._id}`,
                      {
@@ -120,7 +120,7 @@ const UpdateItem = () => {
             category: category ? category.toLowerCase() : menu.category,
             image: menu.image,
          };
-     //     console.log(updateMenuItems);
+         //     console.log(updateMenuItems);
          fetch(
             `https://bistro-boss-server-mbappy-404.vercel.app/menu/${menu._id}`,
             {
@@ -214,6 +214,8 @@ const UpdateItem = () => {
                         <option value="DONUT">DONUT</option>
                         <option value="HAMBURGER">HAMBURGER</option>
                         <option value="PIZZA">PIZZA</option>
+                        <option value="popular">Popular</option>
+                        <option value="offered">Offer</option>
                      </select>
                   </div>
                </div>

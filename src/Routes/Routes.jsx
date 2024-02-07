@@ -104,10 +104,6 @@ export const router = createBrowserRouter([
           element: <AdminRoute><UpdateItem/></AdminRoute>
         },
         {
-          path:"payments",
-          element: <Payments/>
-        },
-        {
           path:"payment-history",
           element: <PaymentHistory/>
         },

@@ -63,32 +63,32 @@ const Order = () => {
 
           <Tab.Panel className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 px-3 mb-10 ">
             {
-              bread.map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
+              bread.slice().reverse().map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
             }
           </Tab.Panel>
           <Tab.Panel className="grid grid-cols-1 md:grid-cols-2 gap-3 px-3 lg:grid-cols-4 mb-10 ">
             {
-              donut.map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
+              donut.slice().reverse().map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
             }
           </Tab.Panel>
           <Tab.Panel className="grid grid-cols-1 md:grid-cols-2 gap-3 px-3 lg:grid-cols-4 mb-10 ">
             {
-              hamburger.map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
+              hamburger.slice().reverse().map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
             }
           </Tab.Panel>
           <Tab.Panel className="grid grid-cols-1 md:grid-cols-2 gap-3 px-3 lg:grid-cols-4 mb-10 ">
             {
-              pizza.map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
+              pizza.slice().reverse().map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
             }
           </Tab.Panel>
           <Tab.Panel className="grid grid-cols-1 md:grid-cols-2 gap-3 px-3 lg:grid-cols-4 mb-10 ">
             {
-              hamburger.map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
+              hamburger.slice().reverse().map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
             }
           </Tab.Panel>
           <Tab.Panel className="grid grid-cols-1 md:grid-cols-2 gap-3 px-3 lg:grid-cols-4 mb-10 ">
             {
-              donut.map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
+              donut.slice().reverse().map(item => <FoodCard loading={loading} key={item._id} item={item}></FoodCard>)
             }
           </Tab.Panel>
 

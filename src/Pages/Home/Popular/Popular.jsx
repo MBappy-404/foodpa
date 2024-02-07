@@ -53,7 +53,7 @@ const Popular = () => {
                 <Badge.Ribbon key={item._id} style={{ fontFamily: "Farro" }} text="Popular" color="red">
                   <div key={item._id} className="bg-gray-100 border border-gray-200 font-[Farro] p-3 py-5 md:py-3 my-2 rounded-2xl shadow-lg flex flex-col sm:flex-row gap-5">
                     <div className=" bg-cover ">
-                      <img src={item.image} className="w-full rounded-xl h-72 md:w-40 md:h-40 " alt="" />
+                      <img src={item.image} className="w-full rounded-xl h-[250px]   md:w-40 md:h-40 " alt="" />
                     </div>
                     <div className="flex sm:flex-1 flex-col gap-2 p-1">
                       <h1 className="text-lg sm:text-xl   text-gray-600">
@@ -61,8 +61,8 @@ const Popular = () => {
                       </h1>
                       <p className="text-gray-500 text-sm sm:text-base line-clamp-3">
                         {
-                          item.recipe
-                        }
+                          item.recipe.slice(10,110)
+                        }...
                       </p>
                       <div className="flex gap-4 pt-5 mt-auto">
                         <Tooltip overlayStyle={{ overflow: 'hidden' }} placement="rightTop" title={item.like?.length > 0 && ` ${item.like?.length} ${item?.like?.length > 1 ? 'Peoples' : 'people'} liked this recipe`}>

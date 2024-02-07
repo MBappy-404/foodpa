@@ -46,7 +46,7 @@ const Dashboard = () => {
                               </lord-icon>
                             </span>
 
-                            <span className="ml-2 text-sm  tracking-wide  font-[400] mt-1 truncate">Admin</span>
+                            <span className="ml-2 text-sm  tracking-wide  font-[400] mt-1 truncate">Admin-Panel</span>
 
 
                           </Link>
@@ -239,7 +239,7 @@ const Dashboard = () => {
               </ul>
              
             </div>
-            <p className=" ml-5 text-xs">Copyright @2024</p>
+            {/* <p className=" ml-5 text-xs -mb-1">Copyright @2024</p> */}
           </div>
           {/* <!-- ./Sidebar --> */}
 

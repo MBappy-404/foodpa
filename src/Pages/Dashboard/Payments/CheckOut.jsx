@@ -4,11 +4,12 @@ import { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import useCart from "../../../hooks/useCart";
 import "./CheckOut.css";
-import { Button, Result } from "antd";
+import { Button, Result, message } from "antd";
 import { Link } from "react-router-dom";
 import { Bars } from "react-loader-spinner";
+ 
 
-const CheckOut = ({counter}) => {
+const CheckOut = ({ counter }) => {
   const today = new Date();
   const date = new Intl.DateTimeFormat("en-US", {
     day: "numeric",
@@ -26,7 +27,7 @@ const CheckOut = ({counter}) => {
 
   const [cart, cartRefetch] = useCart();
   const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
-  const price = counter* parseFloat(totalPrice.toFixed(2));
+  const price = counter * parseFloat(totalPrice.toFixed(2));
 
   useEffect(() => {
     if (price > 0) {
@@ -36,6 +37,8 @@ const CheckOut = ({counter}) => {
       });
     }
   }, [price, axiosSecure]);
+
+ 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -160,21 +163,21 @@ const CheckOut = ({counter}) => {
               className=" mx-auto mt-6 flex items-center justify-center play-view gap-1 px-8 py-2 bg-[#FFA200] mb-3 hover:bg-[#222] transition-all text-sm duration-500 text-white     rounded-full"
               disabled={!stripe || !clientSecret || process}
             >
-            {
-              process ? <Bars
-              height="20"
-              width="25"
-              color="white"
-              ariaLabel="bars-loading"
-              visible={true}
-            /> : 'Pay'
-            }
+              {
+                process ? <Bars
+                  height="20"
+                  width="25"
+                  color="white"
+                  ariaLabel="bars-loading"
+                  visible={true}
+                /> : 'Pay'
+              }
             </button>
-            
+
           </form>
         </div>
       )}
-      {/* <p className="text-sm text-red-400 py-2">{cardError}</p> */}
+      <p className="text-sm text-red-400 py-2">{cardError ?cardError.message : '' }</p>
     </div>
   );
 };

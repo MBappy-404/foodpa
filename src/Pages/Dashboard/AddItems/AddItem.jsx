@@ -136,15 +136,18 @@ const AddItem = () => {
                 name="category"
                 required
                 {...register("category", { required: "Name is Required" })}
-                className="w-full appearance-none bg-white border border-gray-300 hover:border-gray-500 px-4 py-2.5 rounded-md   leading-tight focus:outline-none   transition"
+                className="w-full appearance-none bg-white border border-gray-300 hover:border-gray-500 px-4 py-2.5 rounded-md  uppercase  leading-tight focus:outline-none   transition"
               >
                 <option value="" disabled selected>
                   Select
                 </option>
-                <option value="DESERT">DESERT</option>
-                <option value="SUP">SOUP</option>
-                <option value="SALAD">SALAD</option>
-                <option value="PIZZA">PIZZA</option>
+                <option value="bread">Bread</option>
+                <option value="donut">Donut</option>
+                <option value="hamburger">Hamburger</option>
+                <option value="pizza">Pizza</option>
+                <option value="tacos">Tacos</option>
+                <option value="popular">Popular</option>
+                <option value="offered">Offer</option>
               </select>
             </div>
           </div>

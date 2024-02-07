@@ -6,7 +6,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 import useCart from '../../hooks/useCart';
 import useWishlist from '../../hooks/useWishlist';
 import useAdmin from '../../hooks/useAdmin';
-import { FaCartArrowDown, FaChartSimple,  FaFilePen, FaHeart, FaHouse,  FaPhoneVolume,  FaRegCalendarDays, FaRegCalendarPlus, FaRightFromBracket, FaRightToBracket, FaStar, FaUsers, FaUtensils } from "react-icons/fa6";
+import { FaCartArrowDown, FaChartSimple, FaFilePen, FaHeart, FaHouse, FaPhoneVolume, FaRegCalendarDays, FaRegCalendarPlus, FaRightFromBracket, FaRightToBracket, FaStar, FaUsers, FaUtensils } from "react-icons/fa6";
 
 function getItem(label, key, icon, children, type, linkTo, onClick) {
   return {
@@ -121,7 +121,7 @@ const Navbar = () => {
               </a>
             </div>
           </div>
-          {/* <!-- Secondary Navbar items --> */}
+          {/* <!--  Navbar items --> */}
           <div className="hidden cursor-pointer md:flex justify-between items-center space-x-3 ">
             <div className="hidden md:flex items-center space-x-1">
               <Link to='/' className='py-4 px-2 text-gray-500 font-semibold hover:text-yellow-500 transition duration-300'>Home</Link>
@@ -180,7 +180,6 @@ const Navbar = () => {
                       <Link to='signUp' className="py-2 px-2 font-medium text-white bg-yellow-500 rounded hover:bg-yellow-400 transition duration-300">Sign Up</Link>
                     </div>
                   </div>
-
               }
             </div>
           </div>
@@ -199,7 +198,6 @@ const Navbar = () => {
                   </Badge>
                 </Link>
               </div> : <Link to='login' className="py-1 px-2 font-medium text-gray-500 rounded hover:bg-yellow-500 hover:text-white transition duration-300">Log In</Link>
-
             }
             <Button onClick={showDrawer} className="outline-none mobile-menu-button">
               <svg className=" w-6 h-6 text-gray-500 hover:text-yellow-500 "
@@ -228,16 +226,14 @@ const Navbar = () => {
             }}
           >
 
-            {/* small device side menu  */}
+            {/* small device  menu  */}
             <nav
-              className="bg-[#f7f7f8] font-[Farro]   min-w-[250px] py-6 px-4 flex flex-col overflow-auto">
-              <a href="javascript:void(0)"><img src={logo} alt="logo" className='w-[100px]' />
-              </a>
-              <ul onClick={handleMenuClick} className="space-y-3 flex-1 mt-6">
+              className="bg-[#ececec] font-[Farro] border   min-w-[250px] py-6 px-4 flex flex-col overflow-auto">
+              <ul onClick={handleMenuClick} className="space-y-3 flex-1">
                 <li>
                   <Link to='/' className='text-gray-600'>
                     <a href="javascript:void(0)"
-                      className="text-gray-600  hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all">
+                      className="text-gray-600  hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-300 rounded px-4 py-2 transition-all">
                       <FaHouse className='mr-3 text-gray-500 mb-1 w-5 h-5' />
                       Home
                     </a>
@@ -246,7 +242,7 @@ const Navbar = () => {
                 <li>
                   <Link to='/menu' className='text-gray-600'>
                     <a href="javascript:void(0)"
-                      className="text-gray-600  hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all">
+                      className="text-gray-600  hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-300 rounded px-4 py-2 transition-all">
                       <FaUtensils className='mr-3 text-gray-500 mb-1 w-5 h-5' />
                       Menu
                     </a>
@@ -255,7 +251,7 @@ const Navbar = () => {
                 <li>
                   <Link to='/order/bread' className='text-gray-600'>
                     <a href="javascript:void(0)"
-                      className="text-gray-600  hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all relative">
+                      className="text-gray-600  hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-300 rounded px-4 py-2 transition-all relative">
                       <FaFilePen className='mr-3 text-gray-500 mb-1 w-5 h-5' />
                       Order
                     </a>
@@ -264,7 +260,7 @@ const Navbar = () => {
                 <li>
                   <Link to='/contact' className='text-gray-600'>
                     <a href="javascript:void(0)"
-                      className="text-gray-600  hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all relative">
+                      className="text-gray-600  hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-300 rounded px-4 py-2 transition-all relative">
                       <FaPhoneVolume className='mr-3 text-gray-500 mb-1 w-5 h-5' />
                       Contact
                     </a>
@@ -276,17 +272,17 @@ const Navbar = () => {
 
                     {
                       isAdmin ? <>
-                      {/* admin dashboard  small device */}
+                        {/* admin dashboard  small device */}
                         <li>
                           <a href="javascript:void(0)"
-                            className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-4 border-b transition-all">
+                            className="text-gray-600  font-semibold text-sm flex items-center  rounded px-4 py-4 border-b border-gray-300 transition-all">
                             Dashboard
                           </a>
                         </li>
                         <li>
                           <Link to='/dashboard/admin-dashboard' className='text-gray-600'>
                             <a href="javascript:void(0)"
-                              className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all">
+                              className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-300 rounded px-4 py-2 transition-all">
                               <FaChartSimple className='mr-3 text-gray-500 mb-1 w-5 h-5' />
                               Admin-Panel
                             </a>
@@ -295,7 +291,7 @@ const Navbar = () => {
                         <li>
                           <Link to='/dashboard/add-item' className='text-gray-600'>
                             <a href="javascript:void(0)"
-                              className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all">
+                              className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-300 rounded px-4 py-2 transition-all">
                               <FaRegCalendarPlus className='mr-3 text-gray-500 mb-1 w-5 h-5' />
                               Add-Items
                             </a>
@@ -304,7 +300,7 @@ const Navbar = () => {
                         <li>
                           <Link to='/dashboard/manage-item' className='text-gray-600'>
                             <a href="javascript:void(0)"
-                              className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all">
+                              className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-300 rounded px-4 py-2 transition-all">
                               <FaRegCalendarDays className='mr-3 text-gray-500 mb-1 w-5 h-5' />
                               Manage-Items
                             </a>
@@ -313,7 +309,7 @@ const Navbar = () => {
                         <li>
                           <Link to='/dashboard/all-users' className='text-gray-600'>
                             <a href="javascript:void(0)"
-                              className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all">
+                              className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-300 rounded px-4 py-2 transition-all">
                               <FaUsers className='mr-3 text-gray-500 mb-1 w-5 h-5' />
                               All-Users
                             </a>
@@ -321,18 +317,18 @@ const Navbar = () => {
                         </li></> :
                         <>
 
-                        {/* user dashboard small device */}
+                          {/* user dashboard small device */}
                           <li>
 
                             <a href="javascript:void(0)"
-                              className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-4 border-b transition-all">
+                              className="text-gray-600 hover:text-gray-600  font-semibold text-sm flex items-center  rounded px-4 py-4 border-b  ml-3  border-gray-300 transition-all">
                               Dashboard
                             </a>
                           </li>
                           <li>
                             <Link to='/dashboard/user-dashboard' className='text-gray-600'>
                               <a href="javascript:void(0)"
-                                className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all">
+                                className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-300 rounded px-4 py-2 transition-all">
                                 <FaChartSimple className='mr-3 text-gray-500 mb-1 w-5 h-5' />
                                 My-Activity
                               </a>
@@ -341,7 +337,7 @@ const Navbar = () => {
                           <li>
                             <Link to='/dashboard/wishlist' className='text-gray-600'>
                               <a href="javascript:void(0)"
-                                className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all">
+                                className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-300 rounded px-4 py-2 transition-all">
                                 <FaHeart className='mr-3 text-gray-500 mb-1 w-5 h-5' />
                                 WIshlist
                                 <span
@@ -353,7 +349,7 @@ const Navbar = () => {
                           <li>
                             <Link to='/dashboard/myCart' className='text-gray-600'>
                               <a href="javascript:void(0)"
-                                className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all relative">
+                                className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-300 rounded px-4 py-2 transition-all relative">
                                 <FaCartArrowDown className='mr-3 text-gray-500 mb-1 w-5 h-5' />
                                 My-Cart
                                 <span
@@ -365,13 +361,13 @@ const Navbar = () => {
                           <li>
                             <Link to='/dashboard/review' className='text-gray-600'>
                               <a href="javascript:void(0)"
-                                className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-200 rounded px-4 py-3 transition-all">
+                                className="text-gray-600 hover:text-gray-600 font-semibold text-sm flex items-center hover:bg-gray-300 rounded px-4 py-2 transition-all">
                                 <FaStar className='mr-3 text-gray-500 mb-1 w-5 h-5' />
                                 Give-Review
                               </a>
                             </Link>
                           </li>
-                        
+
                         </>
                     }
                   </>
@@ -379,22 +375,24 @@ const Navbar = () => {
 
               </ul>
 
-              <ul onClick={handleMenuClick} className="space-y-3 text-gray-600 mt-3">
+              <ul onClick={handleMenuClick} className="space-y-3 mt-3">
 
                 {
                   user ? <li>
-                    <a href="javascript:void(0)"
-                      className="   font-semibold text-sm flex items-center  rounded px-4 py-3 transition-all">
-                      <FaRightFromBracket className='mr-3 text-gray-500 mb-1 w-5 h-5' />
-                      <Link onClick={handleLogout} >Log out</Link>
-                    </a>
+                    <Link onClick={handleLogout} >
+                      <a href="javascript:void(0)"
+                        className="   font-semibold text-sm flex hover:bg-gray-300 items-center text-gray-600 rounded px-4 py-2 transition-all">
+                        <FaRightFromBracket className='mr-3  text-gray-500 mb-1 w-5 h-5' />
+                        Log out
+                      </a>
+                    </Link>
                   </li> :
 
                     <li>
                       <Link to='/login' className='text-gray-600'>
                         <a href="javascript:void(0)"
-                          className="text-gray-600  hover:text-gray-600 font-semibold text-sm flex items-center rounded px-4 py-3 transition-all">
-                          <FaRightToBracket className='mr-3 text-gray-500 mb-1 w-5 h-5' />
+                          className="text-gray-600  hover:text-gray-600 hover:bg-gray-300 font-semibold text-sm flex items-center rounded px-4 py-2 transition-all">
+                          <FaRightToBracket className='mr-3 text-gray-500  mb-1 w-5 h-5' />
                           Log In
                         </a>
                       </Link>
