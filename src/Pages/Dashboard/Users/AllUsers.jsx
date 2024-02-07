@@ -37,9 +37,9 @@ const AllUsers = () => {
       // delete only me 😃
       Swal.fire({
         title: "OPS!",
-        text: " You can't change or modify 😃.",
+        text: " You can't changes or modify 😃.",
         icon: "warning",
-        footer:'Only Main Admin Can Changes'
+        
       });
     } else {
       Swal.fire({
@@ -83,7 +83,7 @@ const AllUsers = () => {
     if (user?.email !== "sadikulsad0810@gmail.com") {
       Swal.fire({
         title: "OPS!",
-        text: " You can't change or modify 😃.",
+        text: " You can't changes or modify 😃.",
         icon: "warning",
         footer:'Only Main Admin Can Changes'
       });

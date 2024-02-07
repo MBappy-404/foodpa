@@ -19,13 +19,13 @@ const Menu = () => {
   }, []);
   const [menu,, loading] = useMenuData();
 
-  const bread = menu.filter((item) => item?.category === "bread");
-  const donut = menu.filter((item) => item?.category === "donut");
-  const hamburger = menu.filter((item) => item?.category === "hamburger");
-  const pizza = menu.filter((item) => item?.category === "pizza");
-  const sandwich = menu.filter((item) => item?.category === "bread");
-  const tacos = menu.filter((item) => item?.category === "hamburger");
-  const offered = menu.filter((item) => item?.category === "offered");
+  const bread = menu?.filter((item) => item?.category === "bread");
+  const donut = menu?.filter((item) => item?.category === "donut");
+  const hamburger = menu?.filter((item) => item?.category === "hamburger");
+  const pizza = menu?.filter((item) => item?.category === "pizza");
+  const sandwich = menu?.filter((item) => item?.category === "bread");
+  const tacos = menu?.filter((item) => item?.category === "hamburger");
+  const offered = menu?.filter((item) => item?.category === "offered");
 
   // console.log(dessert);
   return (

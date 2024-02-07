@@ -15,7 +15,7 @@ const Feature = () => {
         <div className='py-5 md:py-24 '>
           <div className='text-center'>
             <h3 className="text-sm md:text-xl mb-3 md:mb-5 font-[Courgette]">Fast processing</h3>
-            <h1 className="text-xl md:text-xl text-red-600 py-1   font-[800]   mb-2 md:mb-4">
+            <h1 className="text-xl md:text-3xl text-red-600 py-1   font-[800]   mb-2 md:mb-4">
               DELICIOUS, ATTRACTIVE
               <br />
               <span className=" mt-1 md:mt-2 block">AND BEAUTIFUL</span>

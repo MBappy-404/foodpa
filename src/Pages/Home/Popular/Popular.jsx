@@ -4,14 +4,15 @@ import { Badge, Tooltip } from "antd";
 import useMenuData from "../../../hooks/useMenuData";
 import useAuth from "../../../hooks/useAuth";
 import RecipeSpinner from "../../../Components/Spinner/RecipeSpinner";
+import { FaStar } from "react-icons/fa6";
 
 
 const Popular = () => {
 
   const { user } = useAuth()
   const [menu, refetch, loading, setLoading] = useMenuData();
-  const popular = menu.filter(item => item.category === 'popular');
-  const like = menu.map(item => item.like && item.like?.includes(user?.email))
+  const popular = menu?.filter(item => item.category === 'popular');
+  const like = menu?.map(item => item.like && item.like?.includes(user?.email))
 
 
   const handleLike = (id) => {
@@ -61,7 +62,7 @@ const Popular = () => {
                       </h1>
                       <p className="text-gray-500 text-sm sm:text-base line-clamp-3">
                         {
-                          item.recipe.slice(10,110)
+                          item.recipe.slice(10, 100)
                         }...
                       </p>
                       <div className="flex gap-4 pt-5 mt-auto">
@@ -79,7 +80,14 @@ const Popular = () => {
                             <span className=" mt-0.5 text-xs">{like ? item.like?.length : '0'}</span>
                           </button>
                         </Tooltip>
-
+                        <div className="flex gap-1 items-center text-gray-400">
+                          <FaStar />
+                          <FaStar />
+                          <FaStar />
+                          <FaStar />
+                          <FaStar />
+                          <span className="mt-1">(0)</span>
+                        </div>
                         <button className="ml-auto bg-gray-300 flex items-center gap-1 sm:text-md border border-gray-300 px-3 py-1 rounded-full transition-colors  focus:outline-none ">
                           <span>${item.price}</span>
                         </button>

@@ -7,6 +7,7 @@ import useCart from "../../hooks/useCart";
 import useWishlist from "../../hooks/useWishlist";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Spinner from "../Spinner/Spinner";
+import { FaStar } from "react-icons/fa6";
 
 const FoodCard = ({ item, loading }) => {
   const today = new Date();
@@ -133,7 +134,7 @@ const FoodCard = ({ item, loading }) => {
               overlayStyle={{ overflow: 'hidden' }}
               placement="leftTop"
               title={isWishlist ? "Already Added" : "Add To Wishlist"} >
-                {/* wishlist button  */}
+              {/* wishlist button  */}
               <button
                 disabled={isWishlist}
                 onClick={() => addWishList(item)}
@@ -172,23 +173,31 @@ const FoodCard = ({ item, loading }) => {
                 {/* close button */}
                 <svg onClick={() => setOpenModal(false)} className="w-10 mx-auto  absolute right-2 top-2 drop-shadow-[0_0_10px_black] cursor-pointer" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M6.99486 7.00636C6.60433 7.39689 6.60433 8.03005 6.99486 8.42058L10.58 12.0057L6.99486 15.5909C6.60433 15.9814 6.60433 16.6146 6.99486 17.0051C7.38538 17.3956 8.01855 17.3956 8.40907 17.0051L11.9942 13.4199L15.5794 17.0051C15.9699 17.3956 16.6031 17.3956 16.9936 17.0051C17.3841 16.6146 17.3841 15.9814 16.9936 15.5909L13.4084 12.0057L16.9936 8.42059C17.3841 8.03007 17.3841 7.3969 16.9936 7.00638C16.603 6.61585 15.9699 6.61585 15.5794 7.00638L11.9942 10.5915L8.40907 7.00636C8.01855 6.61584 7.38538 6.61584 6.99486 7.00636Z" fill="#fff"></path></g></svg>
                 {/* image */}
-                <img src={item.image} className="min-w-[300px] md:min-w-[500px] min-h-[200px] md:min-h-[350px] bg-black/20" alt="" />
+                <img src={item.image} className="min-w-[300px] md:min-w-[400px] bg-white min-h-[200px] md:min-h-[350px] bg-black/20" alt="" />
 
               </div>
             </div>
 
             <div className="text-center mt-4">
               <h3 className="text-lg font-bold text-gray-800">{name}</h3>
-              <h4 className="text-xl text-gray-700 font-bold mt-4">
+              <h4 className="text-xl text-gray-700 font-bold mt-2">
                 ${price} <del className="text-gray-400 ml-2 font-medium ">$15</del>
               </h4>
-
+              <div className="flex gap-1 mt-1 text-xs justify-center items-center text-gray-400">
+                <FaStar />
+                <FaStar />
+                <FaStar />
+                <FaStar />
+                <FaStar />
+                <span className="mt-1">(0)</span>
+              </div>
+              {/* cart button  */}
               {isCart ? (
                 <Link to="/dashboard/myCart">
                   <button
                     type="button"
                     data-play="play-view"
-                    className=" mx-auto mt-6 flex items-center justify-center play-view gap-1 px-6 py-2.5 bg-[#FFA200] mb-3 hover:bg-[#222] transition-all text-sm duration-500 text-white     rounded-full"
+                    className=" mx-auto mt-3 flex items-center justify-center play-view gap-1 px-6 py-2.5 bg-[#FFA200] mb-3 hover:bg-[#222] transition-all text-sm duration-500 text-white     rounded-full"
                   >
                     View in cart
                     <lord-icon
@@ -205,7 +214,7 @@ const FoodCard = ({ item, loading }) => {
                   onClick={() => handleCart(item)}
                   type="button"
                   data-play="play-cart"
-                  className="play-cart mx-auto mt-6 flex items-center justify-center gap-1 px-6 py-2.5 bg-[#FFA200] mb-3 hover:bg-[#222] transition-all text-sm duration-500 text-white     rounded-full"
+                  className="play-cart mx-auto mt-3 flex items-center justify-center gap-1 px-6 py-2.5 bg-[#FFA200] mb-3 hover:bg-[#222] transition-all text-sm duration-500 text-white     rounded-full"
                 >
                   Add to cart
                   <lord-icon

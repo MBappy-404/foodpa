@@ -4,6 +4,7 @@ import MenuItems from "../../../Components/MenuItems/MenuItems";
 import useAuth from "../../../hooks/useAuth";
 import useMenuData from "../../../hooks/useMenuData";
 import RecipeSpinner from "../../../Components/Spinner/RecipeSpinner";
+import { FaStar } from "react-icons/fa6";
 
 
 
@@ -45,17 +46,17 @@ const MenuCategory = ({ items, heading, coverBg, loading }) => {
 
         <div className=" grid grid-cols-1 mx-auto md:grid-cols-1 lg:grid-cols-2 gap-5   ">
           {
-            items.slice().reverse().map(item =>
+            items?.slice().reverse().map(item =>
 
               <> {loading ? <RecipeSpinner /> : <div key={item._id}>
 
                 {
-                  item.category === "offered" ?
-
+                  item?.category === "offered" ?
+                    // offered menu items
                     <Badge.Ribbon key={item._id} style={{ fontFamily: "Farro", marginTop: '-8px' }} text="30% Off" color="red">
                       <div className="bg-gray-100 border  border-gray-200 font-[Farro] p-3 py-5 md:py-3 my-2 rounded-2xl shadow-lg flex flex-col sm:flex-row gap-5">
                         <div className=" bg-cover ">
-                          <img src={item.image} className="w-full rounded-xl h-72 md:w-40 md:h-40 " alt="" />
+                          <img src={item.image} className="w-full rounded-xl border bg-white h-72 md:w-40 md:h-40 " alt="" />
                         </div>
                         <div className="flex sm:flex-1 flex-col gap-2 p-1">
                           <h1 className="text-lg md:text-xl  text-gray-600">
@@ -63,23 +64,31 @@ const MenuCategory = ({ items, heading, coverBg, loading }) => {
                           </h1>
                           <p className="text-gray-500 text-sm md:text-base">
                             {
-                              item.recipe.slice(0,100)
+                              item.recipe.slice(0, 100)
                             }...
                           </p>
-                          <div className="flex gap-4 pt-5 mt-auto">
-                            <Tooltip placement="rightTop" title={item.like?.length > 0 && ` ${item.like?.length} ${item?.like?.length > 1 ? 'Peoples' : 'people'} liked this recipe`}>
-                              <button disabled={item.like?.includes(user?.email)} onClick={() => handleLike(item._id)} className="flex bg-gray-300 items-center gap-0.5 sm:text-md border border-gray-300 px-2 py-1 rounded-full transition-colors  focus:outline-none ">
-                                <lord-icon
-                                  target=".play-admin"
-
-                                  src={item.like?.includes(user?.email) ? 'https://cdn.lordicon.com/ulnswmkk.json' : 'https://cdn.lordicon.com/xyboiuok.json'}
-                                  trigger="click"
-                                  colors="primary:#808080"
-                                  style={{ width: "20px", height: "20px" }}
-                                ></lord-icon>
-                                <span className=" mt-0.5 text-xs">{item.like ? item.like?.length : '0'}</span>
-                              </button>
-                            </Tooltip>
+                          <div className="flex  gap-4 pt-5 mt-auto">
+                            <div>
+                              <Tooltip placement="rightTop" title={item.like?.length > 0 && ` ${item.like?.length} ${item?.like?.length > 1 ? 'Peoples' : 'people'} liked this recipe`}>
+                                <button disabled={item.like?.includes(user?.email)} onClick={() => handleLike(item._id)} className="flex bg-gray-300 items-center gap-0.5 sm:text-md border border-gray-300 px-2 py-1 rounded-full transition-colors  focus:outline-none ">
+                                  <lord-icon
+                                    src={item.like?.includes(user?.email) ? 'https://cdn.lordicon.com/ulnswmkk.json' : 'https://cdn.lordicon.com/xyboiuok.json'}
+                                    trigger="click"
+                                    colors="primary:#808080"
+                                    style={{ width: "20px", height: "20px" }}
+                                  ></lord-icon>
+                                  <span className=" mt-0.5 text-xs">{item.like ? item.like?.length : '0'}</span>
+                                </button>
+                              </Tooltip>
+                            </div>
+                            <div className="flex gap-1 items-center text-gray-400">
+                              <FaStar />
+                              <FaStar />
+                              <FaStar />
+                              <FaStar />
+                              <FaStar />
+                              <span className="mt-1">(0)</span>
+                            </div>
                             <button className="ml-auto bg-gray-300 flex items-center gap-1 sm:text-md border border-gray-300 px-3 py-1 rounded-full transition-colors  focus:outline-none ">
                               <span>${item.price}</span>
                             </button>
@@ -90,26 +99,24 @@ const MenuCategory = ({ items, heading, coverBg, loading }) => {
 
                     :
 
+                    // all menu items 
                     <div className="bg-gray-100 p-3 my-2 py-5 md:py-3 rounded-2xl shadow-lg flex flex-col sm:flex-row gap-5">
-                       <div className=" bg-cover ">
-                          <img src={item.image} className="w-full rounded-xl h-72 md:w-40 md:h-40 " alt="" />
-                        </div>
+                      <div className=" bg-cover ">
+                        <img src={item.image} className="w-full rounded-xl border bg-white h-72 md:w-40 md:h-40 " alt="" />
+                      </div>
                       <div className="flex sm:flex-1 flex-col gap-2 p-1">
                         <h1 className="text-lg md:text-xl    text-gray-600">
                           {item.name}
                         </h1>
                         <p className="text-gray-500 text-sm md:text-base">
                           {
-                            item.recipe.slice(0,110)
+                            item.recipe.slice(0, 100)
                           }...
                         </p>
-                        <div className="flex gap-4 pt-5 mt-auto">
+                        <div className="flex gap-4  justify-between pt-5 mt-auto">
                           <Tooltip placement="rightTop" title={item.like?.length > 0 && `${item.like?.length} ${item?.like?.length > 1 ? 'Peoples' : 'people'} liked this recipe`}>
                             <button disabled={item.like?.includes(user?.email)} onClick={() => handleLike(item._id)} className="flex bg-gray-300 items-center gap-0.5 sm:text-md border border-gray-300 px-2 py-1 rounded-full transition-colors  focus:outline-none ">
                               <lord-icon
-                                target=".play-admin"
-                                // src="https://cdn.lordicon.com/xyboiuok.json"
-                                // src="https://cdn.lordicon.com/ulnswmkk.json"
                                 src={item.like?.includes(user?.email) ? 'https://cdn.lordicon.com/ulnswmkk.json' : 'https://cdn.lordicon.com/xyboiuok.json'}
                                 trigger="click"
                                 colors="primary:#808080"
@@ -118,6 +125,14 @@ const MenuCategory = ({ items, heading, coverBg, loading }) => {
                               <span className=" mt-0.5 text-xs">{item.like ? item.like?.length : '0'}</span>
                             </button>
                           </Tooltip>
+                          <div className="flex gap-1 text-sm items-center text-gray-400">
+                            <FaStar />
+                            <FaStar />
+                            <FaStar />
+                            <FaStar />
+                            <FaStar />
+                            <span className="mt-1">(0)</span>
+                          </div>
                           <button className="ml-auto bg-gray-300 flex items-center gap-1 sm:text-md border border-gray-300 px-3 py-1 rounded-full transition-colors  focus:outline-none ">
                             <span>${item.price}</span>
                           </button>

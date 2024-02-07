@@ -22,12 +22,12 @@ const Category = () => {
 
 const [menu] = useMenuData();
 
-const bread = menu.filter(item => item.category === 'bread')
-const donut = menu.filter(item => item.category === 'donut')
-const hamburger = menu.filter(item => item.category === 'hamburger')
-const pizza = menu.filter(item => item.category === 'pizza')
-const sandwich = menu.filter(item => item.category === 'donut')
-const tacos = menu.filter(item => item.category === 'bread')
+const bread = menu?.filter(item => item.category === 'bread')
+const donut = menu?.filter(item => item.category === 'donut')
+const hamburger = menu?.filter(item => item.category === 'hamburger')
+const pizza = menu?.filter(item => item.category === 'pizza')
+const sandwich = menu?.filter(item => item.category === 'donut')
+const tacos = menu?.filter(item => item.category === 'bread')
  
 
 
