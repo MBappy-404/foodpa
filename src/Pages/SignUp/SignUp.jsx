@@ -61,8 +61,7 @@ const SignUp = () => {
                     imageWidth: 200,
                     imageAlt: "Custom image",
                     title: "Welcome to Foodpa",
-                    background: "#fff url(/images/trees.png)",
-                    backdrop: `rgba(0,0,0,0.8) url(${donut}) top right no-repeat `,
+                    backdrop: `rgba(0,0,0,0.8) `,
                   });
                   setLoading(false)
                   navigate("/");
@@ -204,6 +203,11 @@ const SignUp = () => {
                 <p className="text-sm mt-6 text-center">Already have an account <a href="javascript:void(0);" className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Login</a></p>
               </Link>
             </form>
+          </div>
+          <div className="py-3  bottom-10 ml-5 md:fixed sm">
+            <h2>Try as Admin</h2>
+            <p>Admin Email: demaodmin@gmail.com</p>
+            <p>Admin Password: Dead@999</p>
           </div>
           <img src={bottomBg} alt="" className="inset-x-0  absolute bottom-0" />
         </div>

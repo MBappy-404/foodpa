@@ -55,9 +55,7 @@ const AdminDashboard = () => {
                <Helmet>
                     <title>Foodpa | Dashboard</title>
                </Helmet>
-               <div>
-                    <h2 className="text-3xl px-2 md:px-5 lg:px-10 pt-5 font-semibold">Hi,Welcome Back {user.displayName}</h2>
-               </div>
+               
                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-2 md:px-5 lg:px-10 p-4 gap-4">
                     <div className="bg-[#d58b09] shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-[#be8f3d]  text-white font-medium group">
                          <div className="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
@@ -98,26 +96,9 @@ const AdminDashboard = () => {
                </div>
 
                <div>
-                    {/* <BarChart
-                         width={500}
-                         height={300}
-                         data={chartData}
-                         margin={{
-                              top: 20,
-                              right: 30,
-                              left: 20,
-                              bottom: 5,
-                         }}
-                    >
-                         <CartesianGrid strokeDasharray="3 3" />
-                         <XAxis dataKey="category" />
-                         <YAxis />
-                         <Bar dataKey="price" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
-                              {chartData?.map((entry, index) => (
-                                   <Cell key={`cell-${index}`} fill={colors[index % 20]} />
-                              ))}
-                         </Bar>
-                    </BarChart> */}
+               <div>
+                    <h2 className="text-xl md:text-3xl px-2 md:px-5 lg:px-10 pt-2 font-semibold">Hi,Welcome Back {user.displayName}</h2>
+               </div>
                </div>
               
 

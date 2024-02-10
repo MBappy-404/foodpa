@@ -49,7 +49,7 @@ const ManageItems = () => {
     } else {
       // demo admin 
       Swal.fire({
-        icon: "error",
+        icon: "warning",
         title: "Oops...",
         text: "You can't changes or modify",
         footer: 'Only Main Admin Can Changes'
@@ -59,7 +59,7 @@ const ManageItems = () => {
 
   const handleRequest = () => {
     Swal.fire({
-      icon: "error",
+      icon: "warning",
       title: "Oops...",
       text: "You can't changes or modify",
       footer: 'Only Main Admin Can Changes'
@@ -114,6 +114,7 @@ const ManageItems = () => {
                       </td>
 
                       <td className="px-6 py-3">
+                        {/* main admin  */}
                         {
                           user?.email === 'sadikulsad0810@gmail.com' ? <Link to={`/dashboard/update-item/${item._id}`}>
                             <button className="mr-4" title="Edit">

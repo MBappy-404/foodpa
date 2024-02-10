@@ -140,7 +140,9 @@ const FoodCard = ({ item, loading }) => {
                      data-play={`play-${_id}`}
                      className={` play-${_id} w-8 h-8 flex items-center ${isWishlist ? "bg-[#FFA200]" : "bg-gray-200"}   hover:bg-[#FFA200] transition-all duration-500  justify-center rounded-full cursor-pointer absolute top-4 right-4`}
                   >
+
                      {isWishlist ? (
+
                         <lord-icon
                            src="https://cdn.lordicon.com/ulnswmkk.json"
                            trigger="click"
@@ -149,6 +151,7 @@ const FoodCard = ({ item, loading }) => {
                            style={{ width: "20px", height: "20px" }}
                         ></lord-icon>
                      ) : (
+                        // Add wishlist button
                         <lord-icon
                            src="https://cdn.lordicon.com/xyboiuok.json"
                            trigger="click"
@@ -176,7 +179,7 @@ const FoodCard = ({ item, loading }) => {
                      onClick={(e_) => e_.stopPropagation()}
                      className={`absolute w-[300px] md:w-[500px]   drop-shadow-2xl rounded-lg ${openModal ? "opacity-1 duration-300 translate-y-0" : "-translate-y-20 opacity-0 duration-150"} group overflow-hidden`}
                   >
-                     {/* close button */}
+                     {/*preview image modal close button */}
                      <svg
                         onClick={() => setOpenModal(false)}
                         className="w-10 mx-auto  absolute right-2 top-2 drop-shadow-[0_0_10px_black] cursor-pointer"
@@ -212,6 +215,7 @@ const FoodCard = ({ item, loading }) => {
                      ${price}{" "}
                      <del className="text-gray-400 ml-2 font-medium ">$15</del>
                   </h4>
+                  {/* rating icons  */}
                   <div className="flex gap-1 mt-1 text-xs justify-center items-center text-gray-400">
                      <FaStar />
                      <FaStar />
@@ -223,6 +227,7 @@ const FoodCard = ({ item, loading }) => {
                   {/* cart button  */}
                   {isCart ? (
                      <Link to="/dashboard/myCart">
+                        {/* vew cart button  */}
                         <button
                            type="button"
                            data-play="play-view"
@@ -239,6 +244,7 @@ const FoodCard = ({ item, loading }) => {
                         </button>
                      </Link>
                   ) : (
+                     // add cart button 
                      <button
                         onClick={() => handleCart(item)}
                         type="button"

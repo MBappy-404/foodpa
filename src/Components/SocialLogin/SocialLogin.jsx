@@ -42,8 +42,7 @@ const SocialLogin = () => {
               imageWidth: 200,
               imageAlt: "Custom image",
               title: "Welcome to Foodpa",
-              background: "#fff url(/images/trees.png)",
-              backdrop: `rgba(0,0,0,0.8) url(${donut}) top right no-repeat `,
+              backdrop: `rgba(0,0,0,0.8)`,
             });
             setGoogleLoading(false)
             navigate("/");
@@ -99,8 +98,7 @@ const SocialLogin = () => {
               imageWidth: 200,
               imageAlt: "Custom image",
               title: "Welcome to Foodpa",
-              background: "#fff url(/images/trees.png)",
-              backdrop: `rgba(0,0,0,0.8) url(${donut}) top right no-repeat `,
+              backdrop: `rgba(0,0,0,0.8) `,
             });
             setFacebookLoading(false)
             navigate("/");

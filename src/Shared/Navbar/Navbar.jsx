@@ -15,8 +15,13 @@ const Navbar = () => {
   const [cart] = useCart();
   const [wishlist] = useWishlist();
   const [isAdmin] = useAdmin();
+  const [activeMenu, setActiveMenu] = useState(null);
 
-  // console.log(wishlist);
+  // handle menu active
+
+  const handleActive = (menuId) => {
+    setActiveMenu(menuId)
+  }
 
   // log out 
   const handleLogout = () => {
@@ -41,7 +46,7 @@ const Navbar = () => {
   };
 
 
- 
+
   const items = [
     {
       key: '1',
@@ -86,11 +91,11 @@ const Navbar = () => {
           </div>
           {/* <!--  Navbar for medium to large device items --> */}
           <div className="hidden cursor-pointer md:flex justify-between items-center space-x-3 ">
-            <div className="hidden md:flex items-center space-x-1">
-              <Link to='/' className='py-4 px-2 text-gray-500 font-semibold hover:text-yellow-500 transition duration-300'>Home</Link>
-              <Link to='/menu' className='py-4 px-2 text-gray-500 font-semibold hover:text-yellow-500 transition duration-300'>Our Menu</Link>
-              <Link to='/order/bread' className='py-4 px-2 text-gray-500 font-semibold hover:text-yellow-500 transition duration-300'>Order</Link>
-              <Link to='/contact' className='py-4 px-2 text-gray-500 font-semibold hover:text-yellow-500 transition duration-300'>Contact Us</Link>
+            <div  className="hidden md:flex items-center space-x-1">
+              <Link onClick={()=>handleActive("home")} to='/' className={`py-4 px-2   font-semibold ${activeMenu ==="home" ? 'text-yellow-500 ' : 'text-gray-500'} hover:text-yellow-500 transition duration-300`}>Home</Link>
+              <Link onClick={()=>handleActive("menu")} to='/menu' className={`py-4 px-2   font-semibold ${activeMenu ==="menu" ? 'text-yellow-500 ' : 'text-gray-500'} hover:text-yellow-500 transition duration-300`}>Our Menu</Link>
+              <Link onClick={()=>handleActive("order")} to='/order/bread' className={`py-4 px-2   font-semibold ${activeMenu === "order" ? 'text-yellow-500 ' : 'text-gray-500'} hover:text-yellow-500 transition duration-300`}>Order</Link>
+              <Link onClick={()=>handleActive("contact")} to='/contact' className={`py-4 px-2   font-semibold ${activeMenu ==="contact"? 'text-yellow-500 ' : 'text-gray-500'} hover:text-yellow-500 transition duration-300`}>Contact Us</Link>
             </div>
           </div>
 
@@ -150,19 +155,19 @@ const Navbar = () => {
           <div className="md:hidden flex gap-5 justify-center items-center">
             {
               user ?
-              // cart icon 
-               <div className='flex justify-center items-center'>
-                <Link className=' rounded-full mt-3' to="/dashboard/myCart">
-                  <Badge showZero offset={[-3, 3]} count={cart?.length ? cart?.length : 0} style={{ backgroundColor: '#FFA200' }}>
-                    <lord-icon
-                      src="https://cdn.lordicon.com/pbrgppbb.json"
-                      colors="primary:black"
-                      trigger="hover"
-                      style={{ width: "30px", height: "30px", }}>
-                    </lord-icon>
-                  </Badge>
-                </Link>
-              </div> : <Link to='login' className="py-1 px-2 font-medium text-gray-500 rounded hover:bg-yellow-500 hover:text-white transition duration-300">Log In</Link>
+                // cart icon 
+                <div className='flex justify-center items-center'>
+                  <Link className=' rounded-full mt-3' to="/dashboard/myCart">
+                    <Badge showZero offset={[-3, 3]} count={cart?.length ? cart?.length : 0} style={{ backgroundColor: '#FFA200' }}>
+                      <lord-icon
+                        src="https://cdn.lordicon.com/pbrgppbb.json"
+                        colors="primary:black"
+                        trigger="hover"
+                        style={{ width: "30px", height: "30px", }}>
+                      </lord-icon>
+                    </Badge>
+                  </Link>
+                </div> : <Link to='login' className="py-1 px-2 font-medium text-gray-500 rounded hover:bg-yellow-500 hover:text-white transition duration-300">Log In</Link>
             }
             <Button onClick={showDrawer} className="outline-none mobile-menu-button">
               <svg className=" w-6 h-6 text-gray-500 hover:text-yellow-500 "
