@@ -1,4 +1,4 @@
-import { Badge, Button, Drawer, Dropdown, Menu } from 'antd';
+import { Badge, Button, Drawer, Dropdown, } from 'antd';
 import { useContext, useState } from 'react';
 import logo from '../../assets/assets/Logo/logo2.png'
 import { Link } from 'react-router-dom';
@@ -8,27 +8,17 @@ import useWishlist from '../../hooks/useWishlist';
 import useAdmin from '../../hooks/useAdmin';
 import { FaCartArrowDown, FaChartSimple, FaFilePen, FaHeart, FaHouse, FaPhoneVolume, FaRegCalendarDays, FaRegCalendarPlus, FaRightFromBracket, FaRightToBracket, FaStar, FaUsers, FaUtensils } from "react-icons/fa6";
 
-function getItem(label, key, icon, children, type, linkTo, onClick) {
-  return {
-    key,
-    icon,
-    children,
-    label,
-    type,
-    linkTo,
-    onClick
-  };
-}
+
 const Navbar = () => {
 
   const { user, logOut } = useContext(AuthContext);
   const [cart] = useCart();
   const [wishlist] = useWishlist();
   const [isAdmin] = useAdmin();
-  const [collapsed, setCollapsed] = useState(true);
 
   // console.log(wishlist);
 
+  // log out 
   const handleLogout = () => {
     logOut()
       .then(() => { })
@@ -36,21 +26,22 @@ const Navbar = () => {
 
   }
 
+  // mobile menu handle 
   const [open, setOpen] = useState(false);
   const showDrawer = () => {
     setOpen(true);
   };
+
   const onClose = () => {
     setOpen(false);
   };
-
-
 
   const handleMenuClick = () => {
     setOpen(false);
   };
 
 
+ 
   const items = [
     {
       key: '1',
@@ -77,34 +68,6 @@ const Navbar = () => {
   ];
 
 
-  const menuItems = [
-    getItem('Home', '1', null, null, null, '/'),
-    getItem('Menu', '2', null, null, null, '/menu'),
-    getItem('Order', '3', null, null, null, '/order/bread',),
-    getItem('Contact', '4', null, null, null, '/contact'),
-  ];
-
-  const admin = isAdmin; // Change this condition as needed
-
-  // show link user type 
-  if (admin) {
-    menuItems.push(getItem('Dashboard', 'sub2', null, [
-      getItem('Admin', '9', null, null, null, '/dashboard/admin-dashboard'),
-      getItem('All-Users', '15', null, null, null, '/dashboard/all-users'),
-      getItem('Add-Items', '16', null, null, null, '/dashboard/add-item'),
-      getItem('Manage-Items', '17', null, null, null, '/dashboard/manage-item'),
-
-    ]),);
-  } else if (user) {
-    menuItems.push(getItem('Dashboard', 'sub2', null, [
-      getItem('My-Activity', '9', null, null, null, '/dashboard/user-dashboard'),
-      getItem('Wishlist', '12', null, null, null, '/dashboard/wishlist'),
-      getItem('My-Cart', '13', null, null, null, '/dashboard/myCart'),
-      getItem('Payments', '14', null, null, null, '/dashboard/payment-history'),
-
-
-    ]),);
-  }
 
 
   return (
@@ -121,7 +84,7 @@ const Navbar = () => {
               </a>
             </div>
           </div>
-          {/* <!--  Navbar items --> */}
+          {/* <!--  Navbar for medium to large device items --> */}
           <div className="hidden cursor-pointer md:flex justify-between items-center space-x-3 ">
             <div className="hidden md:flex items-center space-x-1">
               <Link to='/' className='py-4 px-2 text-gray-500 font-semibold hover:text-yellow-500 transition duration-300'>Home</Link>
@@ -186,7 +149,9 @@ const Navbar = () => {
           {/* <!-- Mobile menu button --> */}
           <div className="md:hidden flex gap-5 justify-center items-center">
             {
-              user ? <div className='flex justify-center items-center'>
+              user ?
+              // cart icon 
+               <div className='flex justify-center items-center'>
                 <Link className=' rounded-full mt-3' to="/dashboard/myCart">
                   <Badge showZero offset={[-3, 3]} count={cart?.length ? cart?.length : 0} style={{ backgroundColor: '#FFA200' }}>
                     <lord-icon
@@ -272,7 +237,7 @@ const Navbar = () => {
 
                     {
                       isAdmin ? <>
-                        {/* admin dashboard  small device */}
+                        {/* admin dashboard menu for small device */}
                         <li>
                           <a href="javascript:void(0)"
                             className="text-gray-600  font-semibold text-sm flex items-center  rounded px-4 py-4 border-b border-gray-300 transition-all">
@@ -317,7 +282,7 @@ const Navbar = () => {
                         </li></> :
                         <>
 
-                          {/* user dashboard small device */}
+                          {/* user dashboard menu for small device */}
                           <li>
 
                             <a href="javascript:void(0)"

@@ -17,6 +17,7 @@ const MenuCategory = ({ items, heading, coverBg, loading }) => {
   const [, refetch, ,] = useMenuData();
   // const offered = items.filter(item => item?.category === "offered")
 
+  // add menu like 
   const handleLike = (id) => {
     console.log(id);
     const recipeLike = { like: user?.email };

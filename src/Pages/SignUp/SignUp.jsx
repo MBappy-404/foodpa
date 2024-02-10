@@ -3,7 +3,7 @@ import bgImage from "../../assets/assets/home/contact.jpg";
 import logo from "../../assets/assets/Logo/logo2.png";
 import bottomBg from "../../assets/assets/home/4.png";
 import donut from "../../assets/assets/home/hamburger-1.png";
-import { useContext,  useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -28,7 +28,7 @@ const SignUp = () => {
     setPasswordVisible(!passwordVisible);
   };
 
-  // Firebase  Authentication Create User//
+  // Firebase  Authentication and Create User//
 
   const handleSignUp = (data) => {
     setLoading(true)
@@ -94,12 +94,10 @@ const SignUp = () => {
   return (
     <div>
       <div className=" text-[#333]">
-        <div style={{backgroundImage:`url(${bgImage})`, backgroundSize:"cover", backgroundPosition:"center"}} className="grid lg:grid-cols-2 gap-4  relative sm:p-8 p-4 h-[320px]">
+        <div style={{ backgroundImage: `url(${bgImage})`, backgroundSize: "cover", backgroundPosition: "center" }} className="grid lg:grid-cols-2 gap-4  relative sm:p-8 p-4 h-[320px]">
           <div>
 
             <div className="max-w-lg mt-24 px-6 max-lg:hidden">
-              {/* <h3 className="text-3xl font-bold text-white">FoodPa</h3> */}
-              {/* <img src={logo} className="w-40" alt="" /> */}
               <p className="text-md mt-4 text-black">Embark on a seamless journey as you create your account. Unlock a realm of opportunities and possibilities that await you.</p>
             </div>
           </div>
@@ -187,17 +185,18 @@ const SignUp = () => {
               </div>
 
               <div className="mt-10">
-                <button disabled={loading}  type="submit" className="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded text-black bg-[#FFA200] hover:bg-[#D58B09] focus:outline-none transition-all duration-300  focus:border-gray-400">
+                <button disabled={loading} type="submit" className="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded text-black bg-[#FFA200] hover:bg-[#D58B09] focus:outline-none transition-all duration-300  focus:border-gray-400">
                   {
-                    loading ? <div className="flex justify-center">
-                      <Bars
-                        height="20"
-                        width="20"
-                        color="black"
-                        ariaLabel="bars-loading"
-                        visible={true}
-                      />
-                    </div> : ' LogIn'
+                    loading ?
+                      <div className="flex justify-center">
+                        <Bars
+                          height="20"
+                          width="20"
+                          color="black"
+                          ariaLabel="bars-loading"
+                          visible={true}
+                        />
+                      </div> : ' LogIn'
                   }
                 </button>
               </div>

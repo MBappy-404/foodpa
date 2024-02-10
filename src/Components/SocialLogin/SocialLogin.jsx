@@ -131,18 +131,19 @@ const SocialLogin = () => {
       <div className="mt-3">
         <p className="text-sm text-gray-400 mb-4">Continue with  </p>
         <div className=" flex justify-start space-x-4 ">
+          {/* Google login  */}
           <button onClick={handleGoogleSignIn} type="button" className="py-2.5 px-4 flex justify-center gap-3 text-sm font-semibold rounded text-gray-500 bg-gray-100 hover:bg-gray-200 focus:outline-none">
             {
-              googleLoading ?  <span className="block"><RotatingLines
-              visible={true}
-              height="20"
-              width="20"
-              color="grey"
-              strokeWidth="5"
-              animationDuration="0.75"
-              ariaLabel="rotating-lines-loading"
-              
-              /></span>  :   <svg xmlns="http://www.w3.org/2000/svg" width="20px" className="inline" viewBox="0 0 512 512">
+              googleLoading ? <span className="block"><RotatingLines
+                visible={true}
+                height="20"
+                width="20"
+                color="grey"
+                strokeWidth="5"
+                animationDuration="0.75"
+                ariaLabel="rotating-lines-loading"
+
+              /></span> : <svg xmlns="http://www.w3.org/2000/svg" width="20px" className="inline" viewBox="0 0 512 512">
                 <path fill="#fbbd00"
                   d="M120 256c0-25.367 6.989-49.13 19.131-69.477v-86.308H52.823C18.568 144.703 0 198.922 0 256s18.568 111.297 52.823 155.785h86.308v-86.308C126.989 305.13 120 281.367 120 256z"
                   data-original="#fbbd00" />
@@ -165,25 +166,25 @@ const SocialLogin = () => {
             }
             Google
           </button>
+
+          {/* Facebook login  */}
           <button onClick={handleFacebookSignIn} type="button" className="py-2.5 px-4 flex gap-4 text-sm font-semibold rounded text-gray-500 bg-gray-100 hover:bg-gray-200 focus:outline-none">
-           {
-            facebookLoading ?  <span className="block"><RotatingLines
-            visible={true}
-            height="20"
-            width="20"
-            color="grey"
-            strokeWidth="5"
-            animationDuration="0.75"
-            ariaLabel="rotating-lines-loading"
-            
-            /></span>  :  <svg xmlns="http://www.w3.org/2000/svg" width="20px" fill="#007bff" viewBox="0 0 167.657 167.657">
-            <path d="M83.829.349C37.532.349 0 37.881 0 84.178c0 41.523 30.222 75.911 69.848 82.57v-65.081H49.626v-23.42h20.222V60.978c0-20.037 12.238-30.956 30.115-30.956 8.562 0 15.92.638 18.056.919v20.944l-12.399.006c-9.72 0-11.594 4.618-11.594 11.397v14.947h23.193l-3.025 23.42H94.026v65.653c41.476-5.048 73.631-40.312 73.631-83.154 0-46.273-37.532-83.805-83.828-83.805z" data-original="#010002"></path>
-          </svg>
-           }
+            {
+              facebookLoading ? <span className="block"><RotatingLines
+                visible={true}
+                height="20"
+                width="20"
+                color="grey"
+                strokeWidth="5"
+                animationDuration="0.75"
+                ariaLabel="rotating-lines-loading"
+
+              /></span> : <svg xmlns="http://www.w3.org/2000/svg" width="20px" fill="#007bff" viewBox="0 0 167.657 167.657">
+                <path d="M83.829.349C37.532.349 0 37.881 0 84.178c0 41.523 30.222 75.911 69.848 82.57v-65.081H49.626v-23.42h20.222V60.978c0-20.037 12.238-30.956 30.115-30.956 8.562 0 15.92.638 18.056.919v20.944l-12.399.006c-9.72 0-11.594 4.618-11.594 11.397v14.947h23.193l-3.025 23.42H94.026v65.653c41.476-5.048 73.631-40.312 73.631-83.154 0-46.273-37.532-83.805-83.828-83.805z" data-original="#010002"></path>
+              </svg>
+            }
             Facebook
           </button>
-
-
         </div>
       </div>
     </div>

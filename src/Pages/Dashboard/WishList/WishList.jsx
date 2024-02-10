@@ -99,7 +99,7 @@ const WishList = () => {
                     wishlist.map(item => <tr key={item._id}>
                       <td className="py-3 px-4">
                         <div className="flex items-center gap-6 w-max">
-                          <div className="h-12 md:h-20 shrink-0">
+                          <div className="h-12 md:h-20 border shrink-0">
                             <img src={item.image} className="w-full h-full object-contain" />
                           </div>
                           <div>
@@ -165,7 +165,6 @@ const WishList = () => {
               </div>
             </div>}
           </div>
-
         </div>
       </div>
     </div>

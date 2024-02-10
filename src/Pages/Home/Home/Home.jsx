@@ -14,10 +14,11 @@ import Faq from "../Faq/Faq";
 const Home = () => {
      useEffect(() => {
           window.scrollTo(0, 0);
-        }, []);
+     }, []);
 
      return (
           <div>
+               {/* home page layout  */}
                <Helmet>
                     <title>Foodpa-Home</title>
                </Helmet>
@@ -27,8 +28,8 @@ const Home = () => {
                <Recommended />
                <Feature />
                <Testimonials />
-               <Membership/>
-               <Faq/>
+               <Membership />
+               <Faq />
           </div>
      );
 };

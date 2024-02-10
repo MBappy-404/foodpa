@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import useCart from "../../../hooks/useCart";
 import "./CheckOut.css";
-import { Button, Result, message } from "antd";
+import { Button, Result } from "antd";
 import { Link } from "react-router-dom";
 import { Bars } from "react-loader-spinner";
- 
+
 
 const CheckOut = ({ counter }) => {
   const today = new Date();
@@ -29,6 +29,7 @@ const CheckOut = ({ counter }) => {
   const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
   const price = counter * parseFloat(totalPrice.toFixed(2));
 
+  // fix error 0 price 
   useEffect(() => {
     if (price > 0) {
       axiosSecure.post("/create-payment-intent", { price }).then((res) => {
@@ -38,8 +39,8 @@ const CheckOut = ({ counter }) => {
     }
   }, [price, axiosSecure]);
 
- 
 
+  // payment info submit and payment process
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -117,24 +118,26 @@ const CheckOut = ({ counter }) => {
     }
   };
   return (
-    <div>
+    <div className="-mb-5">
       {transactionId ? (
-        <Result
-          status="success"
-          title="Successfully Purchased"
-          subTitle={`Transaction Id: ${transactionId}`}
-          extra={[
-            <Button key="rate">
-              <Link to="/dashboard/review"> Rate Us</Link>
-            </Button>,
-            <Button key="buy">
-              <Link to="/order/bread">Buy Again</Link>
-            </Button>,
-          ]}
-        />
+        <div className="-mt-10 -mb-10">
+          <Result
+            status="success"
+            title="Successfully Purchased"
+            subTitle={`Transaction Id: ${transactionId}`}
+            extra={[
+              <Button key="rate">
+                <Link to="/dashboard/review"> Rate Us</Link>
+              </Button>,
+              <Button key="buy">
+                <Link to="/order/bread">Buy Again</Link>
+              </Button>,
+            ]}
+          />
+        </div>
       ) : (
         <div>
-          <div className="pb-4 -mt-8">
+          <div className="-mt-5">
             <h1 className="p-2 text-lg font-semibold">Enter Your Card Info</h1>
             <span className=" text-sm  text-gray-500">
               Total Pay Amount: ${price}
@@ -177,7 +180,11 @@ const CheckOut = ({ counter }) => {
           </form>
         </div>
       )}
-      <p className="text-sm text-red-400 py-2">{cardError ?cardError.message : '' }</p>
+
+      {/* if card any  error */}
+      {
+        !process && !transactionId && <p className="text-sm text-red-400 py-2">{cardError?.message && cardError?.message}</p>
+      }
     </div>
   );
 };

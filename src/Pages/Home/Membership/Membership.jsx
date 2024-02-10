@@ -14,8 +14,6 @@ const Membership = () => {
             <SectionTittle subHeading={'Our Membership'} heading={'Price Plan'} />
           </div>
 
-         
-
           <div className="mt-5  space-y-4 sm:space-y-0 sm:grid md:grid-cols-2 lg:grid-cols-3 sm:gap-6   lg:mx-auto">
             <div className="border border-neutral-200 bg-gray-100 rounded-lg shadow-sm divide-y divide-neutral-200">
               <div className="p-6">

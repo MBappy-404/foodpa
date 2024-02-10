@@ -1,7 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 import { Tooltip } from "antd";
- import logo from '../../src/assets/assets/Logo/logo2.png'
+import logo from '../../src/assets/assets/Logo/logo2.png'
 import Navbar from "../Shared/Navbar/Navbar";
 
 const Dashboard = () => {
@@ -27,11 +27,10 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </li>
-                 
 
                 {
                   isAdmin ?
-
+                    //  Admin Dashboard 
                     <>
                       <Tooltip placement="right" title={"Admin"}>
                         <li>
@@ -45,10 +44,7 @@ const Dashboard = () => {
                                 style={{ width: "25px", height: "25px", }}>
                               </lord-icon>
                             </span>
-
                             <span className="ml-2 text-sm  tracking-wide  font-[400] mt-1 truncate">Admin-Panel</span>
-
-
                           </Link>
                         </li>
                       </Tooltip>
@@ -98,8 +94,8 @@ const Dashboard = () => {
                     </>
                     :
                     <>
+                      {/* User Dashboard  */}
                       <li>
-
                         <Link to="/dashboard/user-dashboard" data-action='.play-home' className="relative play-home flex flex-row items-center h-11 focus:outline-none hover:bg-[#a66e0c]  text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-[#6e562b]  pr-6">
                           <span className="inline-flex justify-center items-center">
                             <span className="inline-flex justify-center items-center ml-4">
@@ -133,7 +129,7 @@ const Dashboard = () => {
 
                           </span>
                           <span className="ml-2 text-sm  tracking-wide  font-[400] mt-1 truncate">Wishlist</span>
-                          
+
                         </Link>
                       </li>
 
@@ -148,13 +144,11 @@ const Dashboard = () => {
                               colors="primary:white"
                               style={{ width: "25px", height: "25px", }}>
                             </lord-icon>
-
                           </span>
                           <span className="ml-2 text-sm  tracking-wide  font-[400] mt-1 truncate">My-Cart</span>
-                           
                         </Link>
                       </li>
- 
+
 
                       <li>
                         <Link to='/dashboard/payment-history' data-pay='play-pay' className="relative play-pay flex flex-row items-center h-11 focus:outline-none hover:bg-[#a66e0c]  text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-[#6e562b]  pr-6">
@@ -168,7 +162,6 @@ const Dashboard = () => {
                             </lord-icon>
                           </span>
                           <span className="ml-2 text-sm  tracking-wide  font-[400] mt-1 truncate">Payment-History</span>
-
                         </Link>
                       </li>
                       <li>
@@ -180,7 +173,7 @@ const Dashboard = () => {
                               stroke="bold"
                               trigger="click"
                               colors="primary:white"
-                              style={{ width: "25px", height: "25px",strokeWidth: "5px" }}>
+                              style={{ width: "25px", height: "25px", strokeWidth: "5px" }}>
                             </lord-icon>
                           </span>
                           <span className="ml-2 text-sm  tracking-wide  font-[400] mt-1 truncate">Reviews</span>
@@ -202,7 +195,6 @@ const Dashboard = () => {
                       </lord-icon>
                     </span>
                     <span className="ml-2 text-sm  tracking-wide  font-[400] mt-1 truncate">Home</span>
-
                   </Link>
                 </li>
                 <li>
@@ -217,7 +209,6 @@ const Dashboard = () => {
                       </lord-icon>
                     </span>
                     <span className="ml-2 text-sm  tracking-wide  font-[400] mt-1 truncate">Menu</span>
-
                   </Link>
                 </li>
                 <li>
@@ -232,20 +223,19 @@ const Dashboard = () => {
                       </lord-icon>
                     </span>
                     <span className="ml-2 text-sm  tracking-wide  font-[400] mt-1 truncate">Shop</span>
-
                   </Link>
                 </li>
-             
+
               </ul>
-             
+
             </div>
             {/* <p className=" ml-5 text-xs -mb-1">Copyright @2024</p> */}
           </div>
-          {/* <!-- ./Sidebar --> */}
 
+          {/* Outlet  */}
           <div className="h-full  mt-20 md:mt-0  mb-10 md:ml-64">
             <div className=" md:hidden">
-            <Navbar/>
+              <Navbar />
             </div>
             <Outlet />
           </div>
