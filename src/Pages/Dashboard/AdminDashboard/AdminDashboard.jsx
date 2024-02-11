@@ -3,51 +3,93 @@ import useAuth from "../../../hooks/useAuth";
 import { FaCubes } from 'react-icons/fa';
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from 'recharts';
 import { useEffect } from "react";
-const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
+import { Chart } from "tw-elements";
 
 const AdminDashboard = () => {
      useEffect(() => {
           window.scrollTo(0, 0);
-        }, []);
+     }, []);
      const { user } = useAuth();
      const [axiosSecure] = useAxiosSecure()
 
+     // load data for all overview [only admin can access]
      const { data: status = {} } = useQuery({
           queryKey: ['admin-status'],
           queryFn: async () => {
                const res = await axiosSecure.get('/admin-status')
                return res.data
           }
+     })
 
+     // load data for order overview
+     const { data: statics = [] } = useQuery({
+          queryKey: ['statics'],
+          queryFn: async () => {
+               const res = await axiosSecure.get('/statics')
+               return res.data;
+          }
 
      })
-     // const { data: statics = [] } = useQuery({
-     //      queryKey: ['statics'],
-     //      queryFn: async () => {
-     //           const res = await axiosSecure.get('/statics')
-     //           return res.data;
-     //      }
+
+     // filter data for categories count 
+     const bread = statics.filter(item => item.category?.includes('bread')).map(item => item.category?.length);
+     const donut = statics.filter(item => item.category?.includes('donut')).map(item => item.category?.length);
+     const hamburger = statics.filter(item => item.category?.includes('hamburger')).map(item => item.category?.length);
+     const pizza = statics.filter(item => item.category?.includes('pizza')).map(item => item.category?.length);
 
 
-     // })
+     // bar chart info 
+     const dataBarDarkMode = {
+          type: "bar",
+          data: {
+               labels: ["Bread", "Donut", "Hamburger", "Pizza", "Sandwich", "Tacos"],
+               datasets: [
+                    {
+                         label: "Orders by categories",
+                         data: [bread?.length, donut?.length, hamburger?.length, pizza?.length, bread?.length, pizza?.length],
+                         backgroundColor: "#d58b09"
+                    },
+               ],
+          },
+     };
 
-     // const chartData = statics.filter(item => item.category != 'offer' && item.category != 'popular')
+     const optionsDarkMode = {
+          scales: {
+             y: {
+                ticks: {
+                   color: "white",
+                },
+             },
+             x: {
+                ticks: {
+                   color: "yellow",
+                },
+                grid: {
+                   display: false, // Hide the x-axis grid lines
+                },
+             },
+          },
+          plugins: {
+             legend: {
+                labels: {
+                   color: "green",
+                },
+             },
+          },
+       };
+       
 
-     // const getPath = (x, y, width, height) => {
-     //      return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3}
-     //      ${x + width / 2}, ${y}
-     //      C${x + width / 2},${y + height / 3} ${x + (2 * width) / 3},${y + height} ${x + width}, ${y + height}
-     //      Z`;
-     //    };
-        
-     //    const TriangleBar = (props) => {
-     //      const { fill, x, y, width, height } = props;
-        
-     //      return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
-     //    };
-        
+
+     // bar chart from tailwind elements 
+     new Chart(
+          document.getElementById("darkmode-customization"),
+          dataBarDarkMode,
+          {},
+          optionsDarkMode
+     );
+
+
 
 
      return (
@@ -55,7 +97,7 @@ const AdminDashboard = () => {
                <Helmet>
                     <title>Foodpa | Dashboard</title>
                </Helmet>
-               
+
                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-2 md:px-5 lg:px-10 p-4 gap-4">
                     <div className="bg-[#d58b09] shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-[#be8f3d]  text-white font-medium group">
                          <div className="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
@@ -96,11 +138,20 @@ const AdminDashboard = () => {
                </div>
 
                <div>
-               <div>
-                    <h2 className="text-xl md:text-3xl px-2 md:px-5 lg:px-10 pt-2 font-semibold">Hi,Welcome Back {user.displayName}</h2>
+                    {/* welcome text  */}
+                    <div>
+                         <h2 className="text-xl text-gray-500 md:text-3xl px-2 md:px-5 lg:px-10 pt-2 font-semibold">Hi,Welcome Back {user.displayName}</h2>
+                    </div>
+
+                    {/* Overview  Chart  */}
+                    <div className="mt-10 md:mt-20 px-3">
+                         <h1 className=" text-xl md:text-2xl font-base text-gray-500 text-center mb-8">Orders Overview</h1>
+                         <div className="mx-auto w-full overflow-hidden md:w-3/5">
+                              <canvas id="darkmode-customization"> </canvas>
+                         </div>
+                    </div>
                </div>
-               </div>
-              
+
 
           </div>
      );

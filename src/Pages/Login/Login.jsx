@@ -158,8 +158,8 @@ const Login = () => {
           <img src={bottomBg} alt="" className="inset-x-0 absolute bottom-0" />
           <div className="py-3  bottom-10 ml-5 md:fixed sm">
             <h2>Try as Admin</h2>
-            <p>Admin Email: demaodmin@gmail.com</p>
-            <p>Admin Password: Dead@999</p>
+            <p>Admin Email: demoadmin@gmail.com</p>
+            <p>Admin Password: Demoad@999</p>
           </div>
         </div>
         
