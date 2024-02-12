@@ -1,4 +1,4 @@
-import { Badge, Button, Drawer, Dropdown, } from 'antd';
+import { Badge, Button, Drawer, } from 'antd';
 import { useContext, useState } from 'react';
 import logo from '../../assets/assets/Logo/logo2.png'
 import { Link } from 'react-router-dom';
@@ -47,30 +47,7 @@ const Navbar = () => {
 
 
 
-  const items = [
-    {
-      key: '1',
-      label: (
-        <Link to={`${isAdmin ? '/dashboard/admin-dashboard' : '/dashboard/user-dashboard'}`} rel="noopener noreferrer" className='text-sm   font-[Farro] font-semibold'>
-          Dashboard
-        </Link>
-      ),
-    },
-    {
-      key: '2',
-      label: (
-        <Link to="/dashboard/myCart" rel="noopener noreferrer" className='text-sm   font-[Farro]  font-semibold'>
-          My Orders
-        </Link>
-      ),
-    },
-    {
-      key: '3',
-      label: (
-        <a onClick={handleLogout} className='text-sm   font-[Farro] font-semibold' rel="noopener noreferrer"> Logout</a>
-      ),
-    },
-  ];
+ 
 
 
 
@@ -91,11 +68,11 @@ const Navbar = () => {
           </div>
           {/* <!--  Navbar for medium to large device items --> */}
           <div className="hidden cursor-pointer md:flex justify-between items-center space-x-3 ">
-            <div  className="hidden md:flex items-center space-x-1">
-              <Link onClick={()=>handleActive("home")} to='/' className={`py-4 px-2   font-semibold ${activeMenu ==="home" ? 'text-yellow-500 ' : 'text-gray-500'} hover:text-yellow-500 transition duration-300`}>Home</Link>
-              <Link onClick={()=>handleActive("menu")} to='/menu' className={`py-4 px-2   font-semibold ${activeMenu ==="menu" ? 'text-yellow-500 ' : 'text-gray-500'} hover:text-yellow-500 transition duration-300`}>Our Menu</Link>
-              <Link onClick={()=>handleActive("order")} to='/order/bread' className={`py-4 px-2   font-semibold ${activeMenu === "order" ? 'text-yellow-500 ' : 'text-gray-500'} hover:text-yellow-500 transition duration-300`}>Order</Link>
-              <Link onClick={()=>handleActive("contact")} to='/contact' className={`py-4 px-2   font-semibold ${activeMenu ==="contact"? 'text-yellow-500 ' : 'text-gray-500'} hover:text-yellow-500 transition duration-300`}>Contact Us</Link>
+            <div className="hidden md:flex items-center space-x-1">
+              <Link onClick={() => handleActive("home")} to='/' className={`py-4 px-2   font-semibold ${activeMenu === "home" ? 'text-yellow-500 ' : 'text-gray-500'} hover:text-yellow-500 transition duration-300`}>Home</Link>
+              <Link onClick={() => handleActive("menu")} to='/menu' className={`py-4 px-2   font-semibold ${activeMenu === "menu" ? 'text-yellow-500 ' : 'text-gray-500'} hover:text-yellow-500 transition duration-300`}>Our Menu</Link>
+              <Link onClick={() => handleActive("order")} to='/order/bread' className={`py-4 px-2   font-semibold ${activeMenu === "order" ? 'text-yellow-500 ' : 'text-gray-500'} hover:text-yellow-500 transition duration-300`}>Order</Link>
+              <Link onClick={() => handleActive("contact")} to='/contact' className={`py-4 px-2   font-semibold ${activeMenu === "contact" ? 'text-yellow-500 ' : 'text-gray-500'} hover:text-yellow-500 transition duration-300`}>Contact Us</Link>
             </div>
           </div>
 
@@ -125,22 +102,34 @@ const Navbar = () => {
               }
               {
                 user ? <div className='hidden md:block'>
-                  <Dropdown
-                    menu={{
-                      items,
-                    }}
-                    placement="bottomRight"
-                    overlayStyle={{ width: '150px', }}
+                  {/* user dropdown  */}
+                  <div className="group">
+                    <button type="button"
+                      className="inline-flex  text-sm font-medium text-white  focus:outline-none  ">
+                      
+                      {/* <!-- Dropdown arrow --> */}
+                      <lord-icon
+                        src="https://cdn.lordicon.com/xcxzayqr.json"
+                        colors="primary:#7A808C"
+                        trigger="hover"
+                        style={{ width: "26px", height: "26px", cursor: 'pointer', marginTop: '-4px' }}>
+                      </lord-icon>
+                    </button>
 
-                  >
-
-                    <lord-icon
-                      src="https://cdn.lordicon.com/xcxzayqr.json"
-                      colors="primary:#7A808C"
-                      trigger="hover"
-                      style={{ width: "26px", height: "26px", cursor: 'pointer', marginTop: '-4px' }}>
-                    </lord-icon>
-                  </Dropdown>
+                    {/* <!-- Dropdown menu --> */}
+                    <div
+                      className="absolute -translate-x-28  w-40 mt-1   bg-gray-100 divide-y divide-gray-100 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300">
+                      <div className="py-3   cursor-pointer  flex flex-col">
+                        <Link to={`${isAdmin ? '/dashboard/admin-dashboard' : '/dashboard/user-dashboard'}`} className='text-sm py-2  hover:bg-gray-200 px-3 text-gray-500 font-[Farro] font-semibold'>
+                          Dashboard
+                        </Link>
+                        <Link to="/dashboard/myCart" className='text-sm py-2  hover:bg-gray-200 px-3 text-gray-500 font-[Farro]  font-semibold'>
+                          My Orders
+                        </Link>
+                        <a onClick={handleLogout} className='text-sm py-2 hover:bg-gray-200 px-3 text-gray-500 font-[Farro] font-semibold' rel="noopener noreferrer"> Logout</a>
+                      </div>
+                    </div>
+                  </div>
                 </div> :
                   <div className=' hidden md:block'>
                     <div className='flex -mt-3 items-center  gap-2'>

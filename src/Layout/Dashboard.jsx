@@ -1,7 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 import { Tooltip } from "antd";
-import logo from '../../src/assets/assets/Logo/logo2.png'
 import Navbar from "../Shared/Navbar/Navbar";
 
 const Dashboard = () => {
@@ -182,7 +181,7 @@ const Dashboard = () => {
                       </li>
                     </>
                 }
-                <li className="px-5 hidden border-b-2   border-gray-300 pt-8 md:block"></li>
+                <li className="px-5 hidden border-b-2   border-gray-300 pt-5 md:block"></li>
                 <li>
                   <Link to='/' data-pay='play-bug' className="relative play-bug mt-5 flex flex-row items-center h-11 focus:outline-none hover:bg-[#a66e0c]  text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-[#6e562b]  pr-6">
                     <span className="inline-flex justify-center items-center ml-4">
